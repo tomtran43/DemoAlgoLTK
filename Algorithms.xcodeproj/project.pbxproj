@@ -13,6 +13,11 @@
 		198A34821E80D9DF009E2B96 /* Algorithms.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 198A34801E80D9DF009E2B96 /* Algorithms.xcdatamodeld */; };
 		198A34841E80D9DF009E2B96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 198A34831E80D9DF009E2B96 /* Assets.xcassets */; };
 		198A34871E80D9DF009E2B96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 198A34851E80D9DF009E2B96 /* LaunchScreen.storyboard */; };
+		198A348F1E810906009E2B96 /* AnimationSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198A348E1E810906009E2B96 /* AnimationSort.swift */; };
+		198A34931E8176AC009E2B96 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198A34921E8176AC009E2B96 /* Graph.swift */; };
+		198A34951E822A13009E2B96 /* LabelColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198A34941E822A13009E2B96 /* LabelColor.swift */; };
+		198A34971E826619009E2B96 /* BubbleSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198A34961E826619009E2B96 /* BubbleSort.swift */; };
+		198A34BA1E828A5D009E2B96 /* ManagerSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198A34B91E828A5D009E2B96 /* ManagerSort.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		198A34831E80D9DF009E2B96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		198A34861E80D9DF009E2B96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		198A34881E80D9DF009E2B96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		198A348E1E810906009E2B96 /* AnimationSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationSort.swift; sourceTree = "<group>"; };
+		198A34921E8176AC009E2B96 /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		198A34941E822A13009E2B96 /* LabelColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelColor.swift; sourceTree = "<group>"; };
+		198A34961E826619009E2B96 /* BubbleSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleSort.swift; sourceTree = "<group>"; };
+		198A34B91E828A5D009E2B96 /* ManagerSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerSort.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +68,11 @@
 			children = (
 				198A34791E80D9DF009E2B96 /* AppDelegate.swift */,
 				198A347B1E80D9DF009E2B96 /* ViewController.swift */,
+				198A34941E822A13009E2B96 /* LabelColor.swift */,
+				198A34B91E828A5D009E2B96 /* ManagerSort.swift */,
+				198A348E1E810906009E2B96 /* AnimationSort.swift */,
+				198A34921E8176AC009E2B96 /* Graph.swift */,
+				198A34961E826619009E2B96 /* BubbleSort.swift */,
 				198A347D1E80D9DF009E2B96 /* Main.storyboard */,
 				198A34831E80D9DF009E2B96 /* Assets.xcassets */,
 				198A34851E80D9DF009E2B96 /* LaunchScreen.storyboard */,
@@ -139,9 +154,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				198A34931E8176AC009E2B96 /* Graph.swift in Sources */,
+				198A34BA1E828A5D009E2B96 /* ManagerSort.swift in Sources */,
 				198A347C1E80D9DF009E2B96 /* ViewController.swift in Sources */,
 				198A347A1E80D9DF009E2B96 /* AppDelegate.swift in Sources */,
+				198A348F1E810906009E2B96 /* AnimationSort.swift in Sources */,
+				198A34951E822A13009E2B96 /* LabelColor.swift in Sources */,
 				198A34821E80D9DF009E2B96 /* Algorithms.xcdatamodeld in Sources */,
+				198A34971E826619009E2B96 /* BubbleSort.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +323,7 @@
 				198A348D1E80D9DF009E2B96 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
