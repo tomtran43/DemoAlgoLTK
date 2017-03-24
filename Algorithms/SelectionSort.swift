@@ -24,12 +24,12 @@ class SelectionSort {
         var n = array.count
         
         for i in 0..<(n-1){
-            var min_j = i
-            for j in i..<n{
-                if (lessThan(i: j, j: min_j) == true){
-                    min_j = j
+            var minAt = i
+            for j in (i+1)..<n{
+                if (greaterThan(i: i, j: j) == true){
+                    minAt = j
+                    swap(i: i, j: minAt)
                 }
-                swap(i: i, j: min_j)
             }
         }
     }
@@ -41,8 +41,8 @@ class SelectionSort {
         return arrayInput[i]-arrayInput[j]
     }
     
-    func lessThan(i: Int, j: Int) -> Bool{
-        if compare(i: i, j: j) < 0{
+    func greaterThan(i: Int, j: Int) -> Bool{
+        if compare(i: i, j: j) > 0{
             return true
         }
         return false
@@ -54,6 +54,7 @@ class SelectionSort {
         self.arrayInput[i] = self.arrayInput[j]
         self.arrayInput[j] = temp
     }
+
     
     
 }

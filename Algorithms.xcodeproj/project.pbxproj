@@ -10,6 +10,7 @@
 		1962B22B1E83E18400012936 /* SortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962B22A1E83E18400012936 /* SortType.swift */; };
 		1962B22D1E841F3400012936 /* SortingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962B22C1E841F3400012936 /* SortingLabel.swift */; };
 		1962B22F1E84FE5E00012936 /* SelectionSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962B22E1E84FE5E00012936 /* SelectionSort.swift */; };
+		1962B2321E850BBE00012936 /* InsertionSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962B2311E850BBE00012936 /* InsertionSort.swift */; };
 		198A347A1E80D9DF009E2B96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198A34791E80D9DF009E2B96 /* AppDelegate.swift */; };
 		198A347C1E80D9DF009E2B96 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198A347B1E80D9DF009E2B96 /* ViewController.swift */; };
 		198A347F1E80D9DF009E2B96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 198A347D1E80D9DF009E2B96 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 		1962B22A1E83E18400012936 /* SortType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortType.swift; sourceTree = "<group>"; };
 		1962B22C1E841F3400012936 /* SortingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortingLabel.swift; sourceTree = "<group>"; };
 		1962B22E1E84FE5E00012936 /* SelectionSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionSort.swift; sourceTree = "<group>"; };
+		1962B2311E850BBE00012936 /* InsertionSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertionSort.swift; sourceTree = "<group>"; };
 		198A34761E80D9DF009E2B96 /* Algorithms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Algorithms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		198A34791E80D9DF009E2B96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		198A347B1E80D9DF009E2B96 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				1962B22A1E83E18400012936 /* SortType.swift */,
 				198A34961E826619009E2B96 /* BubbleSort.swift */,
 				1962B22E1E84FE5E00012936 /* SelectionSort.swift */,
+				1962B2311E850BBE00012936 /* InsertionSort.swift */,
 			);
 			name = Sort;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				198A348F1E810906009E2B96 /* AnimationSort.swift in Sources */,
 				198A34951E822A13009E2B96 /* LabelColor.swift in Sources */,
 				1962B22D1E841F3400012936 /* SortingLabel.swift in Sources */,
+				1962B2321E850BBE00012936 /* InsertionSort.swift in Sources */,
 				198A34821E80D9DF009E2B96 /* Algorithms.xcdatamodeld in Sources */,
 				198A34971E826619009E2B96 /* BubbleSort.swift in Sources */,
 			);

@@ -77,11 +77,12 @@ class AnimationSort {
             
             self.colSolution += 1
             
-            self.currentStep = self.arrayAction[self.colSolution]
-            
-            if (self.colSolution == self.arrayAction.count - 1){
+            if (self.colSolution == self.arrayAction.count){
                 return
             }
+            
+            self.currentStep = self.arrayAction[self.colSolution]
+
             
             self.animation()
             

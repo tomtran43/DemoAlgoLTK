@@ -31,6 +31,8 @@ class ManagerSort {
         self.arrayInput = arrayInput
         self.arrayAction = getArrayAction(array: arrayInput)
         
+        print(arrayAction)
+        
         self.arrayDisplay = []
         self.arrayColor = []
         
