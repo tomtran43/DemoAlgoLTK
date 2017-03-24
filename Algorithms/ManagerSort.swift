@@ -39,9 +39,19 @@ class ManagerSort {
             self.arrayColor.append(DEFAULT_COLOR)
         }
         
-        self.arrayLabel = getArrayLabel(aryDisplay: self.arrayDisplay, aryColor: self.arrayColor)
+        graph = Graph(frame: CGRect(x: 0, y: viewcontroller.view.bounds.size.height/2,
+                                    width: viewcontroller.view.bounds.size.width,
+                                    height: viewcontroller.view.bounds.size.height),
+                      arrayDisplay: self.arrayDisplay,
+                      colors: self.arrayColor)
+        
+        viewcontroller.view.addSubview(graph)
+        
+        self.arrayLabel = self.graph.arrayLabel
         
         self.addBtnRun(toView: viewcontroller.view)
+        
+        print(arrayDisplay)
     }
     
     func getArrayAction(array: [Int]) -> [Step]{
@@ -54,8 +64,7 @@ class ManagerSort {
     
     func getArrayLabel(aryDisplay: [Int], aryColor: [UIColor]) -> [SortingLabel]{
         
-        graph = Graph(viewcontroller: viewcontroller,
-                      frame: CGRect(x: 0, y: self.viewcontroller.view.bounds.size.height/2,
+        graph = Graph(frame: CGRect(x: 0, y: self.viewcontroller.view.bounds.size.height/2,
                                     width: self.viewcontroller.view.bounds.size.width,
                                     height: self.viewcontroller.view.bounds.size.height),
                       arrayDisplay: aryDisplay,

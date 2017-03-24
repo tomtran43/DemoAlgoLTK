@@ -9,27 +9,32 @@
 import Foundation
 import UIKit
 
-class BubbleSort {
+class SelectionSort {
     
     var arrayAction = [Step]()
     var arrayInput = [Int]()
     
     init(arrayInput: [Int]){
         self.arrayInput = arrayInput
-        bubbleSort(array: arrayInput)
+        selectionSort(array: arrayInput)
     }
     
-    func bubbleSort(array: [Int]){
+    func selectionSort(array: [Int]){
+        
         var n = array.count
         
-        for i in 0..<n{
-            for j in 0..<(n-i-1){
-                if (lessThan(i: j+1, j: j) == true){
-                    swap(i: j, j: j+1)
+        for i in 0..<(n-1){
+            var min_j = i
+            for j in i..<n{
+                if (lessThan(i: j, j: min_j) == true){
+                    min_j = j
                 }
+                swap(i: i, j: min_j)
             }
         }
     }
+    
+    
     
     func compare(i: Int, j: Int) -> Int{
         self.arrayAction.append(Step(act: "compare", i: i, j: j))
@@ -50,5 +55,5 @@ class BubbleSort {
         self.arrayInput[j] = temp
     }
     
-
+    
 }

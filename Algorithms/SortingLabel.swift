@@ -17,6 +17,7 @@ class SortingLabel: UILabel{
     
     init(frame: CGRect, color: UIColor, value: String){
         super.init(frame: frame)
+        print(value)
         drawSortingLabel(size: frame.width, color: color, value: value)
         
     }
@@ -25,13 +26,11 @@ class SortingLabel: UILabel{
         
         let sortingLabel = UILabel(frame: self.frame)
         
-        sortingLabel.backgroundColor = color
-        sortingLabel.text = value
-        sortingLabel.textAlignment = NSTextAlignment.center
-        sortingLabel.textColor = UIColor.white
-        
-        self.addSubview(sortingLabel)
-        
+        self.backgroundColor = color
+        self.text = value
+        self.textColor = UIColor.white
+        self.textAlignment = NSTextAlignment.center
+                
     }
     
 }

@@ -9,6 +9,6 @@
 import Foundation
 import UIKit
 
-enum SortType {
+enum SortType: String {
     case BubbleSort, MergeSort, SelectionSort
 }
