@@ -10,16 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var arrayInput = [4,6,8,3,5,7]
-    var animate: AnimationSort!
-    
-    
+    var managerSort: ManagerSort!
     
     override func viewDidLoad() { 
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        animate = AnimationSort(viewController: self, inputArray: arrayInput)
+        self.managerSort = ManagerSort()
+        self.managerSort.initSortWith(viewcontroller: self, arrayInput: [4,6,8,3,5,7])
 
     }
 

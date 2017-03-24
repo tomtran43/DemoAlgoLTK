@@ -12,44 +12,45 @@ import UIKit
 
 class Graph: UILabel {
       
-    var numOfRect: Int!
     let widthRatio = 2
-    var arrayLabel = [UILabel]()
-
+    var arrayLabel: [SortingLabel]!
+    var viewcontroller: UIViewController!
     
     required init?(coder aDecoder: NSCoder) {
         fatalError(".....")
     }
     
-    init(frame: CGRect, arrayDisplay: [Int], colors: [UIColor]) {
+    init(viewcontroller: UIViewController, frame: CGRect, arrayDisplay: [Int], colors: [UIColor]) {
+        
         super.init(frame: frame)
-        self.numOfRect = arrayDisplay.count
+        
+        self.viewcontroller = viewcontroller
+        self.arrayLabel = [SortingLabel]()
         self.drawGraph(arrayDisplay: arrayDisplay, colors: colors)
         
     }
     
     private func drawGraph(arrayDisplay: [Int], colors: [UIColor]){
-     
-        var spacing = frame.width/CGFloat(self.widthRatio * self.numOfRect + self.numOfRect + 1)
-        var rectSize = CGFloat(self.widthRatio) * spacing
         
-        for index in 0..<self.numOfRect{
+        
+        var spacing = frame.width/CGFloat(self.widthRatio * arrayDisplay.count + arrayDisplay.count + 1)
+        var rectSize = CGFloat(widthRatio) * spacing
+        
+        var x = spacing
+        
+        for index in 0..<arrayDisplay.count{
             
-            let label = SortingLabel(frame: CGRect(x: spacing + CGFloat(index)*rectSize, y: frame.height/2 - rectSize, width: rectSize, height: rectSize))
+            let sortingLabel = SortingLabel(frame: CGRect(x: x, y: frame.height/2,
+                                                   width: rectSize, height: rectSize),
+                                     color: colors[index],
+                                     value: String(arrayDisplay[index]))
             
-            label.identifier = arrayDisplay[index]
-            label.position = Position(col: index)
+            arrayLabel.append(sortingLabel)
             
-            label.backgroundColor = colors[index]
-            label.text = String(arrayDisplay[index])
-            label.textColor = UIColor.black
-            label.textAlignment = NSTextAlignment.center
-
-            arrayLabel.append(label)
+            self.viewcontroller.view.addSubview(sortingLabel)
             
-            self.addSubview(label)
+            x = x + spacing + rectSize
             
         }
-        
     }
 }

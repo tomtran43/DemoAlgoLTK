@@ -11,12 +11,12 @@ import UIKit
 
 class BubbleSort {
     
-    var acionArray = [Step]()
-    var inputArray = [Int]()
+    var arrayAction = [Step]()
+    var arrayInput = [Int]()
     
-    init(inputArray: [Int]){
-        self.inputArray = inputArray
-        bubbleSort(array: inputArray)
+    init(arrayInput: [Int]){
+        self.arrayInput = arrayInput
+        bubbleSort(array: arrayInput)
     }
     
     func bubbleSort(array: [Int]){
@@ -32,8 +32,8 @@ class BubbleSort {
     }
     
     func compare(i: Int, j: Int) -> Int{
-        self.acionArray.append(Step(act: "compare", i: i, j: j))
-        return inputArray[i]-inputArray[j]
+        self.arrayAction.append(Step(act: "compare", i: i, j: j))
+        return arrayInput[i]-arrayInput[j]
     }
     
     func lessThan(i: Int, j: Int) -> Bool{
@@ -44,10 +44,10 @@ class BubbleSort {
     }
     
     func swap(i: Int, j: Int){
-        self.acionArray.append(Step(act: "swap", i: i, j: j))
-        var temp = self.inputArray[i];
-        self.inputArray[i] = self.inputArray[j]
-        self.inputArray[j] = temp
+        self.arrayAction.append(Step(act: "swap", i: i, j: j))
+        var temp = self.arrayInput[i];
+        self.arrayInput[i] = self.arrayInput[j]
+        self.arrayInput[j] = temp
     }
     
 
