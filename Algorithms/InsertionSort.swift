@@ -19,13 +19,16 @@ class InsertionSort {
         insertionSort(array: arrayInput)
     }
     
-    func insertionSort(array: [Int]) {
-        let n = array.count
+    func insertionSort(array: [Int]){
+        var n = array.count
         
         for i in 1..<n{
-            for j in 0..<(n-i-1) {
-                if (lessThan(i: j+1, j: j) == true) {
-                    swap(i: j, j: j+1)
+            for j in (1...i).reversed(){
+                if (greaterThan(i: j-1, j: j) == true){
+                    swap(i: j, j: j-1)
+                }
+                else{
+                    break
                 }
             }
         }
@@ -36,8 +39,8 @@ class InsertionSort {
         return arrayInput[i]-arrayInput[j]
     }
     
-    func lessThan(i: Int, j: Int) -> Bool {
-        if compare(i: i, j: j) < 0{
+    func greaterThan(i: Int, j: Int) -> Bool {
+        if compare(i: i, j: j) > 0{
             return true
         }
         return false
@@ -49,4 +52,6 @@ class InsertionSort {
         self.arrayInput[i] = self.arrayInput[j]
         self.arrayInput[j] = temp
     }
+    
+  
 }

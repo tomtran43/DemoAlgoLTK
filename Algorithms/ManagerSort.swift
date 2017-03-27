@@ -25,7 +25,7 @@ class ManagerSort {
     var arrayLabelBelow: [SortingLabel]!
     
     var graph: Graph!
-    var sort: SelectionSort!
+    var sort: InsertionSort!
     
     func initSortWith(viewcontroller: UIViewController, arrayInput: [Int]) {
         
@@ -33,6 +33,8 @@ class ManagerSort {
         
         self.arrayInput = arrayInput
         self.arrayAction = getArrayAction(array: arrayInput)
+        
+        print(self.arrayAction)
                 
         self.arrayDisplay = []
         self.arrayLabelAbove = []
@@ -64,7 +66,7 @@ class ManagerSort {
     
     func getArrayAction(array: [Int]) -> [Step] {
         
-        sort = SelectionSort(arrayInput: array)
+        sort = InsertionSort(arrayInput: array)
         return sort.arrayAction
 
     }
