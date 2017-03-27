@@ -13,3 +13,6 @@ let DEFAULT_COLOR = UIColor.gray
 let COMPARE_COLOR = UIColor.blue
 let SWAP_COLOR = UIColor.red
 
+let DEFAULT_ALPHA: CGFloat = 0.5
+let ANIMATION_ALPHA: CGFloat = 1
+

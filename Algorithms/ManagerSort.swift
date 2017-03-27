@@ -18,10 +18,14 @@ class ManagerSort {
     var arrayAction: [Step]!
     var arrayDisplay: [Int]!
     var arrayColor: [UIColor]!
+    
     var arrayLabel: [SortingLabel]!
+    var arrayLabelAbove: [SortingLabel]!
+    var arrayLabelMiddle: [SortingLabel]!
+    var arrayLabelBelow: [SortingLabel]!
     
     var graph: Graph!
-    var sort: BubbleSort!
+    var sort: SelectionSort!
     
     
     func initSortWith(viewcontroller: UIViewController, arrayInput: [Int]){
@@ -30,11 +34,14 @@ class ManagerSort {
         
         self.arrayInput = arrayInput
         self.arrayAction = getArrayAction(array: arrayInput)
-        
-        print(arrayAction)
-        
+                
         self.arrayDisplay = []
+        self.arrayLabelAbove = []
+        self.arrayLabelMiddle = []
+        self.arrayLabelBelow = []
+        
         self.arrayColor = []
+        
         
         for index in 0..<arrayInput.count{
             self.arrayDisplay.append(arrayInput[index])
@@ -50,33 +57,20 @@ class ManagerSort {
         viewcontroller.view.addSubview(graph)
         
         self.arrayLabel = self.graph.arrayLabel
+        self.arrayLabelMiddle = self.graph.arrayLabelMiddle
+        self.arrayLabelBelow = self.graph.arrayLabelBelow
+        self.arrayLabelAbove = self.graph.arrayLabelAbove
         
         self.addBtnRun(toView: viewcontroller.view)
-        
-        print(arrayDisplay)
     }
     
     func getArrayAction(array: [Int]) -> [Step]{
         
-        sort = BubbleSort(arrayInput: array)
-
+        sort = SelectionSort(arrayInput: array)
         return sort.arrayAction
 
     }
     
-    func getArrayLabel(aryDisplay: [Int], aryColor: [UIColor]) -> [SortingLabel]{
-        
-        graph = Graph(frame: CGRect(x: 0, y: self.viewcontroller.view.bounds.size.height/2,
-                                    width: self.viewcontroller.view.bounds.size.width,
-                                    height: self.viewcontroller.view.bounds.size.height),
-                      arrayDisplay: aryDisplay,
-                      colors: aryColor)
-        
-        self.viewcontroller.view.addSubview(graph)
-        
-        return graph.arrayLabel
-        
-    }
     
     func addBtnRun(toView view: UIView){
         
@@ -90,9 +84,8 @@ class ManagerSort {
     
     @objc func run(sender: UIButton){
         
-        animate = AnimationSort(arrayLabel: self.arrayLabel, arrayAction: self.arrayAction)
+        animate = AnimationSort(arrayLabel: self.arrayLabel, arrayLabelMiddle: self.arrayLabelMiddle, arrayLabelAbove: self.arrayLabelAbove, arrayLabelBelow: self.arrayLabelBelow, arrayAction: self.arrayAction)
         
-        print("run")
         animate.loop()
     }
 }

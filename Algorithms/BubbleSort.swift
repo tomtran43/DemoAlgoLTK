@@ -20,7 +20,7 @@ class BubbleSort {
     }
     
     func bubbleSort(array: [Int]){
-        var n = array.count
+        let n = array.count
         
         for i in 0..<n{
             for j in 0..<(n-i-1){
@@ -45,7 +45,7 @@ class BubbleSort {
     
     func swap(i: Int, j: Int){
         self.arrayAction.append(Step(act: "swap", i: i, j: j))
-        var temp = self.arrayInput[i];
+        let temp = self.arrayInput[i];
         self.arrayInput[i] = self.arrayInput[j]
         self.arrayInput[j] = temp
     }

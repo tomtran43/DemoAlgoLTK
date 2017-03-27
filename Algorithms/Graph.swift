@@ -14,6 +14,9 @@ class Graph: UILabel {
       
     let widthRatio = 2
     var arrayLabel: [SortingLabel]!
+    var arrayLabelAbove: [SortingLabel]!
+    var arrayLabelMiddle: [SortingLabel]!
+    var arrayLabelBelow: [SortingLabel]!
     
     required init?(coder aDecoder: NSCoder) {
         fatalError(".....")
@@ -24,14 +27,17 @@ class Graph: UILabel {
         super.init(frame: frame)
         
         self.arrayLabel = [SortingLabel]()
+        self.arrayLabelAbove = [SortingLabel]()
+        self.arrayLabelMiddle = [SortingLabel]()
+        self.arrayLabelBelow = [SortingLabel]()
         self.drawGraph(arrayDisplay: arrayDisplay, colors: colors)
         
     }
     
     private func drawGraph(arrayDisplay: [Int], colors: [UIColor]){
         
-        var spacing = frame.width/CGFloat(self.widthRatio * arrayDisplay.count + arrayDisplay.count + 1)
-        var rectSize = CGFloat(widthRatio) * spacing
+        let spacing = frame.width/CGFloat(self.widthRatio * arrayDisplay.count + arrayDisplay.count + 1)
+        let rectSize = CGFloat(widthRatio) * spacing
         
         var x = spacing
         
@@ -41,15 +47,35 @@ class Graph: UILabel {
                                                    width: rectSize, height: rectSize),
                                      color: colors[index],
                                      value: String(arrayDisplay[index]))
+
+            let labelMiddle = SortingLabel(frame: CGRect(x: x, y: 0,
+                                                          width: rectSize, height: rectSize),
+                                            color: DEFAULT_COLOR,
+                                            value: "0")
+            labelMiddle.isHidden = true
             
-            sortingLabel.text = String(arrayDisplay[index])
-            sortingLabel.backgroundColor = colors[index]
-            sortingLabel.textColor = UIColor.white
-            sortingLabel.textAlignment = NSTextAlignment.center
+            let labelAbove = SortingLabel(frame: CGRect(x: x, y: 0 - rectSize - spacing,
+                                                          width: rectSize, height: rectSize),
+                                          color: DEFAULT_COLOR,
+                                          value: "0")
+            labelAbove.isHidden = true
+            
+            let labelBelow = SortingLabel(frame: CGRect(x: x, y: rectSize + spacing,
+                                                          width: rectSize, height: rectSize),
+                                            color: colors[index],
+                                            value: String(arrayDisplay[index]))
+            labelBelow.isHidden = true
             
             arrayLabel.append(sortingLabel)
+            arrayLabelMiddle.append(labelMiddle)
+            arrayLabelAbove.append(labelAbove)
+            arrayLabelBelow.append(labelBelow)
             
             self.addSubview(sortingLabel)
+            self.addSubview(labelMiddle)
+            self.addSubview(labelAbove)
+            self.addSubview(labelBelow)
+
             
             x = x + spacing + rectSize
             

@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         self.managerSort = ManagerSort()
-        self.managerSort.initSortWith(viewcontroller: self, arrayInput: [4,6,8,3,5,7])
+        self.managerSort.initSortWith(viewcontroller: self, arrayInput: [4,6,8,3,5,7,2,2,9])
 
     }
 
@@ -25,10 +25,6 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    
-    
-    
 
 }
 
