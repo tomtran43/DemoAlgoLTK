@@ -19,40 +19,39 @@ class SelectionSort {
         selectionSort(array: arrayInput)
     }
     
-    func selectionSort(array: [Int]){
+    func selectionSort(array: [Int]) {
         
         let n = array.count
         
-        for i in 0..<(n-1){
+        for i in 0..<(n-1) {
             var minAt = i
-            for j in (i+1)..<n{
-                if (greaterThan(i: minAt, j: j) == true){
+            for j in (i+1)..<n {
+                if (greaterThan(i: minAt, j: j) == true) {
                     minAt = j
                 }
             }
-            if (i != minAt){
+            if (i != minAt) {
                 swap(i: i, j: minAt)
             }
         }
     }
     
-    func compare(i: Int, j: Int) -> Int{
+    func compare(i: Int, j: Int) -> Int {
         self.arrayAction.append(Step(act: "compare", i: i, j: j))
         return arrayInput[i]-arrayInput[j]
     }
     
-    func greaterThan(i: Int, j: Int) -> Bool{
+    func greaterThan(i: Int, j: Int) -> Bool {
         if compare(i: i, j: j) > 0{
             return true
         }
         return false
     }
     
-    func swap(i: Int, j: Int){
+    func swap(i: Int, j: Int) {
         self.arrayAction.append(Step(act: "swap", i: i, j: j))
         let temp = self.arrayInput[i];
         self.arrayInput[i] = self.arrayInput[j]
         self.arrayInput[j] = temp
     }
-
 }

@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-class SortingLabel: UILabel{
+class SortingLabel: UILabel {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError(".....")
     }
     
-    init(frame: CGRect, color: UIColor, value: String){
+    init(frame: CGRect, color: UIColor, value: String) {
         super.init(frame: frame)
         
         self.backgroundColor = color
@@ -25,7 +25,5 @@ class SortingLabel: UILabel{
         self.layer.cornerRadius = frame.width/2
         self.clipsToBounds = true
         self.alpha = DEFAULT_ALPHA
-        
     }
-    
 }

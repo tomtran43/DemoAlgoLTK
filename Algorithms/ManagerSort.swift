@@ -27,8 +27,7 @@ class ManagerSort {
     var graph: Graph!
     var sort: SelectionSort!
     
-    
-    func initSortWith(viewcontroller: UIViewController, arrayInput: [Int]){
+    func initSortWith(viewcontroller: UIViewController, arrayInput: [Int]) {
         
         self.viewcontroller = viewcontroller
         
@@ -42,8 +41,7 @@ class ManagerSort {
         
         self.arrayColor = []
         
-        
-        for index in 0..<arrayInput.count{
+        for index in 0..<arrayInput.count {
             self.arrayDisplay.append(arrayInput[index])
             self.arrayColor.append(DEFAULT_COLOR)
         }
@@ -64,15 +62,14 @@ class ManagerSort {
         self.addBtnRun(toView: viewcontroller.view)
     }
     
-    func getArrayAction(array: [Int]) -> [Step]{
+    func getArrayAction(array: [Int]) -> [Step] {
         
         sort = SelectionSort(arrayInput: array)
         return sort.arrayAction
 
     }
     
-    
-    func addBtnRun(toView view: UIView){
+    func addBtnRun(toView view: UIView) {
         
         let btnStart = UIButton(frame: CGRect(x: view.bounds.size.width/2-40, y: 30, width: 80, height: 50))
         btnStart.backgroundColor = UIColor.green.withAlphaComponent(0.5)
@@ -82,8 +79,7 @@ class ManagerSort {
         view.addSubview(btnStart)
     }
     
-    @objc func run(sender: UIButton){
-        
+    @objc func run(sender: UIButton) {
         animate = AnimationSort(arrayLabel: self.arrayLabel, arrayLabelMiddle: self.arrayLabelMiddle, arrayLabelAbove: self.arrayLabelAbove, arrayLabelBelow: self.arrayLabelBelow, arrayAction: self.arrayAction)
         
         animate.loop()

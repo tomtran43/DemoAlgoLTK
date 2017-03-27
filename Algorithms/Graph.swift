@@ -23,7 +23,6 @@ class Graph: UILabel {
     }
     
     init(frame: CGRect, arrayDisplay: [Int], colors: [UIColor]) {
-        
         super.init(frame: frame)
         
         self.arrayLabel = [SortingLabel]()
@@ -31,17 +30,15 @@ class Graph: UILabel {
         self.arrayLabelMiddle = [SortingLabel]()
         self.arrayLabelBelow = [SortingLabel]()
         self.drawGraph(arrayDisplay: arrayDisplay, colors: colors)
-        
     }
     
-    private func drawGraph(arrayDisplay: [Int], colors: [UIColor]){
+    private func drawGraph(arrayDisplay: [Int], colors: [UIColor]) {
         
         let spacing = frame.width/CGFloat(self.widthRatio * arrayDisplay.count + arrayDisplay.count + 1)
         let rectSize = CGFloat(widthRatio) * spacing
-        
         var x = spacing
-        
-        for index in 0..<arrayDisplay.count{
+    
+        for index in 0..<arrayDisplay.count {
             
             let sortingLabel = SortingLabel(frame: CGRect(x: x, y: 0,
                                                    width: rectSize, height: rectSize),
@@ -53,13 +50,11 @@ class Graph: UILabel {
                                             color: DEFAULT_COLOR,
                                             value: "0")
             labelMiddle.isHidden = true
-            
             let labelAbove = SortingLabel(frame: CGRect(x: x, y: 0 - rectSize - spacing,
                                                           width: rectSize, height: rectSize),
                                           color: DEFAULT_COLOR,
                                           value: "0")
             labelAbove.isHidden = true
-            
             let labelBelow = SortingLabel(frame: CGRect(x: x, y: rectSize + spacing,
                                                           width: rectSize, height: rectSize),
                                             color: colors[index],
@@ -75,10 +70,8 @@ class Graph: UILabel {
             self.addSubview(labelMiddle)
             self.addSubview(labelAbove)
             self.addSubview(labelBelow)
-
             
             x = x + spacing + rectSize
-            
         }
     }
 }
