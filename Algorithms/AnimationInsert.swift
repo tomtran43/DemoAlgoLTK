@@ -15,6 +15,10 @@ class AnimationInsert: AnimationSort{
     var colSolution = 0
     var currentStep = InsertStep()
     var isMOVE = false
+    var delegate: UpdateCount!                      //
+    var compareCout = 0                             //
+    var swapCount = 0                               //
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -44,6 +48,9 @@ class AnimationInsert: AnimationSort{
             if (self.currentStep.act == "move"){
                 self.isMOVE = true
                 self.arrayLabel[self.currentStep.i].backgroundColor = COMPARE_COLOR
+                self.compareCout = self.compareCout + 1                     //
+                self.delegate.updateCompareCount(compareCount: self.compareCout)    //
+                
                 self.moveLabel(from: self.arrayLabel[self.currentStep.i], to:self.arrayLabelMiddle[self.currentStep.j] )
                 self.moveLabel(from: self.arrayLabel[self.currentStep.j], to: self.arrayLabelAbove[self.currentStep.i])
                 self.swapLabel(i: self.currentStep.i, j: self.currentStep.j)
@@ -52,11 +59,18 @@ class AnimationInsert: AnimationSort{
             }
             if (self.currentStep.act == "end"){
                 if(self.isMOVE){
+                    self.swapCount = self.swapCount + 1                         //
+                    self.delegate.updateSwapCount(swapCount: self.swapCount)    //
+                    
                     self.arrayLabel[self.currentStep.key].backgroundColor = SWAP_COLOR
+                    
                     
                 }else{
                     
                     self.arrayLabel[self.currentStep.key].backgroundColor = COMPARE_COLOR
+                    self.compareCout = self.compareCout + 1                     //
+                    self.delegate.updateCompareCount(compareCount: self.compareCout)    //
+                    
                 }
                 self.moveLabel(from: self.arrayLabel[self.currentStep.key], to: self.arrayLabelMiddle[self.currentStep.key])
             }

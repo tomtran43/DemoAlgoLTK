@@ -10,13 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var managerSort: ManagerSelectionSort!
+    var managerSort: ManagerInsertionSort!
     
     override func viewDidLoad() { 
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.managerSort = ManagerSelectionSort()
+        self.managerSort = ManagerInsertionSort()
         self.managerSort.initSortWith(viewcontroller: self, arrayInput: [2,6,4,3,2,7,1])
 
     }

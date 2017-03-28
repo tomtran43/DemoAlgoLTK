@@ -14,6 +14,10 @@ class AnimationBubbleSelect: AnimationSort {
     var arrayAction: [Step]!
     var colSolution = 0
     var currentStep = Step()
+    var delegate: UpdateCount!                      //
+    var compareCout = 0                             //
+    var swapCount = 0                               //
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -34,14 +38,19 @@ class AnimationBubbleSelect: AnimationSort {
         UIView.setAnimationsEnabled(true)
         UIView.animate(withDuration: 1, animations: {
             if (self.currentStep.act == "compare") {
+                self.compareCout = self.compareCout + 1                     //
+                self.delegate.updateCompareCount(compareCount: self.compareCout)    //
                 self.arrayLabel[self.currentStep.i].backgroundColor = COMPARE_COLOR
                 self.arrayLabel[self.currentStep.j].backgroundColor = COMPARE_COLOR
-
+                
                 self.arrayLabel[self.currentStep.i].alpha = ANIMATION_ALPHA
                 self.arrayLabel[self.currentStep.j].alpha = ANIMATION_ALPHA
             }
             else
             {
+                self.swapCount = self.swapCount + 1                         //
+                self.delegate.updateSwapCount(swapCount: self.swapCount)    //
+                
                 self.arrayLabel[self.currentStep.i].backgroundColor = SWAP_COLOR
                 self.arrayLabel[self.currentStep.j].backgroundColor = SWAP_COLOR
                 
