@@ -1,57 +1,61 @@
-//
-//  BubbleSort.swift
-//  Algorithms
-//
-//  Created by Loc Tran on 3/22/17.
-//  Copyright © 2017 LocTran. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
+
+protocol KEY{
+    var key: Int! {get set}
+}
+
+struct InsertStep: PStep, KEY {
+
+    var act: String!
+    var i: Int!
+    var j: Int!
+    var key: Int!
+}
+
 class InsertionSort {
     
-    var arrayAction = [Step]()
+    var arrayAction = [InsertStep]()
     var arrayInput = [Int]()
     
     init(arrayInput: [Int]){
         self.arrayInput = arrayInput
         insertionSort(array: arrayInput)
+        for a in self.arrayAction{
+            print(a)
+        }
     }
     
-    func insertionSort(array: [Int]){
-        var n = array.count
-        
+    func insertionSort(array: [Int]) {
+        let n = array.count
         for i in 1..<n{
-            for j in (1...i).reversed(){
-                if (greaterThan(i: j-1, j: j) == true){
-                    swap(i: j, j: j-1)
+            let valueKey = self.arrayInput[i]
+            var j = i - 1
+            self.arrayAction.append(InsertStep(act: "start", i: i, j: j, key: i))
+            while(j >= 0 && self.arrayInput[j] > valueKey){
+                self.arrayAction.append(InsertStep(act: "swap", i: j+1, j: j, key: j+1))
+                self.arrayInput[j+1] = self.arrayInput[j]
+                // thuc hien swap
+                self.arrayAction.append(InsertStep(act: "move", i: j, j: j+1, key: j))
+                
+                //                self.swap(i: j, j: j+1)
+                if(j==0){
+                    self.arrayAction.append(InsertStep(act: "end", i: nil, j: j, key: j))
                 }
-                else{
-                    break
-                }
+                j = j - 1
             }
+            if(j != -1){
+                self.arrayAction.append(InsertStep(act: "end", i: nil, j: self.arrayAction.last?.j, key: self.arrayAction.last?.key))
+            }
+            self.arrayInput[j+1] = valueKey
         }
     }
     
-    func compare(i: Int, j: Int) -> Int {
-        self.arrayAction.append(Step(act: "compare", i: i, j: j))
-        return arrayInput[i]-arrayInput[j]
-    }
-    
-    func greaterThan(i: Int, j: Int) -> Bool {
-        if compare(i: i, j: j) > 0{
-            return true
-        }
-        return false
-    }
-    
+ 
     func swap(i: Int, j: Int) {
-        self.arrayAction.append(Step(act: "swap", i: i, j: j))
         let temp = self.arrayInput[i];
         self.arrayInput[i] = self.arrayInput[j]
         self.arrayInput[j] = temp
     }
-    
-  
 }

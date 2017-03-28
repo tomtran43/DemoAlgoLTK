@@ -11,11 +11,11 @@ import UIKit
 
 class ManagerSort {
     
-    var animate: AnimationSort!
+    var animate: AnimationInsert!
     var viewcontroller: UIViewController!
     
     var arrayInput: [Int]!
-    var arrayAction: [Step]!
+    var arrayAction: [InsertStep]!
     var arrayDisplay: [Int]!
     var arrayColor: [UIColor]!
     
@@ -25,6 +25,7 @@ class ManagerSort {
     var arrayLabelBelow: [SortingLabel]!
     
     var graph: Graph!
+    var barGraph: BarGraph!
     var sort: InsertionSort!
     
     func initSortWith(viewcontroller: UIViewController, arrayInput: [Int]) {
@@ -34,7 +35,7 @@ class ManagerSort {
         self.arrayInput = arrayInput
         self.arrayAction = getArrayAction(array: arrayInput)
         
-        print(self.arrayAction)
+//        print(self.arrayAction)
                 
         self.arrayDisplay = []
         self.arrayLabelAbove = []
@@ -54,7 +55,17 @@ class ManagerSort {
                       arrayDisplay: self.arrayDisplay,
                       colors: self.arrayColor)
         
+//        barGraph = BarGraph(viewcontroller: viewcontroller,
+//            frame: CGRect(x: 0, y: viewcontroller.view.bounds.size.height/2,
+//                                          width: viewcontroller.view.bounds.size.width,
+//                                          height: viewcontroller.view.bounds.size.height),
+//                            arrayDisplay: self.arrayDisplay,
+//                            colors: self.arrayColor)
+        
         viewcontroller.view.addSubview(graph)
+        
+//        viewcontroller.view.addSubview(barGraph)
+
         
         self.arrayLabel = self.graph.arrayLabel
         self.arrayLabelMiddle = self.graph.arrayLabelMiddle
@@ -64,7 +75,7 @@ class ManagerSort {
         self.addBtnRun(toView: viewcontroller.view)
     }
     
-    func getArrayAction(array: [Int]) -> [Step] {
+    func getArrayAction(array: [Int]) -> [InsertStep] {
         
         sort = InsertionSort(arrayInput: array)
         return sort.arrayAction
@@ -82,7 +93,9 @@ class ManagerSort {
     }
     
     @objc func run(sender: UIButton) {
-        animate = AnimationSort(arrayLabel: self.arrayLabel, arrayLabelMiddle: self.arrayLabelMiddle, arrayLabelAbove: self.arrayLabelAbove, arrayLabelBelow: self.arrayLabelBelow, arrayAction: self.arrayAction)
+        print(self.arrayAction)
+        
+        animate = AnimationInsert(arrayLabel: self.arrayLabel, arrayLabelMiddle: self.arrayLabelMiddle, arrayLabelAbove: self.arrayLabelAbove, arrayLabelBelow: self.arrayLabelBelow, arrayAction: self.arrayAction)
         
         animate.loop()
     }

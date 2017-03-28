@@ -61,10 +61,10 @@ class Graph: UILabel {
                                             value: String(arrayDisplay[index]))
             labelBelow.isHidden = true
             
-            arrayLabel.append(sortingLabel)
-            arrayLabelMiddle.append(labelMiddle)
-            arrayLabelAbove.append(labelAbove)
-            arrayLabelBelow.append(labelBelow)
+            self.arrayLabel.append(sortingLabel)
+            self.arrayLabelMiddle.append(labelMiddle)
+            self.arrayLabelAbove.append(labelAbove)
+            self.arrayLabelBelow.append(labelBelow)
             
             self.addSubview(sortingLabel)
             self.addSubview(labelMiddle)
