@@ -14,6 +14,7 @@ class AnimationInsert: AnimationSort{
     var arrayAction: [InsertStep]!
     var colSolution = 0
     var currentStep = InsertStep()
+    var isMOVE = false
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -31,32 +32,40 @@ class AnimationInsert: AnimationSort{
     }
     
     override func animation(){
-
+        
         UIView.setAnimationsEnabled(true)
         UIView.animate(withDuration: 1, animations: {
-            if(self.currentStep.act=="start"){
-                self.arrayLabel[self.currentStep.i].backgroundColor = SWAP_COLOR
+            if (self.currentStep.act == "start"){
+                self.isMOVE = false
+                self.arrayLabel[self.currentStep.i].backgroundColor = KEY_COLOR
                 self.moveLabel(from: self.arrayLabel[self.currentStep.i], to: self.arrayLabelAbove[self.currentStep.i])
                 
-                
             }
-            if(self.currentStep.act=="move"){
+            if (self.currentStep.act == "move"){
+                self.isMOVE = true
                 self.arrayLabel[self.currentStep.i].backgroundColor = COMPARE_COLOR
                 self.moveLabel(from: self.arrayLabel[self.currentStep.i], to:self.arrayLabelMiddle[self.currentStep.j] )
+                self.moveLabel(from: self.arrayLabel[self.currentStep.j], to: self.arrayLabelAbove[self.currentStep.i])
                 self.swapLabel(i: self.currentStep.i, j: self.currentStep.j)
                 
                 
             }
-            if(self.currentStep.act=="end"){
+            if (self.currentStep.act == "end"){
+                if(self.isMOVE){
+                    self.arrayLabel[self.currentStep.key].backgroundColor = SWAP_COLOR
+                    
+                }else{
+                    
+                    self.arrayLabel[self.currentStep.key].backgroundColor = COMPARE_COLOR
+                }
                 self.moveLabel(from: self.arrayLabel[self.currentStep.key], to: self.arrayLabelMiddle[self.currentStep.key])
-                
             }
             
         }){_ in
-            if(self.currentStep.act=="move"){
+            if (self.currentStep.act == "move"){
                 self.arrayLabel[self.currentStep.j].backgroundColor = DEFAULT_COLOR
             }
-            if(self.currentStep.act=="end"){
+            if (self.currentStep.act == "end"){
                 self.arrayLabel[self.currentStep.j].backgroundColor = DEFAULT_COLOR
                 self.arrayLabel[self.currentStep.key].backgroundColor = DEFAULT_COLOR
                 

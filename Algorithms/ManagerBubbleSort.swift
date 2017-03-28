@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-class ManagerSort {
+class ManagerBubbleSort {
     
-    var animate: AnimationInsert!
+    var animate: AnimationBubbleSelect!
     var viewcontroller: UIViewController!
     
     var arrayInput: [Int]!
-    var arrayAction: [InsertStep]!
+    var arrayAction: [Step]!
     var arrayDisplay: [Int]!
     var arrayColor: [UIColor]!
     
@@ -26,7 +26,7 @@ class ManagerSort {
     
     var graph: Graph!
     var barGraph: BarGraph!
-    var sort: InsertionSort!
+    var sort: BubbleSort!
     
     func initSortWith(viewcontroller: UIViewController, arrayInput: [Int]) {
         
@@ -35,8 +35,6 @@ class ManagerSort {
         self.arrayInput = arrayInput
         self.arrayAction = getArrayAction(array: arrayInput)
         
-//        print(self.arrayAction)
-                
         self.arrayDisplay = []
         self.arrayLabelAbove = []
         self.arrayLabelMiddle = []
@@ -55,17 +53,8 @@ class ManagerSort {
                       arrayDisplay: self.arrayDisplay,
                       colors: self.arrayColor)
         
-//        barGraph = BarGraph(viewcontroller: viewcontroller,
-//            frame: CGRect(x: 0, y: viewcontroller.view.bounds.size.height/2,
-//                                          width: viewcontroller.view.bounds.size.width,
-//                                          height: viewcontroller.view.bounds.size.height),
-//                            arrayDisplay: self.arrayDisplay,
-//                            colors: self.arrayColor)
-        
         viewcontroller.view.addSubview(graph)
         
-//        viewcontroller.view.addSubview(barGraph)
-
         
         self.arrayLabel = self.graph.arrayLabel
         self.arrayLabelMiddle = self.graph.arrayLabelMiddle
@@ -75,11 +64,11 @@ class ManagerSort {
         self.addBtnRun(toView: viewcontroller.view)
     }
     
-    func getArrayAction(array: [Int]) -> [InsertStep] {
+    func getArrayAction(array: [Int]) -> [Step] {
         
-        sort = InsertionSort(arrayInput: array)
+        sort = BubbleSort(arrayInput: array)
         return sort.arrayAction
-
+        
     }
     
     func addBtnRun(toView view: UIView) {
@@ -95,7 +84,7 @@ class ManagerSort {
     @objc func run(sender: UIButton) {
         print(self.arrayAction)
         
-        animate = AnimationInsert(arrayLabel: self.arrayLabel, arrayLabelMiddle: self.arrayLabelMiddle, arrayLabelAbove: self.arrayLabelAbove, arrayLabelBelow: self.arrayLabelBelow, arrayAction: self.arrayAction)
+        animate = AnimationBubbleSelect(arrayLabel: self.arrayLabel, arrayLabelMiddle: self.arrayLabelMiddle, arrayLabelAbove: self.arrayLabelAbove, arrayLabelBelow: self.arrayLabelBelow, arrayAction: self.arrayAction)
         
         animate.loop()
     }

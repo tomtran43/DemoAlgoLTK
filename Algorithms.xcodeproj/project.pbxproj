@@ -10,6 +10,9 @@
 		193E459C1E8A020E00A6395C /* AnimationInsert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E459B1E8A020E00A6395C /* AnimationInsert.swift */; };
 		193E459E1E8A025B00A6395C /* AnimationSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E459D1E8A025B00A6395C /* AnimationSort.swift */; };
 		193E45A01E8A207B00A6395C /* ProtocolStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E459F1E8A207B00A6395C /* ProtocolStep.swift */; };
+		193E45A31E8A5AFD00A6395C /* MergeSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E45A21E8A5AFD00A6395C /* MergeSort.swift */; };
+		193E45A51E8A5C1200A6395C /* ManagerBubbleSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E45A41E8A5C1200A6395C /* ManagerBubbleSort.swift */; };
+		193E45A71E8A5CDA00A6395C /* ManagerSelectionSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E45A61E8A5CDA00A6395C /* ManagerSelectionSort.swift */; };
 		1962B22B1E83E18400012936 /* SortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962B22A1E83E18400012936 /* SortType.swift */; };
 		1962B22D1E841F3400012936 /* SortingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962B22C1E841F3400012936 /* SortingLabel.swift */; };
 		1962B22F1E84FE5E00012936 /* SelectionSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962B22E1E84FE5E00012936 /* SelectionSort.swift */; };
@@ -24,7 +27,7 @@
 		198A34931E8176AC009E2B96 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198A34921E8176AC009E2B96 /* Graph.swift */; };
 		198A34951E822A13009E2B96 /* LabelColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198A34941E822A13009E2B96 /* LabelColor.swift */; };
 		198A34971E826619009E2B96 /* BubbleSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198A34961E826619009E2B96 /* BubbleSort.swift */; };
-		198A34BA1E828A5D009E2B96 /* ManagerSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198A34B91E828A5D009E2B96 /* ManagerSort.swift */; };
+		198A34BA1E828A5D009E2B96 /* ManagerInsertSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198A34B91E828A5D009E2B96 /* ManagerInsertSort.swift */; };
 		19C253FB1E89630E008C614C /* BarGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C253FA1E89630E008C614C /* BarGraph.swift */; };
 		19C253FD1E8963F9008C614C /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C253FC1E8963F9008C614C /* Bar.swift */; };
 /* End PBXBuildFile section */
@@ -33,6 +36,9 @@
 		193E459B1E8A020E00A6395C /* AnimationInsert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationInsert.swift; sourceTree = "<group>"; };
 		193E459D1E8A025B00A6395C /* AnimationSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationSort.swift; sourceTree = "<group>"; };
 		193E459F1E8A207B00A6395C /* ProtocolStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocolStep.swift; sourceTree = "<group>"; };
+		193E45A21E8A5AFD00A6395C /* MergeSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergeSort.swift; sourceTree = "<group>"; };
+		193E45A41E8A5C1200A6395C /* ManagerBubbleSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerBubbleSort.swift; sourceTree = "<group>"; };
+		193E45A61E8A5CDA00A6395C /* ManagerSelectionSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerSelectionSort.swift; sourceTree = "<group>"; };
 		1962B22A1E83E18400012936 /* SortType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortType.swift; sourceTree = "<group>"; };
 		1962B22C1E841F3400012936 /* SortingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortingLabel.swift; sourceTree = "<group>"; };
 		1962B22E1E84FE5E00012936 /* SelectionSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionSort.swift; sourceTree = "<group>"; };
@@ -49,7 +55,7 @@
 		198A34921E8176AC009E2B96 /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		198A34941E822A13009E2B96 /* LabelColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelColor.swift; sourceTree = "<group>"; };
 		198A34961E826619009E2B96 /* BubbleSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleSort.swift; sourceTree = "<group>"; };
-		198A34B91E828A5D009E2B96 /* ManagerSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerSort.swift; sourceTree = "<group>"; };
+		198A34B91E828A5D009E2B96 /* ManagerInsertSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerInsertSort.swift; sourceTree = "<group>"; };
 		19C253FA1E89630E008C614C /* BarGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarGraph.swift; sourceTree = "<group>"; };
 		19C253FC1E8963F9008C614C /* Bar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,6 +81,16 @@
 			name = Animation;
 			sourceTree = "<group>";
 		};
+		193E45A11E8A4A7B00A6395C /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				198A34B91E828A5D009E2B96 /* ManagerInsertSort.swift */,
+				193E45A41E8A5C1200A6395C /* ManagerBubbleSort.swift */,
+				193E45A61E8A5CDA00A6395C /* ManagerSelectionSort.swift */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
 		1962B2301E84FE6400012936 /* Sort */ = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +98,7 @@
 				198A34961E826619009E2B96 /* BubbleSort.swift */,
 				1962B22E1E84FE5E00012936 /* SelectionSort.swift */,
 				1962B2311E850BBE00012936 /* InsertionSort.swift */,
+				193E45A21E8A5AFD00A6395C /* MergeSort.swift */,
 			);
 			name = Sort;
 			sourceTree = "<group>";
@@ -108,8 +125,8 @@
 				198A34791E80D9DF009E2B96 /* AppDelegate.swift */,
 				198A347B1E80D9DF009E2B96 /* ViewController.swift */,
 				198A34941E822A13009E2B96 /* LabelColor.swift */,
-				198A34B91E828A5D009E2B96 /* ManagerSort.swift */,
 				193E459F1E8A207B00A6395C /* ProtocolStep.swift */,
+				193E45A11E8A4A7B00A6395C /* Manager */,
 				193E459A1E8A01BA00A6395C /* Animation */,
 				19C253F91E8962E8008C614C /* Graph */,
 				1962B2301E84FE6400012936 /* Sort */,
@@ -207,10 +224,12 @@
 			files = (
 				1962B22F1E84FE5E00012936 /* SelectionSort.swift in Sources */,
 				19C253FD1E8963F9008C614C /* Bar.swift in Sources */,
+				193E45A71E8A5CDA00A6395C /* ManagerSelectionSort.swift in Sources */,
 				198A34931E8176AC009E2B96 /* Graph.swift in Sources */,
-				198A34BA1E828A5D009E2B96 /* ManagerSort.swift in Sources */,
+				198A34BA1E828A5D009E2B96 /* ManagerInsertSort.swift in Sources */,
 				19C253FB1E89630E008C614C /* BarGraph.swift in Sources */,
 				198A347C1E80D9DF009E2B96 /* ViewController.swift in Sources */,
+				193E45A31E8A5AFD00A6395C /* MergeSort.swift in Sources */,
 				193E459E1E8A025B00A6395C /* AnimationSort.swift in Sources */,
 				198A347A1E80D9DF009E2B96 /* AppDelegate.swift in Sources */,
 				1962B22B1E83E18400012936 /* SortType.swift in Sources */,
@@ -218,6 +237,7 @@
 				198A34951E822A13009E2B96 /* LabelColor.swift in Sources */,
 				193E459C1E8A020E00A6395C /* AnimationInsert.swift in Sources */,
 				1962B22D1E841F3400012936 /* SortingLabel.swift in Sources */,
+				193E45A51E8A5C1200A6395C /* ManagerBubbleSort.swift in Sources */,
 				1962B2321E850BBE00012936 /* InsertionSort.swift in Sources */,
 				198A34821E80D9DF009E2B96 /* Algorithms.xcdatamodeld in Sources */,
 				198A34971E826619009E2B96 /* BubbleSort.swift in Sources */,

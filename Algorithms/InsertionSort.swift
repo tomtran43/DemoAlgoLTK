@@ -1,19 +1,6 @@
 import Foundation
 import UIKit
 
-
-protocol KEY{
-    var key: Int! {get set}
-}
-
-struct InsertStep: PStep, KEY {
-
-    var act: String!
-    var i: Int!
-    var j: Int!
-    var key: Int!
-}
-
 class InsertionSort {
     
     var arrayAction = [InsertStep]()
@@ -22,9 +9,6 @@ class InsertionSort {
     init(arrayInput: [Int]){
         self.arrayInput = arrayInput
         insertionSort(array: arrayInput)
-        for a in self.arrayAction{
-            print(a)
-        }
     }
     
     func insertionSort(array: [Int]) {
@@ -39,10 +23,10 @@ class InsertionSort {
                 // thuc hien swap
                 self.arrayAction.append(InsertStep(act: "move", i: j, j: j+1, key: j))
                 
-                //                self.swap(i: j, j: j+1)
-                if(j==0){
+                if(j == 0){
                     self.arrayAction.append(InsertStep(act: "end", i: nil, j: j, key: j))
                 }
+                
                 j = j - 1
             }
             if(j != -1){

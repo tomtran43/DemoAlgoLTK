@@ -21,7 +21,17 @@ struct Step: PStep {
     var j: Int!
 }
 
+protocol KEY{
+    var key: Int! {get set}
+}
 
+struct InsertStep: PStep, KEY {
+    
+    var act: String!
+    var i: Int!
+    var j: Int!
+    var key: Int!
+}
 
 
 
