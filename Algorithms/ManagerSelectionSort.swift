@@ -9,10 +9,20 @@
 import Foundation
 import UIKit
 
-class ManagerSelectionSort {
+class ManagerSelectionSort: UpdateCount {
     
     var animate: AnimationBubbleSelect!
     var viewcontroller: UIViewController!
+    
+    internal func updateSwapCount(swapCount: Int) {         //
+        lblswapCountText.text = "Swap: \(swapCount)"
+    }
+    
+    internal func updateCompareCount(compareCount: Int) {           //
+        lblcompareCount.text = "Compare: \(compareCount)"
+        
+    }
+
     
     var arrayInput: [Int]!
     var arrayAction: [Step]!
@@ -27,6 +37,9 @@ class ManagerSelectionSort {
     var graph: Graph!
     var barGraph: BarGraph!
     var sort: SelectionSort!
+    var lblcompareCount: UILabel!               //
+    var lblswapCountText: UILabel!              //
+
     
     func initSortWith(viewcontroller: UIViewController, arrayInput: [Int]) {
         
@@ -62,6 +75,9 @@ class ManagerSelectionSort {
         self.arrayLabelAbove = self.graph.arrayLabelAbove
         
         self.addBtnRun(toView: viewcontroller.view)
+        self.addCompareCount(toView: viewcontroller.view)               //
+        self.addSwapCount(toview: viewcontroller.view)                  //
+
     }
     
     func getArrayAction(array: [Int]) -> [Step] {
@@ -73,7 +89,7 @@ class ManagerSelectionSort {
     
     func addBtnRun(toView view: UIView) {
         
-        let btnStart = UIButton(frame: CGRect(x: view.bounds.size.width/2-40, y: 30, width: 80, height: 50))
+        let btnStart = UIButton(frame: CGRect(x: view.bounds.size.width/2-40, y: 130, width: 80, height: 50))
         btnStart.backgroundColor = UIColor.green.withAlphaComponent(0.5)
         btnStart.setTitleColor(UIColor.white, for: UIControlState.normal)
         btnStart.setTitle("Run", for: .normal)
@@ -85,7 +101,21 @@ class ManagerSelectionSort {
         print(self.arrayAction)
         
         animate = AnimationBubbleSelect(arrayLabel: self.arrayLabel, arrayLabelMiddle: self.arrayLabelMiddle, arrayLabelAbove: self.arrayLabelAbove, arrayLabelBelow: self.arrayLabelBelow, arrayAction: self.arrayAction)
+       
+        self.animate.delegate = self                //
         
         animate.loop()
     }
+    func addCompareCount(toView view:UIView){               //
+        lblcompareCount = UILabel(frame:CGRect(x: view.bounds.size.width/2 - 160, y: view.bounds.size.height - 200, width: 100, height: 50))
+        lblcompareCount.text = "Compare: 0"
+        view.addSubview(lblcompareCount)
+        
+    }
+    func addSwapCount(toview view: UIView){                 //
+        lblswapCountText = UILabel(frame: CGRect(x: view.bounds.size.width/2 + 60, y: view.bounds.size.height - 200, width: 100, height: 50))
+        lblswapCountText.text = "Swap: 0"
+        view.addSubview(lblswapCountText)
+    }
+
 }

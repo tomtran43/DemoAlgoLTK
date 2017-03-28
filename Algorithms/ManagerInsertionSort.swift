@@ -87,7 +87,7 @@ class ManagerInsertionSort: UpdateCount {
     
     func addBtnRun(toView view: UIView) {
         
-        let btnStart = UIButton(frame: CGRect(x: view.bounds.size.width/2-40, y: 30, width: 80, height: 50))
+        let btnStart = UIButton(frame: CGRect(x: view.bounds.size.width/2-40, y: 130, width: 80, height: 50))
         btnStart.backgroundColor = UIColor.green.withAlphaComponent(0.5)
         btnStart.setTitleColor(UIColor.white, for: UIControlState.normal)
         btnStart.setTitle("Run", for: .normal)

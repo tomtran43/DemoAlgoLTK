@@ -18,7 +18,7 @@
 		1962B22F1E84FE5E00012936 /* SelectionSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962B22E1E84FE5E00012936 /* SelectionSort.swift */; };
 		1962B2321E850BBE00012936 /* InsertionSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962B2311E850BBE00012936 /* InsertionSort.swift */; };
 		198A347A1E80D9DF009E2B96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198A34791E80D9DF009E2B96 /* AppDelegate.swift */; };
-		198A347C1E80D9DF009E2B96 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198A347B1E80D9DF009E2B96 /* ViewController.swift */; };
+		198A347C1E80D9DF009E2B96 /* BubbleSortVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198A347B1E80D9DF009E2B96 /* BubbleSortVC.swift */; };
 		198A347F1E80D9DF009E2B96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 198A347D1E80D9DF009E2B96 /* Main.storyboard */; };
 		198A34821E80D9DF009E2B96 /* Algorithms.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 198A34801E80D9DF009E2B96 /* Algorithms.xcdatamodeld */; };
 		198A34841E80D9DF009E2B96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 198A34831E80D9DF009E2B96 /* Assets.xcassets */; };
@@ -30,6 +30,10 @@
 		198A34BA1E828A5D009E2B96 /* ManagerInsertionSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198A34B91E828A5D009E2B96 /* ManagerInsertionSort.swift */; };
 		19C253FB1E89630E008C614C /* BarGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C253FA1E89630E008C614C /* BarGraph.swift */; };
 		19C253FD1E8963F9008C614C /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C253FC1E8963F9008C614C /* Bar.swift */; };
+		C714415C1E8ABC3B008472E6 /* MenuList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C714415B1E8ABC3B008472E6 /* MenuList.swift */; };
+		C714415E1E8ABD51008472E6 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C714415D1E8ABD51008472E6 /* MainScreen.swift */; };
+		C71441631E8AC08C008472E6 /* SelectionSortVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71441621E8AC08C008472E6 /* SelectionSortVC.swift */; };
+		C71441651E8AC0FA008472E6 /* InsertionSortVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71441641E8AC0FA008472E6 /* InsertionSortVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +49,7 @@
 		1962B2311E850BBE00012936 /* InsertionSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertionSort.swift; sourceTree = "<group>"; };
 		198A34761E80D9DF009E2B96 /* Algorithms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Algorithms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		198A34791E80D9DF009E2B96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		198A347B1E80D9DF009E2B96 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		198A347B1E80D9DF009E2B96 /* BubbleSortVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BubbleSortVC.swift; path = Algorithms/BubbleSortVC.swift; sourceTree = "<group>"; };
 		198A347E1E80D9DF009E2B96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		198A34811E80D9DF009E2B96 /* Algorithms.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Algorithms.xcdatamodel; sourceTree = "<group>"; };
 		198A34831E80D9DF009E2B96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,6 +62,10 @@
 		198A34B91E828A5D009E2B96 /* ManagerInsertionSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerInsertionSort.swift; sourceTree = "<group>"; };
 		19C253FA1E89630E008C614C /* BarGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarGraph.swift; sourceTree = "<group>"; };
 		19C253FC1E8963F9008C614C /* Bar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
+		C714415B1E8ABC3B008472E6 /* MenuList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuList.swift; sourceTree = "<group>"; };
+		C714415D1E8ABD51008472E6 /* MainScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
+		C71441621E8AC08C008472E6 /* SelectionSortVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionSortVC.swift; sourceTree = "<group>"; };
+		C71441641E8AC0FA008472E6 /* InsertionSortVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertionSortVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +114,7 @@
 		198A346D1E80D9DE009E2B96 = {
 			isa = PBXGroup;
 			children = (
+				C71441611E8ABE4E008472E6 /* ViewControllers */,
 				198A34781E80D9DF009E2B96 /* Algorithms */,
 				198A34771E80D9DF009E2B96 /* Products */,
 			);
@@ -123,9 +132,9 @@
 			isa = PBXGroup;
 			children = (
 				198A34791E80D9DF009E2B96 /* AppDelegate.swift */,
-				198A347B1E80D9DF009E2B96 /* ViewController.swift */,
 				198A34941E822A13009E2B96 /* LabelColor.swift */,
 				193E459F1E8A207B00A6395C /* ProtocolStep.swift */,
+				C714415A1E8ABBFD008472E6 /* MenuList */,
 				193E45A11E8A4A7B00A6395C /* Manager */,
 				193E459A1E8A01BA00A6395C /* Animation */,
 				19C253F91E8962E8008C614C /* Graph */,
@@ -148,6 +157,25 @@
 				19C253FC1E8963F9008C614C /* Bar.swift */,
 			);
 			name = Graph;
+			sourceTree = "<group>";
+		};
+		C714415A1E8ABBFD008472E6 /* MenuList */ = {
+			isa = PBXGroup;
+			children = (
+				C714415B1E8ABC3B008472E6 /* MenuList.swift */,
+				C714415D1E8ABD51008472E6 /* MainScreen.swift */,
+			);
+			name = MenuList;
+			sourceTree = "<group>";
+		};
+		C71441611E8ABE4E008472E6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				198A347B1E80D9DF009E2B96 /* BubbleSortVC.swift */,
+				C71441621E8AC08C008472E6 /* SelectionSortVC.swift */,
+				C71441641E8AC0FA008472E6 /* InsertionSortVC.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,19 +254,23 @@
 				19C253FD1E8963F9008C614C /* Bar.swift in Sources */,
 				193E45A71E8A5CDA00A6395C /* ManagerSelectionSort.swift in Sources */,
 				198A34931E8176AC009E2B96 /* Graph.swift in Sources */,
+				C71441631E8AC08C008472E6 /* SelectionSortVC.swift in Sources */,
 				198A34BA1E828A5D009E2B96 /* ManagerInsertionSort.swift in Sources */,
 				19C253FB1E89630E008C614C /* BarGraph.swift in Sources */,
-				198A347C1E80D9DF009E2B96 /* ViewController.swift in Sources */,
+				198A347C1E80D9DF009E2B96 /* BubbleSortVC.swift in Sources */,
 				193E45A31E8A5AFD00A6395C /* MergeSort.swift in Sources */,
 				193E459E1E8A025B00A6395C /* AnimationSort.swift in Sources */,
 				198A347A1E80D9DF009E2B96 /* AppDelegate.swift in Sources */,
 				1962B22B1E83E18400012936 /* SortType.swift in Sources */,
 				198A348F1E810906009E2B96 /* AnimationBubbleSelect.swift in Sources */,
 				198A34951E822A13009E2B96 /* LabelColor.swift in Sources */,
+				C714415C1E8ABC3B008472E6 /* MenuList.swift in Sources */,
+				C714415E1E8ABD51008472E6 /* MainScreen.swift in Sources */,
 				193E459C1E8A020E00A6395C /* AnimationInsert.swift in Sources */,
 				1962B22D1E841F3400012936 /* SortingLabel.swift in Sources */,
 				193E45A51E8A5C1200A6395C /* ManagerBubbleSort.swift in Sources */,
 				1962B2321E850BBE00012936 /* InsertionSort.swift in Sources */,
+				C71441651E8AC0FA008472E6 /* InsertionSortVC.swift in Sources */,
 				198A34821E80D9DF009E2B96 /* Algorithms.xcdatamodeld in Sources */,
 				198A34971E826619009E2B96 /* BubbleSort.swift in Sources */,
 				193E45A01E8A207B00A6395C /* ProtocolStep.swift in Sources */,
