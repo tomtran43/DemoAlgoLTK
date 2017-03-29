@@ -11,7 +11,7 @@ import UIKit
 
 class ManagerSelectionSort: UpdateCount {
     
-    var animate: AnimationBubbleSelect!
+    var animate: AnimationSelection!
     var viewcontroller: UIViewController!
     
     internal func updateSwapCount(swapCount: Int) {         //
@@ -100,9 +100,9 @@ class ManagerSelectionSort: UpdateCount {
     @objc func run(sender: UIButton) {
         print(self.arrayAction)
         
-        animate = AnimationBubbleSelect(arrayLabel: self.arrayLabel, arrayLabelMiddle: self.arrayLabelMiddle, arrayLabelAbove: self.arrayLabelAbove, arrayLabelBelow: self.arrayLabelBelow, arrayAction: self.arrayAction)
+        animate = AnimationSelection(arrayLabel: self.arrayLabel, arrayLabelMiddle: self.arrayLabelMiddle, arrayLabelAbove: self.arrayLabelAbove, arrayLabelBelow: self.arrayLabelBelow, arrayAction: self.arrayAction)
        
-        self.animate.delegate = self                //
+        self.animate.delegate = self
         
         animate.loop()
     }

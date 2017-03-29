@@ -25,7 +25,7 @@ class ManagerBubbleSort: UpdateCount {
         
     }
     
-    var animate: AnimationBubbleSelect!
+    var animate: AnimationBubble!
     var viewcontroller: UIViewController!
     
     var arrayInput: [Int]!
@@ -103,7 +103,7 @@ class ManagerBubbleSort: UpdateCount {
     @objc func run(sender: UIButton) {
         print(self.arrayAction)
         
-        animate = AnimationBubbleSelect(arrayLabel: self.arrayLabel, arrayLabelMiddle: self.arrayLabelMiddle, arrayLabelAbove: self.arrayLabelAbove, arrayLabelBelow: self.arrayLabelBelow, arrayAction: self.arrayAction)
+        animate = AnimationBubble(arrayLabel: self.arrayLabel, arrayLabelMiddle: self.arrayLabelMiddle, arrayLabelAbove: self.arrayLabelAbove, arrayLabelBelow: self.arrayLabelBelow, arrayAction: self.arrayAction)
         
         self.animate.delegate = self                      //
         

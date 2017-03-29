@@ -17,13 +17,14 @@
 		1962B22D1E841F3400012936 /* SortingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962B22C1E841F3400012936 /* SortingLabel.swift */; };
 		1962B22F1E84FE5E00012936 /* SelectionSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962B22E1E84FE5E00012936 /* SelectionSort.swift */; };
 		1962B2321E850BBE00012936 /* InsertionSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962B2311E850BBE00012936 /* InsertionSort.swift */; };
+		197A66BF1E8B66AB00CA17F6 /* AnimationSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A66BE1E8B66AB00CA17F6 /* AnimationSelection.swift */; };
 		198A347A1E80D9DF009E2B96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198A34791E80D9DF009E2B96 /* AppDelegate.swift */; };
 		198A347C1E80D9DF009E2B96 /* BubbleSortVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198A347B1E80D9DF009E2B96 /* BubbleSortVC.swift */; };
 		198A347F1E80D9DF009E2B96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 198A347D1E80D9DF009E2B96 /* Main.storyboard */; };
 		198A34821E80D9DF009E2B96 /* Algorithms.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 198A34801E80D9DF009E2B96 /* Algorithms.xcdatamodeld */; };
 		198A34841E80D9DF009E2B96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 198A34831E80D9DF009E2B96 /* Assets.xcassets */; };
 		198A34871E80D9DF009E2B96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 198A34851E80D9DF009E2B96 /* LaunchScreen.storyboard */; };
-		198A348F1E810906009E2B96 /* AnimationBubbleSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198A348E1E810906009E2B96 /* AnimationBubbleSelect.swift */; };
+		198A348F1E810906009E2B96 /* AnimationBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198A348E1E810906009E2B96 /* AnimationBubble.swift */; };
 		198A34931E8176AC009E2B96 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198A34921E8176AC009E2B96 /* Graph.swift */; };
 		198A34951E822A13009E2B96 /* LabelColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198A34941E822A13009E2B96 /* LabelColor.swift */; };
 		198A34971E826619009E2B96 /* BubbleSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198A34961E826619009E2B96 /* BubbleSort.swift */; };
@@ -47,6 +48,7 @@
 		1962B22C1E841F3400012936 /* SortingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortingLabel.swift; sourceTree = "<group>"; };
 		1962B22E1E84FE5E00012936 /* SelectionSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionSort.swift; sourceTree = "<group>"; };
 		1962B2311E850BBE00012936 /* InsertionSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertionSort.swift; sourceTree = "<group>"; };
+		197A66BE1E8B66AB00CA17F6 /* AnimationSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationSelection.swift; sourceTree = "<group>"; };
 		198A34761E80D9DF009E2B96 /* Algorithms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Algorithms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		198A34791E80D9DF009E2B96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		198A347B1E80D9DF009E2B96 /* BubbleSortVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BubbleSortVC.swift; path = Algorithms/BubbleSortVC.swift; sourceTree = "<group>"; };
@@ -55,7 +57,7 @@
 		198A34831E80D9DF009E2B96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		198A34861E80D9DF009E2B96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		198A34881E80D9DF009E2B96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		198A348E1E810906009E2B96 /* AnimationBubbleSelect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationBubbleSelect.swift; sourceTree = "<group>"; };
+		198A348E1E810906009E2B96 /* AnimationBubble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationBubble.swift; sourceTree = "<group>"; };
 		198A34921E8176AC009E2B96 /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		198A34941E822A13009E2B96 /* LabelColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelColor.swift; sourceTree = "<group>"; };
 		198A34961E826619009E2B96 /* BubbleSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleSort.swift; sourceTree = "<group>"; };
@@ -83,7 +85,8 @@
 			isa = PBXGroup;
 			children = (
 				193E459D1E8A025B00A6395C /* AnimationSort.swift */,
-				198A348E1E810906009E2B96 /* AnimationBubbleSelect.swift */,
+				198A348E1E810906009E2B96 /* AnimationBubble.swift */,
+				197A66BE1E8B66AB00CA17F6 /* AnimationSelection.swift */,
 				193E459B1E8A020E00A6395C /* AnimationInsert.swift */,
 			);
 			name = Animation;
@@ -255,6 +258,7 @@
 				193E45A71E8A5CDA00A6395C /* ManagerSelectionSort.swift in Sources */,
 				198A34931E8176AC009E2B96 /* Graph.swift in Sources */,
 				C71441631E8AC08C008472E6 /* SelectionSortVC.swift in Sources */,
+				197A66BF1E8B66AB00CA17F6 /* AnimationSelection.swift in Sources */,
 				198A34BA1E828A5D009E2B96 /* ManagerInsertionSort.swift in Sources */,
 				19C253FB1E89630E008C614C /* BarGraph.swift in Sources */,
 				198A347C1E80D9DF009E2B96 /* BubbleSortVC.swift in Sources */,
@@ -262,7 +266,7 @@
 				193E459E1E8A025B00A6395C /* AnimationSort.swift in Sources */,
 				198A347A1E80D9DF009E2B96 /* AppDelegate.swift in Sources */,
 				1962B22B1E83E18400012936 /* SortType.swift in Sources */,
-				198A348F1E810906009E2B96 /* AnimationBubbleSelect.swift in Sources */,
+				198A348F1E810906009E2B96 /* AnimationBubble.swift in Sources */,
 				198A34951E822A13009E2B96 /* LabelColor.swift in Sources */,
 				C714415C1E8ABC3B008472E6 /* MenuList.swift in Sources */,
 				C714415E1E8ABD51008472E6 /* MainScreen.swift in Sources */,

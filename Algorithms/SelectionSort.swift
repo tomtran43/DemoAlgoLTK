@@ -1,14 +1,12 @@
 //
-//  BubbleSort.swift
+//  Selection.swift
 //  Algorithms
 //
 //  Created by Loc Tran on 3/22/17.
 //  Copyright © 2017 LocTran. All rights reserved.
 //
-
 import Foundation
 import UIKit
-
 class SelectionSort {
     
     var arrayAction = [Step]()
@@ -31,8 +29,12 @@ class SelectionSort {
                 }
             }
             if (i != minAt) {
+                self.arrayAction.append(Step(act: "min", i: i, j: minAt))
                 swap(i: i, j: minAt)
+            }else{
+                self.arrayAction.append(Step(act: "min", i: i, j: minAt))
             }
+            self.arrayAction.append(Step(act: "end", i: i, j: nil))
         }
     }
     

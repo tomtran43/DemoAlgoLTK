@@ -13,6 +13,7 @@ let DEFAULT_COLOR = UIColor.gray
 let COMPARE_COLOR = UIColor.blue
 let SWAP_COLOR = UIColor.red
 let KEY_COLOR = UIColor.green
+let SORT_END = UIColor.cyan
 
 
 let DEFAULT_ALPHA: CGFloat = 0.5
