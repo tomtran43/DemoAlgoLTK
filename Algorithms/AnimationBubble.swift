@@ -43,8 +43,8 @@ class AnimationBubble: AnimationSort {
                 self.arrayLabel[self.currentStep.i].backgroundColor = COMPARE_COLOR
                 self.arrayLabel[self.currentStep.j].backgroundColor = COMPARE_COLOR
                 
-                self.arrayLabel[self.currentStep.i].alpha = ANIMATION_ALPHA
-                self.arrayLabel[self.currentStep.j].alpha = ANIMATION_ALPHA
+                self.arrayLabel[self.currentStep.i].alpha = 0.95
+                self.arrayLabel[self.currentStep.j].alpha = 0.95
             }
             else
             {
@@ -54,8 +54,8 @@ class AnimationBubble: AnimationSort {
                 self.arrayLabel[self.currentStep.i].backgroundColor = SWAP_COLOR
                 self.arrayLabel[self.currentStep.j].backgroundColor = SWAP_COLOR
                 
-                self.arrayLabel[self.currentStep.i].alpha = ANIMATION_ALPHA
-                self.arrayLabel[self.currentStep.j].alpha = ANIMATION_ALPHA
+                self.arrayLabel[self.currentStep.i].alpha = 0.95
+                self.arrayLabel[self.currentStep.j].alpha = 0.95
             }
         }){(finished) in
             if (self.currentStep.act == "compare") {

@@ -29,7 +29,7 @@ class AnimationSelection: AnimationSort {
         UIView.animate(withDuration: TimeInterval(self.timeAnimation), animations: {
             if(self.currentStep.act=="compare"){
                 self.arrayLabel[self.currentStep.j].backgroundColor = COMPARE_COLOR
-                self.arrayLabel[self.currentStep.j].alpha = 1
+                self.arrayLabel[self.currentStep.j].alpha = 0.98
             }else if(self.currentStep.act=="min"){
                 self.arrayLabelBelow[self.currentStep.j].text = "MIN"
                 self.arrayLabelBelow[self.currentStep.j].textAlignment = .center
@@ -38,8 +38,8 @@ class AnimationSelection: AnimationSort {
                 self.arrayLabelBelow[self.currentStep.j].textColor = UIColor(red: 1, green: 20/255, blue: 147/255, alpha: 1)
                 self.arrayLabelBelow[self.currentStep.j].alpha = 0
                 self.arrayLabelBelow[self.currentStep.j].isHidden = false
-                self.arrayLabel[self.currentStep.i].alpha = 1
-                self.arrayLabel[self.currentStep.j].alpha = 1
+                self.arrayLabel[self.currentStep.i].alpha = 0.99
+                self.arrayLabel[self.currentStep.j].alpha = 0.99
             }else if(self.currentStep.act=="swap"){
                 self.arrayLabel[self.currentStep.i].backgroundColor = SWAP_COLOR
                 self.arrayLabel[self.currentStep.j].backgroundColor = SWAP_COLOR
@@ -48,7 +48,7 @@ class AnimationSelection: AnimationSort {
                 self.moveLabel(from: self.arrayLabel[self.currentStep.i], to: self.arrayLabelAbove[self.currentStep.i])
                 self.moveLabel(from: self.arrayLabel[self.currentStep.j], to: self.arrayLabelBelow[self.currentStep.j])
             }else{
-                self.arrayLabel[self.currentStep.i].alpha = 1
+                self.arrayLabel[self.currentStep.i].alpha = 0.99
                 self.arrayLabel[self.currentStep.i].backgroundColor = SORT_END
             }
         }){_ in
@@ -60,7 +60,7 @@ class AnimationSelection: AnimationSort {
                 self.continueAnimation()
             }else
                 if(self.currentStep.act=="compare"){
-                    self.arrayLabel[self.currentStep.j].alpha = 0.99
+                    self.arrayLabel[self.currentStep.j].alpha = 1
                     self.arrayLabel[self.currentStep.j].backgroundColor = DEFAULT_COLOR
                     self.checkTime()
                     self.continueAnimation()
@@ -71,7 +71,7 @@ class AnimationSelection: AnimationSort {
                             self.moveLabel(from: self.arrayLabel[self.currentStep.j], to: self.arrayLabelBelow[self.currentStep.i])
                             
                         }){_ in
-                            UIView.animate(withDuration: 1, animations: {
+                            UIView.animate(withDuration: 0.5, animations: {
                                 self.moveLabel(from: self.arrayLabel[self.currentStep.i], to: self.arrayLabelMiddle[self.currentStep.j])
                                 self.moveLabel(from: self.arrayLabel[self.currentStep.j], to: self.arrayLabelMiddle[self.currentStep.i])
                             }){_ in

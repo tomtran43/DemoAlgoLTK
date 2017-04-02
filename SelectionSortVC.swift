@@ -19,7 +19,7 @@ class SelectionSortVC: UIViewController {
             
             self.managerSort = ManagerSelectionSort()
             self.managerSort.initSortWith(viewcontroller: self, arrayInput: [2,6,4,3,2,7,1])
-            
+            view.backgroundColor = UIColor.white
         }
         
         override func didReceiveMemoryWarning() {

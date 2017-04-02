@@ -26,8 +26,9 @@ class MenuList: NSObject {
         let basic = MenuSection(section: "Sort", menus:[
             Menu(title: "Bubble Sort", viewClass: "BubbleSortVC"),
             Menu(title: "Selection Sort", viewClass: "SelectionSortVC"),
-            Menu(title: "Insertion Sort", viewClass: "InsertionSortVC")
-
+            Menu(title: "Insertion Sort", viewClass: "InsertionSortVC"),
+            Menu(title: "Merge Sort", viewClass: "MergeSortVC")
+            
             ])
         
         let inter = MenuSection(section: "inter", menus:[
