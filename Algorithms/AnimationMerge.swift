@@ -20,7 +20,6 @@ class AnimationMerge:NSObject {
     var arrayLabelFour: [SortingLabel]!
     
     var arrayAction: [StepMerge]!
-    //    var arrayElement: [StepMerge]!
     
     var colSolution = 0
     var currentStep: StepMerge!
@@ -53,13 +52,9 @@ class AnimationMerge:NSObject {
         
         self.arrayAction = arrayAction
         self.graphMerge = graphMerge
-        for a in self.arrayAction{
-            print(a)
-        }
+       
         bodyRect = [UIView]()
         bodyLine = [CALayer]()
-        
-        print("_____________hieu ung Animation_______________________")
         
     }
     func animation(){
@@ -131,9 +126,9 @@ class AnimationMerge:NSObject {
                     // thuc hien ve label xong dung traceMergeThree de danh dau vi tri ve label tiep theo
                     self.traceMergeThree = self.traceMergeThree + 1
                     
-                    
-                    
-                default: break
+                default:
+                    break
+
                 }
                 
             }

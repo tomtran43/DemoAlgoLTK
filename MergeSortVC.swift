@@ -17,7 +17,7 @@ class MergeSortVC: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         self.managerSort = ManagerMergeSort()
-        self.managerSort.initSortWith(viewcontroller: self, arrayInput: [2,6,4,3,2,7,1,0])
+        self.managerSort.initSortWith(viewcontroller: self, arrayInput: [6,4,3,2,7,1,0])
         view.backgroundColor = UIColor.white
         
     }

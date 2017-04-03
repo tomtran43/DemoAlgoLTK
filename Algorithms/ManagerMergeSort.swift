@@ -30,6 +30,8 @@ class ManagerMergeSort {
     
     var ptu:Int!
     
+    var btnStart: UIButton!
+    
     
     func initSortWith(viewcontroller: UIViewController, arrayInput: [Int]) {
         
@@ -91,7 +93,7 @@ class ManagerMergeSort {
     
     func addBtnRun(toView view: UIView) {
         
-        let btnStart = UIButton(frame: CGRect(x: view.bounds.size.width/2-40, y: 130, width: 80, height: 50))
+        btnStart = UIButton(frame: CGRect(x: view.bounds.size.width/2-40, y: 130, width: 80, height: 50))
         btnStart.backgroundColor = UIColor.green.withAlphaComponent(0.5)
         btnStart.setTitleColor(UIColor.white, for: UIControlState.normal)
         btnStart.setTitle("Run", for: .normal)
@@ -101,6 +103,8 @@ class ManagerMergeSort {
     }
     
     @objc func run(sender: UIButton) {
+        
+        btnStart.isUserInteractionEnabled = false
         animate = AnimationMerge(arrayLabel: self.arrayLabel, arrayLabelOne: self.arrayLabelOne, arrayLabelTwo: self.arrayLabelTwo, arrayLabelThree: self.arrayLabelThree, arrayLabelFour: self.arrayLabelFour, arrayAction: self.arrayAction,graphMerge: graph)
         animate.loop()
         
