@@ -63,17 +63,10 @@ class ManagerMergeSort {
                            arrayDisplay: self.arrayDisplay,
                            colors: self.arrayColor)
         
-        //        barGraph = BarGraph(viewcontroller: viewcontroller,
-        //            frame: CGRect(x: 0, y: viewcontroller.view.bounds.size.height/2,
-        //                                          width: viewcontroller.view.bounds.size.width,
-        //                                          height: viewcontroller.view.bounds.size.height),
-        //                            arrayDisplay: self.arrayDisplay,
-        //                            colors: self.arrayColor)
+        
         
         viewcontroller.view.addSubview(graph)
-        
-        //        viewcontroller.view.addSubview(barGraph)
-        
+                
         
         self.arrayLabel = self.graph.arrayLabel
         self.arrayLabelOne = self.graph.arrayLabelOn
