@@ -13,10 +13,22 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var navController: UINavigationController?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+       
+        navController = UINavigationController()
+        let bubbleSortVC: BubbleSortVC = BubbleSortVC()
+        let selectionSortVC: SelectionSortVC = SelectionSortVC()
+        let insertionSortVC: InsertionSortVC = InsertionSortVC()
+        let mergeSortVC: MergeSortVC = MergeSortVC()
+        self.navController!.pushViewController(bubbleSortVC, animated: false)
+        self.navController!.pushViewController(selectionSortVC, animated: false)
+        self.navController!.pushViewController(insertionSortVC, animated: false)
+        self.navController!.pushViewController(mergeSortVC, animated: false)
         self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.rootViewController = navController
         MenuList.boot(window: self.window!)
         self.window?.makeKeyAndVisible()
         return true

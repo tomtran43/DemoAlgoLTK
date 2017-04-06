@@ -74,7 +74,6 @@ class ManagerMergeSort {
         self.arrayLabelThree = self.graph.arrayLabelThree
         self.arrayLabelFour = self.graph.arrayLabelFour
         
-        self.addBtnRun(toView: viewcontroller.view)
     }
     
     func getArrayAction(array: [Int]) -> [StepMerge] {
@@ -84,21 +83,9 @@ class ManagerMergeSort {
         
     }
     
-    func addBtnRun(toView view: UIView) {
-        
-        btnStart = UIButton(frame: CGRect(x: view.bounds.size.width/2-40, y: 130, width: 80, height: 50))
-        btnStart.backgroundColor = UIColor.green.withAlphaComponent(0.5)
-        btnStart.setTitleColor(UIColor.white, for: UIControlState.normal)
-        btnStart.setTitle("Run", for: .normal)
-        btnStart.addTarget(self, action: #selector(run(sender:)), for: .touchUpInside)
-        view.addSubview(btnStart)
-    
-    }
-    
     @objc func run(sender: UIButton) {
         
-        btnStart.isUserInteractionEnabled = false
-        animate = AnimationMerge(arrayLabel: self.arrayLabel, arrayLabelOne: self.arrayLabelOne, arrayLabelTwo: self.arrayLabelTwo, arrayLabelThree: self.arrayLabelThree, arrayLabelFour: self.arrayLabelFour, arrayAction: self.arrayAction,graphMerge: graph)
+        animate = AnimationMerge(arrayLabel: self.arrayLabel, arrayLabelOne: self.arrayLabelOne, arrayLabelTwo: self.arrayLabelTwo, arrayLabelThree: self.arrayLabelThree, arrayLabelFour: self.arrayLabelFour, arrayAction: self.arrayAction, graphMerge: graph)
         animate.loop()
         
     }

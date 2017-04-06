@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelectionSortVC: UIViewController {
+class SelectionSortVC: ViewController {
 
    
         var managerSort: ManagerSelectionSort!
@@ -20,8 +20,18 @@ class SelectionSortVC: UIViewController {
             self.managerSort = ManagerSelectionSort()
             self.managerSort.initSortWith(viewcontroller: self, arrayInput: [2,6,4,3,2,7,1])
             view.backgroundColor = UIColor.white
+            
+            btnRun.addTarget(self.managerSort, action: #selector(managerSort.run(sender:)), for: .touchUpInside)
+            
+            btnInfo.addTarget(self, action: #selector(info(sender:)), for: .touchUpInside)
+            
         }
-        
+    
+    func info(sender:UIButton){
+        let vc = SelectionSortVC()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
         override func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
             // Dispose of any resources that can be recreated.

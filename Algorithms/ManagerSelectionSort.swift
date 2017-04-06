@@ -35,7 +35,6 @@ class ManagerSelectionSort: UpdateCount {
     var arrayLabelBelow: [SortingLabel]!
     
     var graph: Graph!
-    var barGraph: BarGraph!
     var sort: SelectionSort!
     var lblcompareCount: UILabel!               //
     var lblswapCountText: UILabel!              //
@@ -74,7 +73,6 @@ class ManagerSelectionSort: UpdateCount {
         self.arrayLabelBelow = self.graph.arrayLabelBelow
         self.arrayLabelAbove = self.graph.arrayLabelAbove
         
-        self.addBtnRun(toView: viewcontroller.view)
         self.addCompareCount(toView: viewcontroller.view)               //
         self.addSwapCount(toview: viewcontroller.view)                  //
 
@@ -85,16 +83,6 @@ class ManagerSelectionSort: UpdateCount {
         sort = SelectionSort(arrayInput: array)
         return sort.arrayAction
         
-    }
-    
-    func addBtnRun(toView view: UIView) {
-        
-        let btnStart = UIButton(frame: CGRect(x: view.bounds.size.width/2-40, y: 130, width: 80, height: 50))
-        btnStart.backgroundColor = UIColor.green.withAlphaComponent(0.5)
-        btnStart.setTitleColor(UIColor.white, for: UIControlState.normal)
-        btnStart.setTitle("Run", for: .normal)
-        btnStart.addTarget(self, action: #selector(run(sender:)), for: .touchUpInside)
-        view.addSubview(btnStart)
     }
     
     @objc func run(sender: UIButton) {

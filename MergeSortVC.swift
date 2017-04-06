@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MergeSortVC: UIViewController {
+class MergeSortVC: ViewController {
     
     var managerSort: ManagerMergeSort!
     
@@ -17,9 +17,18 @@ class MergeSortVC: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         self.managerSort = ManagerMergeSort()
-        self.managerSort.initSortWith(viewcontroller: self, arrayInput: [6,4,3,2,8,6])
+        self.managerSort.initSortWith(viewcontroller: self, arrayInput: [6,4,3,2,8,6,1])
         view.backgroundColor = UIColor.white
         
+        btnRun.addTarget(self.managerSort, action: #selector(managerSort.run(sender:)), for: .touchUpInside)
+        
+        btnInfo.addTarget(self, action: #selector(info(sender:)), for: .touchUpInside)
+        
+    }
+    
+    func info(sender:UIButton){
+        let vc = SelectionSortVC()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     override func didReceiveMemoryWarning() {

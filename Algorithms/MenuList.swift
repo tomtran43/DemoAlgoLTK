@@ -27,8 +27,9 @@ class MenuList: NSObject {
             Menu(title: "Bubble Sort", viewClass: "BubbleSortVC"),
             Menu(title: "Selection Sort", viewClass: "SelectionSortVC"),
             Menu(title: "Insertion Sort", viewClass: "InsertionSortVC"),
-            Menu(title: "Merge Sort", viewClass: "MergeSortVC")
-            
+            Menu(title: "Merge Sort", viewClass: "MergeSortVC"),
+            Menu(title: "Quick Sort", viewClass: "QuickSortVC")
+
             ])
         
         let inter = MenuSection(section: "inter", menus:[
@@ -43,7 +44,7 @@ class MenuList: NSObject {
         
         let mainScreen = MainScreen(style: UITableViewStyle.grouped)
         mainScreen.menu = [basic, inter, advance]
-        mainScreen.title = "Algorithm App"
+        mainScreen.title = "Algorithms"
         mainScreen.about = "KLTD Team"
         
         let nav = UINavigationController(rootViewController: mainScreen)
