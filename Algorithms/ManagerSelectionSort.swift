@@ -73,8 +73,8 @@ class ManagerSelectionSort: UpdateCount {
         self.arrayLabelBelow = self.graph.arrayLabelBelow
         self.arrayLabelAbove = self.graph.arrayLabelAbove
         
-        self.addCompareCount(toView: viewcontroller.view)               //
-        self.addSwapCount(toview: viewcontroller.view)                  //
+        self.addCompareCount(toView: viewcontroller.view)               
+        self.addSwapCount(toview: viewcontroller.view)
 
     }
     
@@ -86,7 +86,6 @@ class ManagerSelectionSort: UpdateCount {
     }
     
     @objc func run(sender: UIButton) {
-        print(self.arrayAction)
         
         animate = AnimationSelection(arrayLabel: self.arrayLabel, arrayLabelMiddle: self.arrayLabelMiddle, arrayLabelAbove: self.arrayLabelAbove, arrayLabelBelow: self.arrayLabelBelow, arrayAction: self.arrayAction)
        

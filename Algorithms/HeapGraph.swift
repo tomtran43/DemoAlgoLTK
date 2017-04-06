@@ -1,22 +1,24 @@
 //
-//  Graph.swift
+//  HeapGraph.swift
 //  Algorithms
 //
-//  Created by Loc Tran on 3/21/17.
+//  Created by Loc Tran on 4/6/17.
 //  Copyright © 2017 LocTran. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class MergeGraph: UILabel {
+class HeapGraph: UILabel {
     
     let widthRatio = 2
     var arrayLabel: [SortingLabel]!
+    var arrayLabelBehind: [SortingLabel]!
     var arrayLabelOne: [SortingLabel]!
     var arrayLabelTwo: [SortingLabel]!
     var arrayLabelThree: [SortingLabel]!
-    var arrayLabelFour: [SortingLabel]!
+    
+    var arrayPosition: [SortingLabel]!
     
     required init?(coder aDecoder: NSCoder) {
         fatalError(".....")
@@ -26,11 +28,13 @@ class MergeGraph: UILabel {
         super.init(frame: frame)
         
         self.arrayLabel = [SortingLabel]()
+        self.arrayLabelBehind = [SortingLabel]()
         self.arrayLabelOne = [SortingLabel]()
         self.arrayLabelTwo = [SortingLabel]()
         self.arrayLabelThree = [SortingLabel]()
-        self.arrayLabelFour = [SortingLabel]()
+        
         self.drawGraph(arrayDisplay: arrayDisplay, colors: colors)
+        
     }
     
     private func drawGraph(arrayDisplay: [Int], colors: [UIColor]) {
@@ -50,50 +54,56 @@ class MergeGraph: UILabel {
                                             color: colors[index],
                                             value: String(arrayDisplay[index]))
             
-            let FloorOne = SortingLabel(frame: CGRect(x: x, y: 100,
+            let FloorBehind = SortingLabel(frame: CGRect(x: x, y: 100,
                                                       width: rectSize, height: rectSize),
                                         color: DEFAULT_COLOR,
                                         value: "0")
             
-            FloorOne.isHidden = true
+            FloorBehind.isHidden = true
+            yFloor = FloorBehind.frame.origin.y + rectSize*2 + spacing
+            
+            let FloorOne = SortingLabel(frame: CGRect(x: x, y: yFloor,
+                                                      width: rectSize, height: rectSize),
+                                        color: DEFAULT_COLOR,
+                                        value: "0")
+            
+//            FloorOne.isHidden = true
             yFloor = FloorOne.frame.origin.y + rectSize*2 + spacing
             
             let FloorTwo = SortingLabel(frame: CGRect(x: x, y: yFloor,
-                                                      width: rectSize, height: rectSize),
-                                        color: DEFAULT_COLOR,
-                                        value: "0")
-            
-            FloorTwo.isHidden = true
+                                                        width: rectSize, height: rectSize),
+                                          color: DEFAULT_COLOR,
+                                          value: "0")
+//            FloorTwo.isHidden = true
             yFloor = FloorTwo.frame.origin.y + rectSize*2 + spacing
             
             let FloorThree = SortingLabel(frame: CGRect(x: x, y: yFloor,
-                                                        width: rectSize, height: rectSize),
-                                          color: colors[index],
-                                          value: String(arrayDisplay[index]))
-            FloorThree.isHidden = true
-            
-            yFloor = FloorThree.frame.origin.y + rectSize*2 + spacing
-            
-            let FloorFour = SortingLabel(frame: CGRect(x: x, y: yFloor,
                                                        width: rectSize, height: rectSize),
-                                         color: colors[index],
-                                         value: String(arrayDisplay[index]))
-            FloorFour.isHidden = true
+                                         color: DEFAULT_COLOR,
+                                         value: "0")
+//            FloorThree.isHidden = true
             
             
             self.arrayLabel.append(sortingLabel)
-            self.arrayLabelOne.append(FloorOne)
-            self.arrayLabelTwo.append(FloorTwo)
-            self.arrayLabelThree.append(FloorThree)
-            self.arrayLabelFour.append(FloorFour)
+            self.arrayLabelOne.append(FloorBehind)
+            self.arrayLabelTwo.append(FloorOne)
+            self.arrayLabelThree.append(FloorTwo)
+            self.arrayLabelBehind.append(FloorThree)
             
+            for index in arrayLabel {
+                
+                
+            }
+            
+            self.addSubview(FloorBehind)
             self.addSubview(FloorOne)
             self.addSubview(FloorTwo)
             self.addSubview(FloorThree)
-            self.addSubview(FloorFour)
             self.insertSubview(sortingLabel, at: 1)
             
             x = x + spacing + rectSize
         }
     }
+    
+    
 }

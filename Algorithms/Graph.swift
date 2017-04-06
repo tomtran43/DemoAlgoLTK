@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 
+//Used by BubbleSort, SelectionSort, InsertionSort
+
 class Graph: UILabel {
       
     let widthRatio = 2

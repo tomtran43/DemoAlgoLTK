@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class QuickGraph: UIView {
+class QuickGraph: UILabel {
 
     let widthRatio = 2
     var arrayLabel: [SortingLabel]!
@@ -43,7 +43,6 @@ class QuickGraph: UIView {
         for index in 0..<ptu {
 
             if(index > 0 && index < ptu-1){
-                print("index: \(index)")
                 let sortingLabel = SortingLabel(frame: CGRect(x: x, y: 0,
                                                               width: rectSize, height: rectSize),
                                                 color: colors[index-1],
@@ -70,12 +69,10 @@ class QuickGraph: UIView {
                                          value: "0")
             labelMark.isHidden = true
 
-//            self.arrayLabel.append(sortingLabel)
             self.arrayLabelMiddle.append(labelMiddle)
             self.arrayLabelAbove.append(labelAbove)
             self.arrayLabelMark.append(labelMark)
 
-//            self.addSubview(sortingLabel)
             self.addSubview(labelMiddle)
             self.addSubview(labelAbove)
             self.addSubview(labelMark)
@@ -83,26 +80,13 @@ class QuickGraph: UIView {
             x = x + spacing + rectSize
         }
     }
-    /*
-     func actionTrace(){
-     var label = drawConverge()
-     var la = drawMark(textLR: "R")
-     la.center = self.arrayLabelMark[5].center
-     label.center = self.arrayLabelMark[2].center
-
-     self.addSubview(label)
-     self.addSubview(la)
-     var a = drawBrace(bearing: 0, countCell: 5)
-     drawBrace(bearing: 2, countCell: 4)
-     a.removeFromSuperlayer()
-     }
-     */
+    
     func drawBrace(bearing: Int,countCell: Int)->CALayer{
 
-        var bearingPoin = CGPoint(x: self.arrayLabelMark[bearing].frame.origin.x, y: self.arrayLabelMark[bearing].frame.origin.y+RECTSIZE+10)
-        var line = CAShapeLayer()
-        var linePath = UIBezierPath()
-        var lengthLine = CGFloat(countCell)*RECTSIZE + CGFloat(countCell-1)*SPACING
+        let bearingPoin = CGPoint(x: self.arrayLabelMark[bearing].frame.origin.x, y: self.arrayLabelMark[bearing].frame.origin.y+RECTSIZE+10)
+        let line = CAShapeLayer()
+        let linePath = UIBezierPath()
+        let lengthLine = CGFloat(countCell)*RECTSIZE + CGFloat(countCell-1)*SPACING
         linePath.move(to: CGPoint(x: bearingPoin.x-10, y: bearingPoin.y-10))
         linePath.addLine(to: CGPoint(x: bearingPoin.x, y: bearingPoin.y))
         linePath.move(to: CGPoint(x: bearingPoin.x, y: bearingPoin.y))
@@ -120,11 +104,11 @@ class QuickGraph: UIView {
     }
     func drawMark(textLR: String)->UILabel{
 
-        var widthMark = RECTSIZE - 2*5
-        var heightMark = RECTSIZE - 5
-        var label = UILabel(frame: CGRect(x: 0, y: 0, width: widthMark, height: heightMark))
-        var line = CAShapeLayer()
-        var linePath = UIBezierPath()
+        let widthMark = RECTSIZE - 2*5
+        let heightMark = RECTSIZE - 5
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: widthMark, height: heightMark))
+        let line = CAShapeLayer()
+        let linePath = UIBezierPath()
         linePath.move(to: CGPoint(x: widthMark/2, y: 0))
         linePath.addLine(to: CGPoint(x: 0, y: 1/3*heightMark))
         linePath.addLine(to: CGPoint(x: 0, y: heightMark))
@@ -158,13 +142,14 @@ class QuickGraph: UIView {
 
     }
     func drawConverge()->UILabel{
-        var widthMark = 2*RECTSIZE*2/5
+        
+        let widthMark = 2*RECTSIZE*2/5
 
-        var heightMark = RECTSIZE - 10
-        var label = UILabel(frame: CGRect(x: 0, y: 0, width: widthMark, height: heightMark))
-        var line = CAShapeLayer()
-        var linePath = UIBezierPath()
-        var pointOrigin = widthMark/2
+        let heightMark = RECTSIZE - 10
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: widthMark, height: heightMark))
+        let line = CAShapeLayer()
+        let linePath = UIBezierPath()
+        let pointOrigin = widthMark/2
         linePath.move(to: CGPoint(x: pointOrigin-2, y: 0))
         linePath.addLine(to: CGPoint(x: 0, y: 1/3*heightMark))
         linePath.addLine(to: CGPoint(x: 0, y: heightMark))
@@ -180,7 +165,6 @@ class QuickGraph: UIView {
         line.path = linePath.cgPath
         label.backgroundColor = GOLD_COLOR
         label.layer.mask = line
-        print("\(label.frame.origin.x)")
 
         return label
 

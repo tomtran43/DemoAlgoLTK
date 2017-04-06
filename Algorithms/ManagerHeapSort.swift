@@ -1,32 +1,32 @@
 //
-//  ManagerSort.swift
+//  ManagerHeapSort.swift
 //  Algorithms
 //
-//  Created by Loc Tran on 3/22/17.
+//  Created by Loc Tran on 4/6/17.
 //  Copyright © 2017 LocTran. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class ManagerMergeSort {
+class ManagerHeapSort {
     
-    var animate: AnimationMerge!
+    var animate: AnimationHeap!
     var viewcontroller: UIViewController!
     
     var arrayInput: [Int]!
-    var arrayAction: [MergeStep]!
+    var arrayAction: [HeapStep]!
     var arrayDisplay: [Int]!
     var arrayColor: [UIColor]!
     
     var arrayLabel: [SortingLabel]!
+    var arrayLabelBehind: [SortingLabel]!
     var arrayLabelOne: [SortingLabel]!
     var arrayLabelTwo: [SortingLabel]!
     var arrayLabelThree: [SortingLabel]!
-    var arrayLabelFour: [SortingLabel]!
     
-    var graph: MergeGraph!
-    var sort: MergeSort!
+    var graph: HeapGraph!
+    var sort: HeapSort!
     
     var ptu:Int!
     
@@ -44,7 +44,7 @@ class ManagerMergeSort {
         self.arrayLabelOne = []
         self.arrayLabelTwo = []
         self.arrayLabelThree = []
-        self.arrayLabelFour = []
+        self.arrayLabelBehind = []
         
         self.arrayColor = []
         if arrayInput.count%2 != 0  {
@@ -57,7 +57,7 @@ class ManagerMergeSort {
             self.arrayColor.append(SWAP_COLOR)
         }
         
-        graph = MergeGraph(frame: CGRect(x: 0, y: 100,
+        graph = HeapGraph(frame: CGRect(x: 0, y: 100,
                                          width: viewcontroller.view.bounds.size.width,
                                          height: viewcontroller.view.bounds.size.height),
                            arrayDisplay: self.arrayDisplay,
@@ -66,27 +66,29 @@ class ManagerMergeSort {
         
         
         viewcontroller.view.addSubview(graph)
-                
+        
         
         self.arrayLabel = self.graph.arrayLabel
         self.arrayLabelOne = self.graph.arrayLabelOne
         self.arrayLabelTwo = self.graph.arrayLabelTwo
         self.arrayLabelThree = self.graph.arrayLabelThree
-        self.arrayLabelFour = self.graph.arrayLabelFour
+        self.arrayLabelBehind = self.graph.arrayLabelBehind
         
     }
     
-    func getArrayAction(array: [Int]) -> [MergeStep] {
+    func getArrayAction(array: [Int]) -> [HeapStep] {
         
-        sort = MergeSort(arrayInput: array)
-        return sort.arrayElement
+        sort = HeapSort(arrayInput: array)
+        return sort.actionArray
         
     }
     
     @objc func run(sender: UIButton) {
         
-        animate = AnimationMerge(arrayLabel: self.arrayLabel, arrayLabelOne: self.arrayLabelOne, arrayLabelTwo: self.arrayLabelTwo, arrayLabelThree: self.arrayLabelThree, arrayLabelFour: self.arrayLabelFour, arrayAction: self.arrayAction, graphMerge: graph)
+        animate = AnimationHeap(arrayLabel: self.arrayLabel,  arrayLabelBehind: self.arrayLabelBehind, arrayLabelOne: self.arrayLabelOne, arrayLabelTwo: self.arrayLabelTwo, arrayLabelThree: self.arrayLabelThree, arrayAction: self.arrayAction, graphHeap: graph)
         animate.loop()
         
     }
+
+    
 }

@@ -67,7 +67,7 @@ class AnimationQuick {
 
     }
     func iniPosition_Mark(currentStep: QuickStep){
-        var point = self.arrayLabelAbove[self.currentStep.pivot+1].center
+        let point = self.arrayLabelAbove[self.currentStep.pivot+1].center
         tracePivot.center = CGPoint(x: point.x, y: point.y+15)
         traceLeft.center = self.arrayLabelMark[self.currentStep.left+1].center
         traceRight.center = self.arrayLabelMark[self.currentStep.right+1].center
@@ -77,7 +77,6 @@ class AnimationQuick {
     func animation() {
 
         UIView.animate(withDuration: 1, animations: {
-            print("trang thai: \(self.currentStep.act)")
             if(self.currentStep.act=="newPivot"){
 
                 if(self.colSolution>0){
@@ -154,13 +153,11 @@ class AnimationQuick {
                 self.continueAnimation()
             }else if(self.currentStep.act=="swap"){
                 UIView.animate(withDuration: 0.5, animations: {
-                    print("goi vao swap")
                     self.setPivot(traceLabel: self.tracePivot, _setPivot: self.currentStep.pivot)
                     self.swapLabel(i: self.currentStep.left, j: self.currentStep.right)
                     
                 }){_ in
                     UIView.animate(withDuration: 1, animations: {
-                        print("goi vao ha xuong")
                         self.arrayLabel[self.currentStep.left].center = self.arrayLabelMiddle[self.currentStep.left+1].center
                         self.arrayLabel[self.currentStep.right].center = self.arrayLabelMiddle[self.currentStep.right+1].center
                     }){_ in
@@ -187,10 +184,10 @@ class AnimationQuick {
     }
 
     func swapLabel(i: Int, j: Int){
-        var temp = self.arrayLabel[i].center
+        let temp = self.arrayLabel[i].center
         self.arrayLabel[i].center = self.arrayLabel[j].center
         self.arrayLabel[j].center = temp
-        var _temp = self.arrayLabel[i]
+        let _temp = self.arrayLabel[i]
         self.arrayLabel[i] = self.arrayLabel[j]
         self.arrayLabel[j] = _temp
         
@@ -198,7 +195,7 @@ class AnimationQuick {
 
 
     func setPivot(traceLabel: UILabel,_setPivot: Int){
-        var point = self.arrayLabelAbove[_setPivot+1].center
+        let point = self.arrayLabelAbove[_setPivot+1].center
         traceLabel.center = CGPoint(x: point.x, y: point.y+15)
     }
     func setPosition(traceLabel: UILabel,_setPosition: Int){
@@ -218,7 +215,7 @@ class AnimationQuick {
         self.animation()
     }
     func removeSuperTrace(){
-        var label = self.arrayLabel[self.arrayAction[self.colSolution-1].pivot]
+        let label = self.arrayLabel[self.arrayAction[self.colSolution-1].pivot]
         label.alpha = DEFAULT_ALPHA
         self.traceLeft.isHidden = true
         self.traceRight.isHidden = true
@@ -228,10 +225,8 @@ class AnimationQuick {
 
 
     func loop(){
-        print("goi vao loop")
         currentStep = self.arrayAction[self.colSolution]
         animation()
-//        self.traceLeft.center = self.arrayLabelMark[2].center
 
     }
     

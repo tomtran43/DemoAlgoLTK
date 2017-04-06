@@ -72,8 +72,8 @@ class ManagerInsertionSort: UpdateCount {
         self.arrayLabelBelow = self.graph.arrayLabelBelow
         self.arrayLabelAbove = self.graph.arrayLabelAbove
         
-        self.addCompareCount(toView: viewcontroller.view)               //
-        self.addSwapCount(toview: viewcontroller.view)                  //
+        self.addCompareCount(toView: viewcontroller.view)               
+        self.addSwapCount(toview: viewcontroller.view)
     }
     
     func getArrayAction(array: [Int]) -> [InsertStep] {
@@ -84,7 +84,6 @@ class ManagerInsertionSort: UpdateCount {
     }
     
     @objc func run(sender: UIButton) {
-        print(self.arrayAction)
         
         animate = AnimationInsert(arrayLabel: self.arrayLabel, arrayLabelMiddle: self.arrayLabelMiddle, arrayLabelAbove: self.arrayLabelAbove, arrayLabelBelow: self.arrayLabelBelow, arrayAction: self.arrayAction)
         self.animate.delegate = self                      //

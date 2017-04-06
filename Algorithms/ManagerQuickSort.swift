@@ -37,7 +37,6 @@ class ManagerQuickSort{
         self.arrayAction = getArrayAction(array: arrayInput)
         var  ele = 0
         for action in self.arrayAction{
-            print("Step : \(ele)  \(action)")
             ele  = ele + 1
         }
         
@@ -75,9 +74,7 @@ class ManagerQuickSort{
     }
     
     @objc func run(sender: UIButton) {
-        
-        print("runQuick")
-        
+                
         animate = AnimationQuick(arrayLabel: self.arrayLabel, arrayLabelMiddle: self.arrayLabelMiddle, arrayLabelAbove: self.arrayLabelAbove, arrayLabelMark: self.arrayLabelMark, arrayAction: self.arrayAction, graph: self.quickGraph)
         animate.loop()
         

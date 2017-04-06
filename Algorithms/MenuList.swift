@@ -28,7 +28,8 @@ class MenuList: NSObject {
             Menu(title: "Selection Sort", viewClass: "SelectionSortVC"),
             Menu(title: "Insertion Sort", viewClass: "InsertionSortVC"),
             Menu(title: "Merge Sort", viewClass: "MergeSortVC"),
-            Menu(title: "Quick Sort", viewClass: "QuickSortVC")
+            Menu(title: "Quick Sort", viewClass: "QuickSortVC"),
+            Menu(title: "Heap Sort", viewClass: "HeapSortVC")
 
             ])
         

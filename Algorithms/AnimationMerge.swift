@@ -19,11 +19,12 @@ class AnimationMerge:NSObject {
     var arrayLabelThree: [SortingLabel]!
     var arrayLabelFour: [SortingLabel]!
     
-    var arrayAction: [StepMerge]!
+    var arrayAction: [MergeStep]!
     
     var colSolution = 0
-    var currentStep: StepMerge!
+    var currentStep: MergeStep!
     var graphMerge: MergeGraph!
+    
     var traceLevelTwo = 0
     var traceLevelThree = 0
     var traceLevelFour = 0
@@ -42,7 +43,7 @@ class AnimationMerge:NSObject {
     
     
     
-    init(arrayLabel:[SortingLabel] , arrayLabelOne: [SortingLabel], arrayLabelTwo: [SortingLabel], arrayLabelThree: [SortingLabel],arrayLabelFour: [SortingLabel], arrayAction: [StepMerge],graphMerge: MergeGraph){
+    init(arrayLabel:[SortingLabel] , arrayLabelOne: [SortingLabel], arrayLabelTwo: [SortingLabel], arrayLabelThree: [SortingLabel],arrayLabelFour: [SortingLabel], arrayAction: [MergeStep],graphMerge: MergeGraph){
         
         self.arrayLabel = arrayLabel
         self.arrayLabelOne = arrayLabelOne
@@ -57,6 +58,7 @@ class AnimationMerge:NSObject {
         bodyLine = [CALayer]()
         
     }
+    
     func animation(){
         UIView.animate(withDuration: 1, animations: {
             if(self.currentStep.act=="eleSplit"){

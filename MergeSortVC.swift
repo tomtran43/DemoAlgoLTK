@@ -1,5 +1,5 @@
 //
-//  InsertionSortVC.swift
+//  MergeSortVC.swift
 //  Algorithms
 //
 //  Created by TTung on 3/28/17.
@@ -27,7 +27,7 @@ class MergeSortVC: ViewController {
     }
     
     func info(sender:UIButton){
-        let vc = SelectionSortVC()
+        let vc = MergeSortVC()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

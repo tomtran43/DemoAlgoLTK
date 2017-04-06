@@ -6,19 +6,14 @@
 //  Copyright © 2017 LocTran. All rights reserved.
 //
 import UIKit
-struct QuickStep {
-    var act: String!
-    var left: Int!
-    var right: Int!
-    var pivot: Int!
-    var array:[Int]!
+import Foundation
 
-}
 class QuickSort {
 
     var actionArray = [QuickStep]()
     var arrayInput: [Int]!
-    init(arrayInput:[Int] ){
+    
+    init(arrayInput:[Int]) {
         self.arrayInput = arrayInput
         var arr = arrayInput
         // kieu inout la kieu tro doi tuong nen phai de kieu var arr chu khong de let arr

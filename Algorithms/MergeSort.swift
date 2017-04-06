@@ -7,29 +7,17 @@
 //
 
 import UIKit
-struct StepMerge{
-    var act: String!
-    var root: [Int]!
-    var left: [Int]!
-    var right: [Int]!
-    var level:Int!
-    
-    var stepSplit: Int!
-    var relation: Bool!
-    
-    var merge: [Int]!
-    
-    
-}
+import Foundation
+
 class MergeSort{
-    var arrayAction: [StepMerge]!
-    var arrayElement: [StepMerge]!
+    var arrayAction: [MergeStep]!
+    var arrayElement: [MergeStep]!
     var eleInitital: [Int]!
     
     init(arrayInput:[Int] ) {
         
-        arrayAction = [StepMerge]()
-        arrayElement = [StepMerge]()
+        arrayAction = [MergeStep]()
+        arrayElement = [MergeStep]()
         eleInitital = [Int]()
         for i in 0..<arrayInput.count{
             eleInitital.append(i)
@@ -50,7 +38,7 @@ class MergeSort{
         
         // Compare the elements and add them to the sorted array *in order*
         // so sanh 2 phan tu trong left and right neu phan tu nao be hon thi xep truoc
-        self.arrayElement.append(StepMerge(act: "eleMerge", root: leftArray + rightArray, left: leftArray, right: rightArray, level: currentLevel,stepSplit: _stepSplit,relation: nil, merge: nil))
+        self.arrayElement.append(MergeStep(act: "eleMerge", root: leftArray + rightArray, left: leftArray, right: rightArray, level: currentLevel,stepSplit: _stepSplit,relation: nil, merge: nil))
         
         
         while leftIndex < leftArray.count && rightIndex < rightArray.count {
@@ -87,7 +75,7 @@ class MergeSort{
         _eleArray = [Int]()
         _eleArray = self.sortElement(arr: self.arrayAction[_stepSplit].left + self.arrayAction[_stepSplit].right, _stepSplit: _stepSplit)
         self.arrayElement[self.arrayElement.count-1].merge = _eleArray
-        self.arrayAction.append(StepMerge(act: "Merge", root: leftArray + rightArray, left: leftArray, right: rightArray, level: currentLevel,stepSplit: _stepSplit,relation: nil, merge: sortedArray))
+        self.arrayAction.append(MergeStep(act: "Merge", root: leftArray + rightArray, left: leftArray, right: rightArray, level: currentLevel,stepSplit: _stepSplit,relation: nil, merge: sortedArray))
         
         return sortedArray
     }
@@ -156,8 +144,8 @@ class MergeSort{
         
         
         
-        self.arrayAction.append(StepMerge(act: "Split", root: array, left: Array(array[0..<middleIndex]), right: Array(array[middleIndex..<array.count]), level: currentLevel,stepSplit: nil,relation: false, merge: nil))
-        self.arrayElement.append(StepMerge(act: "eleSplit", root: nil, left: Array(eleArray[0..<middleIndex]), right: Array(eleArray[middleIndex..<array.count]), level: currentLevel,stepSplit: nil,relation: nil, merge: self.getElement(eL: 0, eR: array.count,eleArray: eleArray)))
+        self.arrayAction.append(MergeStep(act: "Split", root: array, left: Array(array[0..<middleIndex]), right: Array(array[middleIndex..<array.count]), level: currentLevel,stepSplit: nil,relation: false, merge: nil))
+        self.arrayElement.append(MergeStep(act: "eleSplit", root: nil, left: Array(eleArray[0..<middleIndex]), right: Array(eleArray[middleIndex..<array.count]), level: currentLevel,stepSplit: nil,relation: nil, merge: self.getElement(eL: 0, eR: array.count,eleArray: eleArray)))
         
         
         let leftArray = mergeSort(array: Array(array[0..<middleIndex]),eleArray: Array(eleArray[0..<middleIndex]),level: currentLevel+1,isLeft: true)
