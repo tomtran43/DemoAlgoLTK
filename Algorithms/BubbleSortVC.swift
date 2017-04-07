@@ -23,6 +23,8 @@ class BubbleSortVC: ViewController {
         
         btnRun.addTarget(self.managerSort, action: #selector(managerSort.run(sender:)), for: .touchUpInside)
         
+        btnStep.addTarget(self.managerSort, action: #selector(managerSort.step(sender:)), for: .touchUpInside)
+        
         btnInfo.addTarget(self, action: #selector(info(sender:)), for: .touchUpInside)
     }
     
@@ -30,7 +32,8 @@ class BubbleSortVC: ViewController {
         let vc = SelectionSortVC()
         self.navigationController?.pushViewController(vc, animated: true)
     }
-
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -1,5 +1,5 @@
 //
-//  ManagerSort.swift
+//  ManagerInsertionSort.swift
 //  Algorithms
 //
 //  Created by Loc Tran on 3/22/17.
@@ -11,17 +11,17 @@ import UIKit
 
 class ManagerInsertionSort: UpdateCount {
     
-    internal func updateSwapCount(swapCount: Int) {         //
+    internal func updateSwapCount(swapCount: Int) {
         lblswapCountText.text = "Swap: \(swapCount)"
     }
     
-    internal func updateCompareCount(compareCount: Int) {           //
+    internal func updateCompareCount(compareCount: Int) {
         lblcompareCount.text = "Compare: \(compareCount)"
         
     }
     
     
-    var animate: AnimationInsert!
+    var animate: AnimationInsertion!
     var viewcontroller: UIViewController!
     
     var arrayInput: [Int]!
@@ -36,8 +36,8 @@ class ManagerInsertionSort: UpdateCount {
     
     var graph: Graph!
     var sort: InsertionSort!
-    var lblcompareCount: UILabel!               //
-    var lblswapCountText: UILabel!              //
+    var lblcompareCount: UILabel!
+    var lblswapCountText: UILabel!
     
     func initSortWith(viewcontroller: UIViewController, arrayInput: [Int]) {
         
@@ -85,19 +85,19 @@ class ManagerInsertionSort: UpdateCount {
     
     @objc func run(sender: UIButton) {
         
-        animate = AnimationInsert(arrayLabel: self.arrayLabel, arrayLabelMiddle: self.arrayLabelMiddle, arrayLabelAbove: self.arrayLabelAbove, arrayLabelBelow: self.arrayLabelBelow, arrayAction: self.arrayAction)
-        self.animate.delegate = self                      //
+        animate = AnimationInsertion(arrayLabel: self.arrayLabel, arrayLabelMiddle: self.arrayLabelMiddle, arrayLabelAbove: self.arrayLabelAbove, arrayLabelBelow: self.arrayLabelBelow, arrayAction: self.arrayAction)
+        self.animate.delegate = self
         
         animate.loop()
     }
     
-    func addCompareCount(toView view:UIView){               //
+    func addCompareCount(toView view:UIView){
         lblcompareCount = UILabel(frame:CGRect(x: view.bounds.size.width/2 - 160, y: view.bounds.size.height - 200, width: 100, height: 50))
         lblcompareCount.text = "Compare: 0"
         view.addSubview(lblcompareCount)
         
     }
-    func addSwapCount(toview view: UIView){                 //
+    func addSwapCount(toview view: UIView){
         lblswapCountText = UILabel(frame: CGRect(x: view.bounds.size.width/2 + 60, y: view.bounds.size.height - 200, width: 100, height: 50))
         lblswapCountText.text = "Swap: 0"
         view.addSubview(lblswapCountText)

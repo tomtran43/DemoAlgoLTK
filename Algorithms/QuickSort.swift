@@ -40,7 +40,7 @@ class QuickSort {
         var j = right
         var tmp: Int
 
-        var pivotLocation = random(min: left, max: right)
+        var pivotLocation = (left + right)/2
         let pivot = arr[pivotLocation]
 
         actionArray.append(QuickStep(act: "newPivot", left: i, right: j, pivot: pivotLocation, array: arr))

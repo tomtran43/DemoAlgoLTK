@@ -21,14 +21,11 @@ class ManagerHeapSort {
     
     var arrayLabel: [SortingLabel]!
     var arrayLabelBehind: [SortingLabel]!
-    var arrayLabelOne: [SortingLabel]!
-    var arrayLabelTwo: [SortingLabel]!
-    var arrayLabelThree: [SortingLabel]!
+    
+    var arrayPosition: [SortingLabel]!
     
     var graph: HeapGraph!
     var sort: HeapSort!
-    
-    var ptu:Int!
     
     var btnStart: UIButton!
     
@@ -41,20 +38,13 @@ class ManagerHeapSort {
         self.arrayAction = getArrayAction(array: arrayInput)
         
         self.arrayDisplay = []
-        self.arrayLabelOne = []
-        self.arrayLabelTwo = []
-        self.arrayLabelThree = []
         self.arrayLabelBehind = []
         
         self.arrayColor = []
-        if arrayInput.count%2 != 0  {
-            ptu = arrayInput.count + 1
-            
-        }
         
         for index in 0..<self.arrayInput.count {
             self.arrayDisplay.append(arrayInput[index])
-            self.arrayColor.append(SWAP_COLOR)
+            self.arrayColor.append(DEFAULT_COLOR)
         }
         
         graph = HeapGraph(frame: CGRect(x: 0, y: 100,
@@ -69,10 +59,11 @@ class ManagerHeapSort {
         
         
         self.arrayLabel = self.graph.arrayLabel
-        self.arrayLabelOne = self.graph.arrayLabelOne
-        self.arrayLabelTwo = self.graph.arrayLabelTwo
-        self.arrayLabelThree = self.graph.arrayLabelThree
         self.arrayLabelBehind = self.graph.arrayLabelBehind
+        self.arrayPosition = self.graph.arrayPosition
+        
+        print(self.arrayAction)
+        
         
     }
     
@@ -85,7 +76,7 @@ class ManagerHeapSort {
     
     @objc func run(sender: UIButton) {
         
-        animate = AnimationHeap(arrayLabel: self.arrayLabel,  arrayLabelBehind: self.arrayLabelBehind, arrayLabelOne: self.arrayLabelOne, arrayLabelTwo: self.arrayLabelTwo, arrayLabelThree: self.arrayLabelThree, arrayAction: self.arrayAction, graphHeap: graph)
+        animate = AnimationHeap(arrayLabel: self.arrayLabel,  arrayLabelBehind: self.arrayLabelBehind, arrayPosition: self.arrayPosition, arrayAction: self.arrayAction, graphHeap: graph)
         animate.loop()
         
     }

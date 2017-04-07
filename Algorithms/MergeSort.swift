@@ -22,7 +22,7 @@ class MergeSort{
         for i in 0..<arrayInput.count{
             eleInitital.append(i)
         }
-        self.mergeSort(array: arrayInput, eleArray: eleInitital, level: 2, isLeft: true)
+        mergeSort(array: arrayInput, eleArray: eleInitital, level: 2, isLeft: true)
         
     }
     

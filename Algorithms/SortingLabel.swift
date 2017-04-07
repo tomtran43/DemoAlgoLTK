@@ -1,5 +1,5 @@
 //
-//  Cell.swift
+//  SortingLabel.swift
 //  Algorithms
 //
 //  Created by Loc Tran on 3/23/17.

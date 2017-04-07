@@ -1,5 +1,5 @@
 //
-//  AnimationSort.swift
+//  AnimationSelection.swift
 //  Algorithms
 //
 //  Created by Loc Tran on 3/21/17.
@@ -7,24 +7,32 @@
 //
 import Foundation
 import UIKit
-class AnimationSelection: AnimationSort {
+class AnimationSelection {
+    
+    
     var delegate: UpdateCount!
     var arrayAction: [Step]!
     var colSolution = 0
     var currentStep = Step()
     var timeAnimation = 1
+    
+    var arrayLabel: [SortingLabel]!
+    var arrayLabelAbove: [SortingLabel]!
+    var arrayLabelMiddle: [SortingLabel]!
+    var arrayLabelBelow: [SortingLabel]!
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     init(arrayLabel:[SortingLabel] , arrayLabelMiddle: [SortingLabel], arrayLabelAbove: [SortingLabel], arrayLabelBelow: [SortingLabel], arrayAction: [Step]){
-        super.init()
+        
         self.arrayAction = arrayAction
         self.arrayLabel = arrayLabel
         self.arrayLabelAbove = arrayLabelAbove
         self.arrayLabelBelow = arrayLabelBelow
         self.arrayLabelMiddle = arrayLabelMiddle
     }
-    override func animation() {
+    func animation() {
         UIView.setAnimationsEnabled(true)
         UIView.animate(withDuration: TimeInterval(self.timeAnimation), animations: {
             if(self.currentStep.act=="compare"){
@@ -93,7 +101,7 @@ class AnimationSelection: AnimationSort {
         }
     }
     
-    override func continueAnimation(){
+    func continueAnimation(){
         self.colSolution += 1
         if (self.colSolution == self.arrayAction.count) {
             return
@@ -101,6 +109,7 @@ class AnimationSelection: AnimationSort {
         self.currentStep = self.arrayAction[self.colSolution]
         self.animation()
     }
+    
     func checkTime(){
         if(self.colSolution+1 != self.arrayAction.count){
             if(self.arrayAction[self.colSolution+1].act=="min"){
@@ -110,8 +119,19 @@ class AnimationSelection: AnimationSort {
             }
         }
     }
-    override func loop(){
+    
+    func loop(){
         currentStep = self.arrayAction[self.colSolution]
         animation()
+    }
+    
+    func swapLabel(i: Int, j: Int) {
+        let temp = arrayLabel[i]
+        arrayLabel[i] = arrayLabel[j]
+        arrayLabel[j] = temp
+    }
+    
+    func moveLabel(from: SortingLabel, to: SortingLabel) {
+        from.center = to.center
     }
 }

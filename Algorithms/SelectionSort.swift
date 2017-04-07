@@ -1,5 +1,5 @@
 //
-//  Selection.swift
+//  SelectionSort.swift
 //  Algorithms
 //
 //  Created by Loc Tran on 3/22/17.

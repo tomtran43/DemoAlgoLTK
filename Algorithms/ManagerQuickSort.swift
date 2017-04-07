@@ -36,7 +36,7 @@ class ManagerQuickSort{
         self.arrayInput = arrayInput
         self.arrayAction = getArrayAction(array: arrayInput)
         var  ele = 0
-        for action in self.arrayAction{
+        for _ in self.arrayAction{
             ele  = ele + 1
         }
         

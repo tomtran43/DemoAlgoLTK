@@ -1,5 +1,5 @@
 //
-//  Graph.swift
+//  MergeGraph.swift
 //  Algorithms
 //
 //  Created by Loc Tran on 3/21/17.
@@ -45,12 +45,12 @@ class MergeGraph: UILabel {
         
         for index in 0..<arrayDisplay.count {
             
-            let sortingLabel = SortingLabel(frame: CGRect(x: x, y: 100,
+            let sortingLabel = SortingLabel(frame: CGRect(x: x, y: 0,
                                                           width: rectSize, height: rectSize),
                                             color: colors[index],
                                             value: String(arrayDisplay[index]))
             
-            let FloorOne = SortingLabel(frame: CGRect(x: x, y: 100,
+            let FloorOne = SortingLabel(frame: CGRect(x: x, y: 0,
                                                       width: rectSize, height: rectSize),
                                         color: DEFAULT_COLOR,
                                         value: "0")
@@ -94,6 +94,7 @@ class MergeGraph: UILabel {
             self.insertSubview(sortingLabel, at: 1)
             
             x = x + spacing + rectSize
+            
         }
     }
 }

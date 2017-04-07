@@ -26,6 +26,7 @@ class ManagerBubbleSort: UpdateCount {
     }
     
     var animate: AnimationBubble!
+    var animateStep: AnimationBubble!
     var viewcontroller: UIViewController!
     
     var arrayInput: [Int]!
@@ -77,8 +78,10 @@ class ManagerBubbleSort: UpdateCount {
         self.arrayLabelBelow = self.graph.arrayLabelBelow
         self.arrayLabelAbove = self.graph.arrayLabelAbove
         
-        self.addCompareCount(toView: viewcontroller.view)               //
-        self.addSwapCount(toview: viewcontroller.view)                  //
+        animateStep = AnimationBubble(arrayLabel: self.arrayLabel, arrayLabelMiddle: self.arrayLabelMiddle, arrayLabelAbove: self.arrayLabelAbove, arrayLabelBelow: self.arrayLabelBelow, arrayAction: self.arrayAction)
+        
+        self.addCompareCount(toView: viewcontroller.view)               
+        self.addSwapCount(toview: viewcontroller.view)
     }
     
     func getArrayAction(array: [Int]) -> [Step] {
@@ -95,6 +98,15 @@ class ManagerBubbleSort: UpdateCount {
         self.animate.delegate = self                      //
         
         animate.loop()
+    }
+    
+    @objc func step(sender: UIButton) {
+        
+        
+        
+        self.animateStep.delegate = self                      //
+        
+        animateStep.next()
     }
     
     func addCompareCount(toView view:UIView){               //

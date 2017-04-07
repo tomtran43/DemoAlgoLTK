@@ -1,7 +1,6 @@
 
-import Foundation
 //
-//  AnimationSort.swift
+//  AnimationQuick.swift
 //  Algorithms
 //
 //  Created by Loc Tran on 3/21/17.

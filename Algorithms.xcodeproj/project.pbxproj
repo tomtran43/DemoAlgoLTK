@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		192C75831E8CFCFD00EE8027 /* MergeGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192C75821E8CFCFD00EE8027 /* MergeGraph.swift */; };
 		192C75851E8D057A00EE8027 /* ManagerMergeSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192C75841E8D057A00EE8027 /* ManagerMergeSort.swift */; };
-		193E459C1E8A020E00A6395C /* AnimationInsert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E459B1E8A020E00A6395C /* AnimationInsert.swift */; };
-		193E459E1E8A025B00A6395C /* AnimationSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E459D1E8A025B00A6395C /* AnimationSort.swift */; };
+		193E459C1E8A020E00A6395C /* AnimationInsertion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E459B1E8A020E00A6395C /* AnimationInsertion.swift */; };
 		193E45A01E8A207B00A6395C /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E459F1E8A207B00A6395C /* Step.swift */; };
 		193E45A31E8A5AFD00A6395C /* MergeSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E45A21E8A5AFD00A6395C /* MergeSort.swift */; };
 		193E45A51E8A5C1200A6395C /* ManagerBubbleSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E45A41E8A5C1200A6395C /* ManagerBubbleSort.swift */; };
@@ -53,8 +52,7 @@
 /* Begin PBXFileReference section */
 		192C75821E8CFCFD00EE8027 /* MergeGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergeGraph.swift; sourceTree = "<group>"; };
 		192C75841E8D057A00EE8027 /* ManagerMergeSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerMergeSort.swift; sourceTree = "<group>"; };
-		193E459B1E8A020E00A6395C /* AnimationInsert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationInsert.swift; sourceTree = "<group>"; };
-		193E459D1E8A025B00A6395C /* AnimationSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationSort.swift; sourceTree = "<group>"; };
+		193E459B1E8A020E00A6395C /* AnimationInsertion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationInsertion.swift; sourceTree = "<group>"; };
 		193E459F1E8A207B00A6395C /* Step.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		193E45A21E8A5AFD00A6395C /* MergeSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergeSort.swift; sourceTree = "<group>"; };
 		193E45A41E8A5C1200A6395C /* ManagerBubbleSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerBubbleSort.swift; sourceTree = "<group>"; };
@@ -110,10 +108,9 @@
 		193E459A1E8A01BA00A6395C /* Animation */ = {
 			isa = PBXGroup;
 			children = (
-				193E459D1E8A025B00A6395C /* AnimationSort.swift */,
 				198A348E1E810906009E2B96 /* AnimationBubble.swift */,
 				197A66BE1E8B66AB00CA17F6 /* AnimationSelection.swift */,
-				193E459B1E8A020E00A6395C /* AnimationInsert.swift */,
+				193E459B1E8A020E00A6395C /* AnimationInsertion.swift */,
 				19BAAA5C1E914A0000FDB729 /* AnimationMerge.swift */,
 				1987C6551E95EA85005795B8 /* AnimationQuick.swift */,
 				1987C65F1E963CAA005795B8 /* AnimationHeap.swift */,
@@ -124,8 +121,8 @@
 		193E45A11E8A4A7B00A6395C /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				198A34B91E828A5D009E2B96 /* ManagerInsertionSort.swift */,
 				193E45A41E8A5C1200A6395C /* ManagerBubbleSort.swift */,
+				198A34B91E828A5D009E2B96 /* ManagerInsertionSort.swift */,
 				193E45A61E8A5CDA00A6395C /* ManagerSelectionSort.swift */,
 				192C75841E8D057A00EE8027 /* ManagerMergeSort.swift */,
 				1987C6531E95EA4A005795B8 /* ManagerQuickSort.swift */,
@@ -317,7 +314,6 @@
 				1987C6561E95EA85005795B8 /* AnimationQuick.swift in Sources */,
 				193E45A31E8A5AFD00A6395C /* MergeSort.swift in Sources */,
 				1987C6641E9642A3005795B8 /* HeapSortVC.swift in Sources */,
-				193E459E1E8A025B00A6395C /* AnimationSort.swift in Sources */,
 				19BAAA5D1E914A0000FDB729 /* AnimationMerge.swift in Sources */,
 				198A348F1E810906009E2B96 /* AnimationBubble.swift in Sources */,
 				198A34951E822A13009E2B96 /* LabelColor.swift in Sources */,
@@ -326,7 +322,7 @@
 				C714415C1E8ABC3B008472E6 /* MenuList.swift in Sources */,
 				C714415E1E8ABD51008472E6 /* MainScreen.swift in Sources */,
 				1987C64E1E95E557005795B8 /* ViewController.swift in Sources */,
-				193E459C1E8A020E00A6395C /* AnimationInsert.swift in Sources */,
+				193E459C1E8A020E00A6395C /* AnimationInsertion.swift in Sources */,
 				1987C65C1E962B15005795B8 /* HeapGraph.swift in Sources */,
 				1987C6621E963DDE005795B8 /* ManagerHeapSort.swift in Sources */,
 				192C75851E8D057A00EE8027 /* ManagerMergeSort.swift in Sources */,

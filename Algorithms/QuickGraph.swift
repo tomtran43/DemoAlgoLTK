@@ -1,5 +1,5 @@
 //
-//  Graph.swift
+//  QuickGraph.swift
 //  Algorithms
 //
 //  Created by Loc Tran on 3/21/17.
@@ -95,7 +95,7 @@ class QuickGraph: UILabel {
         linePath.addLine(to: CGPoint(x: bearingPoin.x+lengthLine+10, y: bearingPoin.y-10))
 
         line.path = linePath.cgPath
-        line.lineWidth = 4
+        line.lineWidth = 2
         line.strokeColor = UIColor.gray.cgColor
         self.layer.addSublayer(line)
 

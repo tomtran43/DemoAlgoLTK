@@ -1,5 +1,5 @@
 //
-//  RectangleColor.swift
+//  LabelColor.swift
 //  Algorithms
 //
 //  Created by Loc Tran on 3/22/17.

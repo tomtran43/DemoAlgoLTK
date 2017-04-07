@@ -18,7 +18,9 @@ class HeapSort {
         self.arrayInput = arrayInput
         var arr = arrayInput
         
-        heapSort(array: &arr, size: arr.count)
+        
+        self.actionArray.append(HeapStep(act: "start", i: nil, j: nil, end: nil))
+        self.heapSort(array: &arr, size: arr.count)
         
     }
     

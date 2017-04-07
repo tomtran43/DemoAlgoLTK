@@ -1,5 +1,5 @@
 //
-//  AnimationInsert.swift
+//  AnimationInsertion.swift
 //  Algorithms
 //
 //  Created by Loc Tran on 3/28/17.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class AnimationInsert: AnimationSort{
+class AnimationInsertion {
     
     var arrayAction: [InsertStep]!
     var colSolution = 0
@@ -17,7 +17,12 @@ class AnimationInsert: AnimationSort{
     var isMOVE = false
     var delegate: UpdateCount!
     var compareCout = 0
-    var swapCount = 0                              
+    var swapCount = 0
+    
+    var arrayLabel: [SortingLabel]!
+    var arrayLabelAbove: [SortingLabel]!
+    var arrayLabelMiddle: [SortingLabel]!
+    var arrayLabelBelow: [SortingLabel]!
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -25,7 +30,6 @@ class AnimationInsert: AnimationSort{
     }
     
     init(arrayLabel:[SortingLabel] , arrayLabelMiddle: [SortingLabel], arrayLabelAbove: [SortingLabel], arrayLabelBelow: [SortingLabel], arrayAction: [InsertStep]){
-        super.init()
         
         self.arrayAction = arrayAction
         self.arrayLabel = arrayLabel
@@ -35,7 +39,7 @@ class AnimationInsert: AnimationSort{
         
     }
     
-    override func animation(){
+    func animation(){
         
         UIView.setAnimationsEnabled(true)
         UIView.animate(withDuration: 1, animations: {
@@ -45,6 +49,7 @@ class AnimationInsert: AnimationSort{
                 self.moveLabel(from: self.arrayLabel[self.currentStep.i], to: self.arrayLabelAbove[self.currentStep.i])
                 
             }
+            
             if (self.currentStep.act == "move"){
                 self.isMOVE = true
                 self.arrayLabel[self.currentStep.i].backgroundColor = COMPARE_COLOR
@@ -57,6 +62,7 @@ class AnimationInsert: AnimationSort{
                 
                 
             }
+            
             if (self.currentStep.act == "end"){
                 if(self.isMOVE){
                     self.swapCount = self.swapCount + 1
@@ -89,7 +95,7 @@ class AnimationInsert: AnimationSort{
         }
     }
     
-    override func continueAnimation(){
+    func continueAnimation(){
         self.colSolution += 1
         
         if (self.colSolution == self.arrayAction.count) {
@@ -99,8 +105,18 @@ class AnimationInsert: AnimationSort{
         self.animation()
     }
     
-    override func loop(){
+    func loop(){
         currentStep = self.arrayAction[self.colSolution]
         animation()
+    }
+    
+    func moveLabel(from: SortingLabel, to: SortingLabel) {
+        from.center = to.center
+    }
+    
+    func swapLabel(i: Int, j: Int) {
+        let temp = arrayLabel[i]
+        arrayLabel[i] = arrayLabel[j]
+        arrayLabel[j] = temp
     }
 }
