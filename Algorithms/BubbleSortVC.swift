@@ -29,6 +29,7 @@ class BubbleSortVC: ViewController {
     }
     
     func info(sender:UIButton){
+        print(yMax)
         let vc = SelectionSortVC()
         self.navigationController?.pushViewController(vc, animated: true)
     }

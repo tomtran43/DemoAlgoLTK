@@ -20,12 +20,16 @@ class ViewController: UIViewController {
     var btnStep:UIButton!
     var btnRun:UIButton!
     
+    var y: CGFloat!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         spacing = view.bounds.size.width/CGFloat(widthRatio*4 + 5)
         btnSizeWidth = spacing*CGFloat(widthRatio)
         btnSizeHeight = btnSizeWidth*2/3
+        y = view.bounds.size.height - spacing * 2 - btnSizeHeight
+        yMax = y
         x = 2*spacing + btnSizeWidth
         addBtnReset()
         addBtnInfo()
