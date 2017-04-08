@@ -15,7 +15,6 @@ class AnimationMerge:NSObject {
     var arrayLabelThree: [SortingLabel]!
     var arrayLabelFour: [SortingLabel]!
     var arrayAction: [MergeStep]!
-    //    var arrayElement: [StepMerge]!
     var colSolution = 0
     var currentStep: MergeStep!
     var graphMerge: MergeGraph!
@@ -32,6 +31,7 @@ class AnimationMerge:NSObject {
     var bodyRect: [UIView]?
     var bodyLine: [CALayer]?
     var _stepBackSplit:MergeStep!
+    
     init(arrayLabel:[SortingLabel] , arrayLabelOne: [SortingLabel], arrayLabelTwo: [SortingLabel], arrayLabelThree: [SortingLabel],arrayLabelFour: [SortingLabel], arrayAction: [MergeStep],graphMerge: MergeGraph){
         
         self.arrayLabel = arrayLabel
@@ -42,13 +42,9 @@ class AnimationMerge:NSObject {
         self.arrayAction = arrayAction
         self.graphMerge = graphMerge
         var ele = 0
-        for a in self.arrayAction{
-            print("\(ele)_\(a)")
-            ele+=1
-        }
+        
         bodyRect = [UIView]()
         bodyLine = [CALayer]()
-        print("_____________hieu ung Animation_______________________")
     }
     func animation(){
         UIView.animate(withDuration: 1, animations: {
@@ -77,10 +73,9 @@ class AnimationMerge:NSObject {
                     for tran in 0..<self.currentStep.right.count{
                         self.moveLabel(from: self.arrayLabel[self.currentStep.right[tran]], to: self.arrayLabelThree[self.currentStep.right[tran]])
                     }
-                    print("trace: \(self.traceLevelThree)")
                     self.borderRect(bearingPoint: (self.arrayLabel[self.traceLevelThree].frame.origin), countCell: self.currentStep.right.count)
                     // cong them do dai left ben trai de cho doi xung
-                    //                    self.traceLevelThree = self.traceLevelThree + self.currentStep.right.count
+                    
                     self.traceLevelThree = self.traceLevelThree + self.currentStep.right.count
                 case 4:
                     // ve khung trai
@@ -95,7 +90,6 @@ class AnimationMerge:NSObject {
                     }
                     self.borderRect(bearingPoint: (self.arrayLabel[self.currentStep.right[0]].frame.origin), countCell: self.currentStep.right.count)
                     self.traceLevelFour = self.traceLevelFour + self.currentStep.right.count
-                    print("traceLeve 4: \(self.traceLevelFour)")
                 default: break
                 }
             }
@@ -139,6 +133,7 @@ class AnimationMerge:NSObject {
             }
         }
     }
+    
     func animationMergetoLevel(_countStep: Int,from: SortingLabel,to: SortingLabel){
         UIView.animate(withDuration: 1, animations: {
             self.moveLabel(from: from, to: to)
@@ -159,9 +154,6 @@ class AnimationMerge:NSObject {
                 break
             case 3:
                 self.traceMergeThree = self.traceMergeThree + 1
-                //                    if(self.traceMergeThree==2 && self.currentStep.merge.count==3){
-                //                        self.traceMergeThree+=1
-                //                    }
                 if(self.traceMergeThree<self.arrayLabel.count){
                     _tranSortingLabel = self.arrayLabelThree[self.traceMergeThree]
                 }
@@ -176,6 +168,7 @@ class AnimationMerge:NSObject {
             self.animationMergetoLevel(_countStep: _countStep+1, from: self.arrayLabel[self.currentStep.merge[_countStep+1]], to:_tranSortingLabel as! SortingLabel)
         }
     }
+    
     func loop(){
         self.currentStep = self.arrayAction[self.colSolution]
         self.borderRect(bearingPoint: (self.arrayLabelOne.first?.frame.origin)!, countCell: self.arrayLabel.count)
@@ -189,6 +182,7 @@ class AnimationMerge:NSObject {
     func moveLabel(from: SortingLabel, to: SortingLabel) {
         from.center = to.center
     }
+    
     func continueAnimation(){
         self.colSolution += 1
         if (self.colSolution == self.arrayAction.count) {
@@ -198,6 +192,7 @@ class AnimationMerge:NSObject {
         self.currentStep = self.arrayAction[self.colSolution]
         self.animation()
     }
+    
     func deleteBody(){
         for del in self.bodyLine!{
             del.removeFromSuperlayer()

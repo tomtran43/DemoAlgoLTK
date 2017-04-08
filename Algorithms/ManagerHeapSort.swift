@@ -62,9 +62,6 @@ class ManagerHeapSort {
         self.arrayLabelBehind = self.graph.arrayLabelBehind
         self.arrayPosition = self.graph.arrayPosition
         
-        print(self.arrayAction)
-        
-        
     }
     
     func getArrayAction(array: [Int]) -> [HeapStep] {

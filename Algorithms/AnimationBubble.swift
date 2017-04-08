@@ -14,7 +14,6 @@ class AnimationBubble {
     var arrayAction: [Step]!
     var colSolution = 0
     var currentStep = Step()
-    var delegate: UpdateCount!
     var compareCount = 0
     var swapCount = 0
     
@@ -42,7 +41,6 @@ class AnimationBubble {
         UIView.animate(withDuration: 1, animations: {
             if (self.currentStep.act == "compare") {
                 self.compareCount = self.compareCount + 1                     //
-                self.delegate.updateCompareCount(compareCount: self.compareCount)    //
                 self.arrayLabel[self.currentStep.i].backgroundColor = COMPARE_COLOR
                 self.arrayLabel[self.currentStep.j].backgroundColor = COMPARE_COLOR
                 
@@ -52,7 +50,6 @@ class AnimationBubble {
             else
             {
                 self.swapCount = self.swapCount + 1                         //
-                self.delegate.updateSwapCount(swapCount: self.swapCount)    //
                 
                 self.arrayLabel[self.currentStep.i].backgroundColor = SWAP_COLOR
                 self.arrayLabel[self.currentStep.j].backgroundColor = SWAP_COLOR
@@ -110,7 +107,6 @@ class AnimationBubble {
             
             if (self.currentStep.act == "compare") {
                 self.compareCount = self.compareCount + 1                     //
-                self.delegate.updateCompareCount(compareCount: self.compareCount)    //
                 self.arrayLabel[self.currentStep.i].backgroundColor = COMPARE_COLOR
                 self.arrayLabel[self.currentStep.j].backgroundColor = COMPARE_COLOR
                 
@@ -120,7 +116,6 @@ class AnimationBubble {
             else
             {
                 self.swapCount = self.swapCount + 1                         //
-                self.delegate.updateSwapCount(swapCount: self.swapCount)    //
                 
                 self.arrayLabel[self.currentStep.i].backgroundColor = SWAP_COLOR
                 self.arrayLabel[self.currentStep.j].backgroundColor = SWAP_COLOR

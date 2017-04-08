@@ -15,7 +15,6 @@ class AnimationInsertion {
     var colSolution = 0
     var currentStep = InsertStep()
     var isMOVE = false
-    var delegate: UpdateCount!
     var compareCout = 0
     var swapCount = 0
     
@@ -54,19 +53,16 @@ class AnimationInsertion {
                 self.isMOVE = true
                 self.arrayLabel[self.currentStep.i].backgroundColor = COMPARE_COLOR
                 self.compareCout = self.compareCout + 1
-                self.delegate.updateCompareCount(compareCount: self.compareCout)
                 
                 self.moveLabel(from: self.arrayLabel[self.currentStep.i], to:self.arrayLabelMiddle[self.currentStep.j] )
                 self.moveLabel(from: self.arrayLabel[self.currentStep.j], to: self.arrayLabelAbove[self.currentStep.i])
                 self.swapLabel(i: self.currentStep.i, j: self.currentStep.j)
-                
                 
             }
             
             if (self.currentStep.act == "end"){
                 if(self.isMOVE){
                     self.swapCount = self.swapCount + 1
-                    self.delegate.updateSwapCount(swapCount: self.swapCount)
                     
                     self.arrayLabel[self.currentStep.key].backgroundColor = SWAP_COLOR
                     
@@ -75,7 +71,6 @@ class AnimationInsertion {
                     
                     self.arrayLabel[self.currentStep.key].backgroundColor = COMPARE_COLOR
                     self.compareCout = self.compareCout + 1
-                    self.delegate.updateCompareCount(compareCount: self.compareCout)
                     
                 }
                 self.moveLabel(from: self.arrayLabel[self.currentStep.key], to: self.arrayLabelMiddle[self.currentStep.key])
@@ -95,6 +90,67 @@ class AnimationInsertion {
         }
     }
     
+    func animationStep(){
+        
+        UIView.setAnimationsEnabled(true)
+        UIView.animate(withDuration: 0.3, animations: {
+            if (self.currentStep.act == "start"){
+                self.isMOVE = false
+                self.arrayLabel[self.currentStep.i].backgroundColor = KEY_COLOR
+                self.moveLabel(from: self.arrayLabel[self.currentStep.i], to: self.arrayLabelAbove[self.currentStep.i])
+                
+            }
+            
+            if (self.currentStep.act == "move"){
+                self.isMOVE = true
+                self.arrayLabel[self.currentStep.i].backgroundColor = COMPARE_COLOR
+                self.compareCout = self.compareCout + 1
+                
+                self.moveLabel(from: self.arrayLabel[self.currentStep.i], to:self.arrayLabelMiddle[self.currentStep.j] )
+                self.moveLabel(from: self.arrayLabel[self.currentStep.j], to: self.arrayLabelAbove[self.currentStep.i])
+                self.swapLabel(i: self.currentStep.i, j: self.currentStep.j)
+                
+                
+            }
+            
+            if (self.currentStep.act == "end"){
+                if(self.isMOVE){
+                    self.swapCount = self.swapCount + 1
+                    
+                    self.arrayLabel[self.currentStep.key].backgroundColor = SWAP_COLOR
+                    
+                    
+                }else{
+                    
+                    self.arrayLabel[self.currentStep.key].backgroundColor = COMPARE_COLOR
+                    self.compareCout = self.compareCout + 1
+                    
+                }
+                self.moveLabel(from: self.arrayLabel[self.currentStep.key], to: self.arrayLabelMiddle[self.currentStep.key])
+            }
+            
+        }){_ in
+            if (self.currentStep.act == "move"){
+                self.arrayLabel[self.currentStep.j].backgroundColor = DEFAULT_COLOR
+            }
+            if (self.currentStep.act == "end"){
+                self.arrayLabel[self.currentStep.j].backgroundColor = DEFAULT_COLOR
+                self.arrayLabel[self.currentStep.key].backgroundColor = DEFAULT_COLOR
+        
+            }
+            self.colSolution += 1
+            
+            if (self.colSolution == self.arrayAction.count) {
+                return
+            }
+            self.currentStep = self.arrayAction[self.colSolution]
+            
+            btnStep1.isUserInteractionEnabled = true
+
+        }
+    }
+
+    
     func continueAnimation(){
         self.colSolution += 1
         
@@ -108,6 +164,11 @@ class AnimationInsertion {
     func loop(){
         currentStep = self.arrayAction[self.colSolution]
         animation()
+    }
+    
+    func next(){
+        currentStep = self.arrayAction[self.colSolution]
+        animationStep()
     }
     
     func moveLabel(from: SortingLabel, to: SortingLabel) {

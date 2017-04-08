@@ -12,11 +12,15 @@ class SortingLabel: UILabel {
     required init?(coder aDecoder: NSCoder) {
         fatalError(".....")
     }
+    
     override func layoutSubviews() {
         font = fontoFitHeight()
     }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        
     }
     
     
@@ -26,11 +30,20 @@ class SortingLabel: UILabel {
         self.backgroundColor = color
         self.text = value
         self.textColor = UIColor.white
+        
         self.textAlignment = NSTextAlignment.center
         self.layer.cornerRadius = frame.width/2
         self.clipsToBounds = true
         self.alpha = DEFAULT_ALPHA
+        
+        self.adjustsFontSizeToFitWidth = true
+        self.numberOfLines = 0
+        self.baselineAdjustment = .alignBaselines
+        self.minimumScaleFactor = 0.2
+        
+        
     }
+    
     func fontoFitHeight()->UIFont{
         var minFontsize: CGFloat = DISPLAY_FONT_MIN
         var maxFontsize: CGFloat = DISPLAY_FONT_MAX

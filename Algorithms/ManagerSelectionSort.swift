@@ -9,20 +9,11 @@
 import Foundation
 import UIKit
 
-class ManagerSelectionSort: UpdateCount {
+class ManagerSelectionSort {
     
     var animate: AnimationSelection!
+    var animateStep: AnimationSelection!
     var viewcontroller: UIViewController!
-    
-    internal func updateSwapCount(swapCount: Int) {         //
-        lblswapCountText.text = "Swap: \(swapCount)"
-    }
-    
-    internal func updateCompareCount(compareCount: Int) {           //
-        lblcompareCount.text = "Compare: \(compareCount)"
-        
-    }
-
     
     var arrayInput: [Int]!
     var arrayAction: [Step]!
@@ -35,9 +26,7 @@ class ManagerSelectionSort: UpdateCount {
     var arrayLabelBelow: [SortingLabel]!
     
     var graph: Graph!
-    var sort: SelectionSort!
-    var lblcompareCount: UILabel!               //
-    var lblswapCountText: UILabel!              //
+    var sort: SelectionSort!             
 
     
     func initSortWith(viewcontroller: UIViewController, arrayInput: [Int]) {
@@ -73,9 +62,8 @@ class ManagerSelectionSort: UpdateCount {
         self.arrayLabelBelow = self.graph.arrayLabelBelow
         self.arrayLabelAbove = self.graph.arrayLabelAbove
         
-        self.addCompareCount(toView: viewcontroller.view)               
-        self.addSwapCount(toview: viewcontroller.view)
-
+        animateStep = AnimationSelection(arrayLabel: self.arrayLabel, arrayLabelMiddle: self.arrayLabelMiddle, arrayLabelAbove: self.arrayLabelAbove, arrayLabelBelow: self.arrayLabelBelow, arrayAction: self.arrayAction)
+        
     }
     
     func getArrayAction(array: [Int]) -> [Step] {
@@ -88,21 +76,17 @@ class ManagerSelectionSort: UpdateCount {
     @objc func run(sender: UIButton) {
         
         animate = AnimationSelection(arrayLabel: self.arrayLabel, arrayLabelMiddle: self.arrayLabelMiddle, arrayLabelAbove: self.arrayLabelAbove, arrayLabelBelow: self.arrayLabelBelow, arrayAction: self.arrayAction)
-       
-        self.animate.delegate = self
-        
+               
         animate.loop()
     }
-    func addCompareCount(toView view:UIView){               //
-        lblcompareCount = UILabel(frame:CGRect(x: view.bounds.size.width/2 - 160, y: view.bounds.size.height - 200, width: 100, height: 50))
-        lblcompareCount.text = "Compare: 0"
-        view.addSubview(lblcompareCount)
+    
+    @objc func step(sender: UIButton) {
         
+        btnRun1.isUserInteractionEnabled = false
+        btnStep1.isUserInteractionEnabled = false
+        animateStep.next()
     }
-    func addSwapCount(toview view: UIView){                 //
-        lblswapCountText = UILabel(frame: CGRect(x: view.bounds.size.width/2 + 60, y: view.bounds.size.height - 200, width: 100, height: 50))
-        lblswapCountText.text = "Swap: 0"
-        view.addSubview(lblswapCountText)
-    }
+    
+    
 
 }

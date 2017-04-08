@@ -31,13 +31,11 @@ class BubbleSortVC: ViewController {
     }
     
     func info(sender:UIButton){
-        let vc = SelectionSortVC()
+        let vc = InfoBubbleSortVC()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func reset(sender:UIButton){
-        managerSort.lblcompareCount.isHidden = true
-        managerSort.lblswapCountText.isHidden = true
         self.managerSort.graph.removeFromSuperview()
         btnRun.isUserInteractionEnabled = true
         btnStep.isUserInteractionEnabled = true

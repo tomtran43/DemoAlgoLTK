@@ -9,23 +9,11 @@
 import Foundation
 import UIKit
 
-protocol UpdateCount {                                  //
-    func updateCompareCount(compareCount: Int)
-    func updateSwapCount(swapCount: Int)
-}
 
-class ManagerBubbleSort: UpdateCount {
+
+class ManagerBubbleSort {
     
-    internal func updateSwapCount(swapCount: Int) {         //
-        lblswapCountText.text = "Swap: \(swapCount)"
-    }
     
-    internal func updateCompareCount(compareCount: Int) {           //
-        lblcompareCount.text = "Compare: \(compareCount)"
-        
-    }
-    
-    var actionStep: Int!
     var animate: AnimationBubble!
     var animateStep: AnimationBubble!
     var viewcontroller: UIViewController!
@@ -42,13 +30,10 @@ class ManagerBubbleSort: UpdateCount {
     
     var graph: Graph!
     var sort: BubbleSort!
-    var lblcompareCount: UILabel!               //
-    var lblswapCountText: UILabel!              //
     
     
     func initSortWith(viewcontroller: UIViewController, arrayInput: [Int]) {
         
-        self.actionStep = 1
         self.viewcontroller = viewcontroller
         
         self.arrayInput = arrayInput
@@ -82,8 +67,6 @@ class ManagerBubbleSort: UpdateCount {
         
         animateStep = AnimationBubble(arrayLabel: self.arrayLabel, arrayLabelMiddle: self.arrayLabelMiddle, arrayLabelAbove: self.arrayLabelAbove, arrayLabelBelow: self.arrayLabelBelow, arrayAction: self.arrayAction)
         
-        self.addCompareCount(toView: viewcontroller.view)               
-        self.addSwapCount(toview: viewcontroller.view)
     }
     
     func getArrayAction(array: [Int]) -> [Step] {
@@ -97,40 +80,18 @@ class ManagerBubbleSort: UpdateCount {
         
         animate = AnimationBubble(arrayLabel: self.arrayLabel, arrayLabelMiddle: self.arrayLabelMiddle, arrayLabelAbove: self.arrayLabelAbove, arrayLabelBelow: self.arrayLabelBelow, arrayAction: self.arrayAction)
         
-        lblswapCountText.text = "Swap: 0"
-        lblcompareCount.text = "Compare: 0"
         btnRun1.isUserInteractionEnabled = false
         btnStep1.isUserInteractionEnabled = false
-        
-        self.animate.delegate = self                      //
-        
+                
         animate.loop()
     }
     
     @objc func step(sender: UIButton) {
         
-        
-        if actionStep == 1{
-            lblswapCountText.text = "Swap: 0"
-            lblcompareCount.text = "Compare: 0"
-            actionStep = 0
-        }
-        self.animateStep.delegate = self
         btnRun1.isUserInteractionEnabled = false
         btnStep1.isUserInteractionEnabled = false
         animateStep.next()
     }
     
-    func addCompareCount(toView view:UIView){               //
-        lblcompareCount = UILabel(frame:CGRect(x: view.bounds.size.width/2 - 160, y: view.bounds.size.height - 200, width: 100, height: 50))
-        lblcompareCount.text = "Compare: 0"
-        view.addSubview(lblcompareCount)
-        
-    }
-    func addSwapCount(toview view: UIView){                 //
-        lblswapCountText = UILabel(frame: CGRect(x: view.bounds.size.width/2 + 60, y: view.bounds.size.height - 200, width: 100, height: 50))
-        lblswapCountText.text = "Swap: 0"
-        view.addSubview(lblswapCountText)
-    }
     
 }
