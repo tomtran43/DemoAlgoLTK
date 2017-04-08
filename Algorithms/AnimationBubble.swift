@@ -106,7 +106,7 @@ class AnimationBubble {
     func animationStep() {
         
         UIView.setAnimationsEnabled(true)
-        UIView.animate(withDuration: 0.001, animations: {
+        UIView.animate(withDuration: 0.3, animations: {
             
             if (self.currentStep.act == "compare") {
                 self.compareCount = self.compareCount + 1                     //
@@ -130,7 +130,7 @@ class AnimationBubble {
             }
         }){(finished) in
             if (self.currentStep.act == "compare") {
-                UIView.animate(withDuration: 0.001, animations: {
+                UIView.animate(withDuration: 0.3, animations: {
                     self.arrayLabel[self.currentStep.i].alpha = DEFAULT_ALPHA
                     self.arrayLabel[self.currentStep.j].alpha = DEFAULT_ALPHA
                 }) {_ in
@@ -146,19 +146,20 @@ class AnimationBubble {
                         return
                     }
                     self.currentStep = self.arrayAction[self.colSolution]
+                    btnStep1.isUserInteractionEnabled = true
                 }
             }
             else
             {
-                UIView.animate(withDuration: 0.001, animations: {
+                UIView.animate(withDuration: 0.3, animations: {
                     self.moveLabel(from: self.arrayLabel[self.currentStep.i], to: self.arrayLabelAbove[self.currentStep.i])
                     self.moveLabel(from: self.arrayLabel[self.currentStep.j], to: self.arrayLabelBelow[self.currentStep.j])
                 }){_ in
-                    UIView.animate(withDuration: 0.001, animations: {
+                    UIView.animate(withDuration: 0.3, animations: {
                         self.moveLabel(from: self.arrayLabel[self.currentStep.i], to: self.arrayLabelAbove[self.currentStep.j])
                         self.moveLabel(from: self.arrayLabel[self.currentStep.j], to: self.arrayLabelBelow[self.currentStep.i])
                     }){_ in
-                        UIView.animate(withDuration: 0.001, animations: {
+                        UIView.animate(withDuration: 0.3, animations: {
                             self.moveLabel(from: self.arrayLabel[self.currentStep.i], to: self.arrayLabelMiddle[self.currentStep.j])
                             self.moveLabel(from: self.arrayLabel[self.currentStep.j], to: self.arrayLabelMiddle[self.currentStep.i])
                         }){_ in
@@ -178,6 +179,7 @@ class AnimationBubble {
                                 return
                             }
                             self.currentStep = self.arrayAction[self.colSolution]
+                            btnStep1.isUserInteractionEnabled = true
                         }
                     }
                 }

@@ -25,6 +25,7 @@ class ManagerBubbleSort: UpdateCount {
         
     }
     
+    var actionStep: Int!
     var animate: AnimationBubble!
     var animateStep: AnimationBubble!
     var viewcontroller: UIViewController!
@@ -47,6 +48,7 @@ class ManagerBubbleSort: UpdateCount {
     
     func initSortWith(viewcontroller: UIViewController, arrayInput: [Int]) {
         
+        self.actionStep = 1
         self.viewcontroller = viewcontroller
         
         self.arrayInput = arrayInput
@@ -95,6 +97,11 @@ class ManagerBubbleSort: UpdateCount {
         
         animate = AnimationBubble(arrayLabel: self.arrayLabel, arrayLabelMiddle: self.arrayLabelMiddle, arrayLabelAbove: self.arrayLabelAbove, arrayLabelBelow: self.arrayLabelBelow, arrayAction: self.arrayAction)
         
+        lblswapCountText.text = "Swap: 0"
+        lblcompareCount.text = "Compare: 0"
+        btnRun1.isUserInteractionEnabled = false
+        btnStep1.isUserInteractionEnabled = false
+        
         self.animate.delegate = self                      //
         
         animate.loop()
@@ -103,9 +110,14 @@ class ManagerBubbleSort: UpdateCount {
     @objc func step(sender: UIButton) {
         
         
-        
-        self.animateStep.delegate = self                      //
-        
+        if actionStep == 1{
+            lblswapCountText.text = "Swap: 0"
+            lblcompareCount.text = "Compare: 0"
+            actionStep = 0
+        }
+        self.animateStep.delegate = self
+        btnRun1.isUserInteractionEnabled = false
+        btnStep1.isUserInteractionEnabled = false
         animateStep.next()
     }
     

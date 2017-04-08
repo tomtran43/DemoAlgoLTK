@@ -19,7 +19,7 @@ class QuickSortVC: ViewController {
         
         
         self.managerSort = ManagerQuickSort()
-        self.managerSort.initSortWith(viewcontroller: self, arrayInput: [2,6,4,3,2,7,1,0,5,7])
+        self.managerSort.initSortWith(viewcontroller: self, arrayInput: [2,6])
         view.backgroundColor = UIColor.white
         
         
@@ -29,7 +29,6 @@ class QuickSortVC: ViewController {
         btnInfo.addTarget(self, action: #selector(info(sender:)), for: .touchUpInside)
         
     }
-    
     
     func info(sender:UIButton){
         let vc = InfoBubbleSortVC()

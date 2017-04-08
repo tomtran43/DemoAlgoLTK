@@ -28,8 +28,6 @@ class AnimationQuick {
     var traceCoinCide: UILabel!
 
 
-
-
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -42,29 +40,9 @@ class AnimationQuick {
         self.arrayLabelMark = arrayLabelMark
         self.arrayLabelMiddle = arrayLabelMiddle
         self.graph = graph
-        iniTrace()
-
+        
     }
-    func iniTrace(){
-        traceLeft = self.graph.drawMark(textLR: "L")
-        traceRight = self.graph.drawMark(textLR: "R")
-        tracePivot = self.graph.drawMark(textLR: "P")
-        traceCoinCide = self.graph.drawConverge()
-        _layer = CALayer()// khoi tao cai nay de remove step newPivot luc dau
-
-        self.graph.addSubview(traceLeft)
-        self.graph.addSubview(traceRight)
-        self.graph.addSubview(tracePivot)
-        self.graph.addSubview(traceCoinCide)
-
-        traceLeft.isHidden = true
-        traceRight.isHidden = true
-        tracePivot.isHidden = true
-        traceCoinCide.isHidden = true
-
-
-
-    }
+    
     func iniPosition_Mark(currentStep: QuickStep){
         let point = self.arrayLabelAbove[self.currentStep.pivot+1].center
         tracePivot.center = CGPoint(x: point.x, y: point.y+15)

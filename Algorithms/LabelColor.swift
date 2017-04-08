@@ -30,3 +30,11 @@ let SLATEGRAY_COLOR = UIColor(red: 112/255, green: 128/255, blue: 144/255, alpha
 var RECTSIZE: CGFloat = 0
 
 var yMax: CGFloat = 0
+
+var btnRun1: UIButton!
+var btnStep1: UIButton!
+
+var DISPLAY_FONT_MIN: CGFloat = 10
+var DISPLAY_FONT_MAX: CGFloat = 60
+
+

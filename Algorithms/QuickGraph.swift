@@ -106,7 +106,7 @@ class QuickGraph: UILabel {
 
         let widthMark = RECTSIZE - 2*5
         let heightMark = RECTSIZE - 5
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: widthMark, height: heightMark))
+        let label = SortingLabel(frame: CGRect(x: 0, y: 0, width: widthMark, height: heightMark))
         let line = CAShapeLayer()
         let linePath = UIBezierPath()
         linePath.move(to: CGPoint(x: widthMark/2, y: 0))
@@ -141,33 +141,4 @@ class QuickGraph: UILabel {
         return label
 
     }
-    func drawConverge()->UILabel{
-        
-        let widthMark = 2*RECTSIZE*2/5
-
-        let heightMark = RECTSIZE - 10
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: widthMark, height: heightMark))
-        let line = CAShapeLayer()
-        let linePath = UIBezierPath()
-        let pointOrigin = widthMark/2
-        linePath.move(to: CGPoint(x: pointOrigin-2, y: 0))
-        linePath.addLine(to: CGPoint(x: 0, y: 1/3*heightMark))
-        linePath.addLine(to: CGPoint(x: 0, y: heightMark))
-        linePath.addLine(to: CGPoint(x: pointOrigin-2, y:heightMark))
-        linePath.addLine(to: CGPoint(x: pointOrigin-2, y:0))
-
-        // cai thu 2
-        linePath.move(to: CGPoint(x: pointOrigin+2, y: 0))
-        linePath.addLine(to: CGPoint(x: pointOrigin+2, y:heightMark))
-        linePath.addLine(to: CGPoint(x: widthMark, y:heightMark))
-        linePath.addLine(to: CGPoint(x: widthMark, y: 1/3*heightMark))
-        linePath.addLine(to: CGPoint(x: pointOrigin+2, y: 0))
-        line.path = linePath.cgPath
-        label.backgroundColor = GOLD_COLOR
-        label.layer.mask = line
-
-        return label
-
-    }
-
 }
