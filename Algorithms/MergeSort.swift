@@ -38,6 +38,7 @@ class MergeSort{
         
         // Compare the elements and add them to the sorted array *in order*
         // so sanh 2 phan tu trong left and right neu phan tu nao be hon thi xep truoc
+        
         self.arrayElement.append(MergeStep(act: "eleMerge", root: leftArray + rightArray, left: leftArray, right: rightArray, level: currentLevel,stepSplit: _stepSplit,relation: nil, merge: nil))
         
         

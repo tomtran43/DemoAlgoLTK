@@ -74,6 +74,7 @@ class ManagerSelectionSort {
     }
     
     @objc func run(sender: UIButton) {
+        btnRun1.setTitle("\u{f28c}", for: .normal)
         
         animate = AnimationSelection(arrayLabel: self.arrayLabel, arrayLabelMiddle: self.arrayLabelMiddle, arrayLabelAbove: self.arrayLabelAbove, arrayLabelBelow: self.arrayLabelBelow, arrayAction: self.arrayAction)
                

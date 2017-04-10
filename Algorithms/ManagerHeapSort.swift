@@ -72,6 +72,7 @@ class ManagerHeapSort {
     }
     
     @objc func run(sender: UIButton) {
+        btnRun1.setTitle("\u{f28c}", for: .normal)
         
         animate = AnimationHeap(arrayLabel: self.arrayLabel,  arrayLabelBehind: self.arrayLabelBehind, arrayPosition: self.arrayPosition, arrayAction: self.arrayAction, graphHeap: graph)
         animate.loop()

@@ -37,4 +37,6 @@ var btnStep1: UIButton!
 var DISPLAY_FONT_MIN: CGFloat = 10
 var DISPLAY_FONT_MAX: CGFloat = 60
 
+let BUTTON_COLOR = UIColor(red: 1, green: 165/255, blue: 0, alpha: 1)
+
 

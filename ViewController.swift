@@ -50,9 +50,9 @@ class ViewController: UIViewController {
         btnReset = UIButton(frame: CGRect(x: spacing, y: view.bounds.size.height-spacing-btnSizeHeight, width: btnSizeWidth, height: btnSizeHeight))
         btnReset.backgroundColor = UIColor.green.withAlphaComponent(0.5)
         btnReset.setTitleColor(UIColor.white, for: UIControlState.normal)
-        btnReset.setTitle("Reset", for: .normal)
-        
-        btnReset.titleLabel?.font = UIFont(name: "Heiti TC", size: 40)
+        btnReset.setTitle("\u{f021}", for: .normal)
+        btnReset.titleLabel?.font = UIFont.fontAwesome(ofSize: btnReset.fontoFitHeight())
+        btnReset.setTitleColor(BUTTON_COLOR, for: .normal)
         btnReset.titleLabel?.adjustsFontSizeToFitWidth = true
         btnReset.titleLabel?.numberOfLines = 0
         btnReset.titleLabel?.minimumScaleFactor = 0.2
@@ -60,6 +60,7 @@ class ViewController: UIViewController {
         btnReset.titleLabel?.baselineAdjustment = .alignCenters
         btnReset.titleLabel?.textAlignment = .center
         btnReset.layer.cornerRadius = 10
+
         view.addSubview(btnReset)
     }
     
@@ -68,9 +69,10 @@ class ViewController: UIViewController {
         btnInfo = UIButton(frame: CGRect(x: x, y: view.bounds.size.height-spacing-btnSizeHeight, width: btnSizeWidth, height: btnSizeHeight))
         btnInfo.backgroundColor = UIColor.green.withAlphaComponent(0.5)
         btnInfo.setTitleColor(UIColor.white, for: UIControlState.normal)
-        btnInfo.setTitle("\u{1F4DA}", for: .normal)
+        btnInfo.setTitle("\u{f05a}", for: .normal)
         btnInfo.titleLabel?.textColor = UIColor.white
-        btnInfo.titleLabel?.font = UIFont(name: "Heiti TC", size: 60)
+        btnInfo.titleLabel?.font = UIFont.fontAwesome(ofSize: btnInfo.fontoFitHeight())
+        btnInfo.setTitleColor(BUTTON_COLOR, for: .normal)
         btnInfo.titleLabel?.adjustsFontSizeToFitWidth = true
         btnInfo.titleLabel?.numberOfLines = 0
         btnInfo.titleLabel?.minimumScaleFactor = 0.2
@@ -89,10 +91,11 @@ class ViewController: UIViewController {
         btnStep1 = btnStep
         btnStep.backgroundColor = UIColor.green.withAlphaComponent(0.5)
         btnStep.setTitleColor(UIColor.white, for: UIControlState.normal)
-        btnStep.setTitle("\u{25BA}", for: .normal)
+        btnStep.setTitle("\u{f051}", for: .normal)
         
         btnStep.titleLabel?.textColor = UIColor.white
-        btnStep.titleLabel?.font = UIFont(name: "Heiti TC", size: 60)
+        btnStep.titleLabel?.font = UIFont.fontAwesome(ofSize: btnStep.fontoFitHeight())
+        btnStep.setTitleColor(BUTTON_COLOR, for: .normal)
         btnStep.titleLabel?.adjustsFontSizeToFitWidth = true
         btnStep.titleLabel?.numberOfLines = 0
         btnStep.titleLabel?.minimumScaleFactor = 0.2
@@ -111,9 +114,9 @@ class ViewController: UIViewController {
         btnRun1 = btnRun
         btnRun.backgroundColor = UIColor.green.withAlphaComponent(0.5)
         btnRun.setTitleColor(UIColor.white, for: UIControlState.normal)
-        btnRun.setTitle("Run", for: .normal)
-        
-        btnRun.titleLabel?.font = UIFont(name: "Heiti TC", size: 60)
+        btnRun.setTitle("\u{f144}", for: .normal)
+        btnRun.setTitleColor(BUTTON_COLOR, for: .normal)
+        btnRun.titleLabel?.font = UIFont.fontAwesome(ofSize: btnRun.fontoFitHeight())
         btnRun.titleLabel?.adjustsFontSizeToFitWidth = true
         btnRun.titleLabel?.numberOfLines = 0
         btnRun.titleLabel?.minimumScaleFactor = 0.2
@@ -130,8 +133,8 @@ class ViewController: UIViewController {
         btnAdd.backgroundColor = UIColor.green.withAlphaComponent(0.5)
         btnAdd.setTitleColor(UIColor.white, for: UIControlState.normal)
         btnAdd.setTitle("\u{23CE}", for: .normal)
-        
-        btnAdd.titleLabel?.font = UIFont(name: "Heiti TC", size: 60)
+        btnAdd.setTitleColor(BUTTON_COLOR, for: .normal)
+        btnAdd.titleLabel?.font = UIFont.fontAwesome(ofSize: btnAdd.fontoFitHeight())
         btnAdd.titleLabel?.adjustsFontSizeToFitWidth = true
         btnAdd.titleLabel?.numberOfLines = 0
         btnAdd.titleLabel?.minimumScaleFactor = 0.2

@@ -40,12 +40,35 @@ class AnimationQuick {
         self.arrayLabelMark = arrayLabelMark
         self.arrayLabelMiddle = arrayLabelMiddle
         self.graph = graph
+        iniTrace()
+//        tracePivot 
+
+    }
+    func iniTrace(){
+        traceLeft = self.graph.drawMark(textLR: "L")
+        traceRight = self.graph.drawMark(textLR: "R")
+        tracePivot = self.graph.drawMark(textLR: "P")
+
+        _layer = CALayer()// khoi tao cai nay de remove step newPivot luc dau
+
+        self.graph.addSubview(traceLeft)
+        self.graph.addSubview(traceRight)
+        self.graph.addSubview(tracePivot)
+
+
+        traceLeft.isHidden = true
+        traceRight.isHidden = true
+        tracePivot.isHidden = true
+
+        
+        
         
     }
+
     
     func iniPosition_Mark(currentStep: QuickStep){
-        let point = self.arrayLabelAbove[self.currentStep.pivot+1].center
-        tracePivot.center = CGPoint(x: point.x, y: point.y+15)
+        let point = CGPoint(x: self.arrayLabelMiddle[self.currentStep.pivot+1].frame.origin.x, y: self.arrayLabelMiddle[self.currentStep.pivot+1].frame.origin.y - CGFloat(10) - RECTSIZE)
+        tracePivot.frame.origin = CGPoint(x: point.x, y: point.y)
         traceLeft.center = self.arrayLabelMark[self.currentStep.left+1].center
         traceRight.center = self.arrayLabelMark[self.currentStep.right+1].center
 
@@ -77,8 +100,8 @@ class AnimationQuick {
 
                 self.arrayLabel[self.currentStep.left].backgroundColor = SWAP_COLOR
                 self.arrayLabel[self.currentStep.right].backgroundColor = SWAP_COLOR
-                self.arrayLabel[self.currentStep.left].center = CGPoint(x: self.arrayLabelAbove[self.currentStep.left+1].center.x, y: self.arrayLabelAbove[self.currentStep.left+1].center.y-10)
-                self.arrayLabel[self.currentStep.right].center = CGPoint(x: self.arrayLabelAbove[self.currentStep.right+1].center.x, y: self.arrayLabelAbove[self.currentStep.right+1].center.y-10)
+                self.arrayLabel[self.currentStep.left].center = CGPoint(x: self.arrayLabelAbove[self.currentStep.left+1].center.x, y: self.arrayLabelAbove[self.currentStep.left+1].frame.origin.y-RECTSIZE)
+                self.arrayLabel[self.currentStep.right].center = CGPoint(x: self.arrayLabelAbove[self.currentStep.right+1].center.x, y: self.arrayLabelAbove[self.currentStep.right+1].frame.origin.y-RECTSIZE)
 
             }else if(self.currentStep.act=="moveBoth"){
                 self.setPosition(traceLabel: self.traceLeft, _setPosition: self.currentStep.left)
@@ -172,8 +195,8 @@ class AnimationQuick {
 
 
     func setPivot(traceLabel: UILabel,_setPivot: Int){
-        let point = self.arrayLabelAbove[_setPivot+1].center
-        traceLabel.center = CGPoint(x: point.x, y: point.y+15)
+        let point = CGPoint(x: self.arrayLabelMiddle[self.currentStep.pivot+1].frame.origin.x, y: self.arrayLabelMiddle[self.currentStep.pivot+1].frame.origin.y - CGFloat(10) - RECTSIZE)
+        tracePivot.frame.origin = CGPoint(x: point.x, y: point.y)
     }
     func setPosition(traceLabel: UILabel,_setPosition: Int){
 

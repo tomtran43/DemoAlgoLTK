@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		059876271E99EEB800DEDA21 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 059876251E99EEB800DEDA21 /* FontAwesome.otf */; };
+		059876281E99EEB800DEDA21 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059876261E99EEB800DEDA21 /* FontAwesome.swift */; };
+		0598762A1E99F03F00DEDA21 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059876291E99F03F00DEDA21 /* CustomButton.swift */; };
 		192C75831E8CFCFD00EE8027 /* MergeGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192C75821E8CFCFD00EE8027 /* MergeGraph.swift */; };
 		192C75851E8D057A00EE8027 /* ManagerMergeSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192C75841E8D057A00EE8027 /* ManagerMergeSort.swift */; };
 		193E459C1E8A020E00A6395C /* AnimationInsertion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E459B1E8A020E00A6395C /* AnimationInsertion.swift */; };
@@ -50,6 +53,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		059876241E99EEB800DEDA21 /* FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontAwesome.h; sourceTree = "<group>"; };
+		059876251E99EEB800DEDA21 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
+		059876261E99EEB800DEDA21 /* FontAwesome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesome.swift; sourceTree = "<group>"; };
+		059876291E99F03F00DEDA21 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		192C75821E8CFCFD00EE8027 /* MergeGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergeGraph.swift; sourceTree = "<group>"; };
 		192C75841E8D057A00EE8027 /* ManagerMergeSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerMergeSort.swift; sourceTree = "<group>"; };
 		193E459B1E8A020E00A6395C /* AnimationInsertion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationInsertion.swift; sourceTree = "<group>"; };
@@ -105,6 +112,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		059876231E99EE8B00DEDA21 /* FontAwesome */ = {
+			isa = PBXGroup;
+			children = (
+				059876241E99EEB800DEDA21 /* FontAwesome.h */,
+				059876251E99EEB800DEDA21 /* FontAwesome.otf */,
+				059876261E99EEB800DEDA21 /* FontAwesome.swift */,
+			);
+			name = FontAwesome;
+			sourceTree = "<group>";
+		};
 		193E459A1E8A01BA00A6395C /* Animation */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +196,7 @@
 				193E459A1E8A01BA00A6395C /* Animation */,
 				19C253F91E8962E8008C614C /* Graph */,
 				1962B2301E84FE6400012936 /* Sort */,
+				059876231E99EE8B00DEDA21 /* FontAwesome */,
 				198A347D1E80D9DF009E2B96 /* Main.storyboard */,
 				198A34831E80D9DF009E2B96 /* Assets.xcassets */,
 				198A34851E80D9DF009E2B96 /* LaunchScreen.storyboard */,
@@ -197,6 +215,7 @@
 				192C75821E8CFCFD00EE8027 /* MergeGraph.swift */,
 				1987C6571E95EAA0005795B8 /* QuickGraph.swift */,
 				1987C65B1E962B15005795B8 /* HeapGraph.swift */,
+				059876291E99F03F00DEDA21 /* CustomButton.swift */,
 			);
 			name = Graph;
 			sourceTree = "<group>";
@@ -287,6 +306,7 @@
 			files = (
 				198A34871E80D9DF009E2B96 /* LaunchScreen.storyboard in Resources */,
 				198A34841E80D9DF009E2B96 /* Assets.xcassets in Resources */,
+				059876271E99EEB800DEDA21 /* FontAwesome.otf in Resources */,
 				198A347F1E80D9DF009E2B96 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,6 +344,7 @@
 				1987C64E1E95E557005795B8 /* ViewController.swift in Sources */,
 				193E459C1E8A020E00A6395C /* AnimationInsertion.swift in Sources */,
 				1987C65C1E962B15005795B8 /* HeapGraph.swift in Sources */,
+				0598762A1E99F03F00DEDA21 /* CustomButton.swift in Sources */,
 				1987C6621E963DDE005795B8 /* ManagerHeapSort.swift in Sources */,
 				192C75851E8D057A00EE8027 /* ManagerMergeSort.swift in Sources */,
 				1987C65A1E95EAF7005795B8 /* QuickSortVC.swift in Sources */,
@@ -332,6 +353,7 @@
 				1987C6581E95EAA0005795B8 /* QuickGraph.swift in Sources */,
 				1962B2321E850BBE00012936 /* InsertionSort.swift in Sources */,
 				C71441651E8AC0FA008472E6 /* InsertionSortVC.swift in Sources */,
+				059876281E99EEB800DEDA21 /* FontAwesome.swift in Sources */,
 				198A34821E80D9DF009E2B96 /* Algorithms.xcdatamodeld in Sources */,
 				198A34971E826619009E2B96 /* BubbleSort.swift in Sources */,
 				193E45A01E8A207B00A6395C /* Step.swift in Sources */,
