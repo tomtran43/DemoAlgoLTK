@@ -8,8 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class InputVC: UIViewController, UITextFieldDelegate {
+    
     var spacing:CGFloat!
     var widthRatio = 3
     var btnSizeWidth:CGFloat!
@@ -28,21 +28,41 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        spacing = view.bounds.size.width/CGFloat(widthRatio*4 + 5)
+        view.backgroundColor = UIColor.white
+
+        spacing = view.bounds.size.width/CGFloat(widthRatio*3 + 4)
         btnSizeWidth = spacing*CGFloat(widthRatio)
-        btnSizeHeight = btnSizeWidth*2/3
+        btnSizeHeight = btnSizeWidth*3/5
         y = view.bounds.size.height - spacing * 2 - btnSizeHeight
         yMax = y
         x = 2*spacing + btnSizeWidth
         
         addBtnReset()
-        addBtnInfo()
         addBtnStep()
         addBtnRun()
         addBtnAdd()
         addTextField()
         addTextView()
         
+        btnAdd.isEnabled = false
+        textField.delegate = self
+        
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // Find out what the text field will be after adding the current edit
+        let text = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+        
+        if Int(text) != nil {
+            // Text field converted to an Int
+            btnAdd.isEnabled = true
+        } else {
+            // Text field is not an Int
+            btnAdd.isEnabled = false
+        }
+        
+        // Return true so the text field will be changed
+        return true
     }
     
     func addBtnReset() {
@@ -60,34 +80,13 @@ class ViewController: UIViewController {
         btnReset.titleLabel?.baselineAdjustment = .alignCenters
         btnReset.titleLabel?.textAlignment = .center
         btnReset.layer.cornerRadius = 10
-
+        
         view.addSubview(btnReset)
-    }
-    
-    func addBtnInfo() {
-        
-        btnInfo = UIButton(frame: CGRect(x: x, y: view.bounds.size.height-spacing-btnSizeHeight, width: btnSizeWidth, height: btnSizeHeight))
-        btnInfo.backgroundColor = UIColor.green.withAlphaComponent(0.5)
-        btnInfo.setTitleColor(UIColor.white, for: UIControlState.normal)
-        btnInfo.setTitle("\u{f05a}", for: .normal)
-        btnInfo.titleLabel?.textColor = UIColor.white
-        btnInfo.titleLabel?.font = UIFont.fontAwesome(ofSize: btnInfo.fontoFitHeight())
-        btnInfo.setTitleColor(BUTTON_COLOR, for: .normal)
-        btnInfo.titleLabel?.adjustsFontSizeToFitWidth = true
-        btnInfo.titleLabel?.numberOfLines = 0
-        btnInfo.titleLabel?.minimumScaleFactor = 0.2
-        btnInfo.titleLabel?.lineBreakMode = NSLineBreakMode.byClipping
-        btnInfo.titleLabel?.baselineAdjustment = .alignCenters
-        btnInfo.titleLabel?.textAlignment = .center
-        btnInfo.layer.cornerRadius = 10
-
-        
-        view.addSubview(btnInfo)
     }
     
     func addBtnStep() {
         
-        btnStep = UIButton(frame: CGRect(x: 2*x-spacing, y: view.bounds.size.height-spacing-btnSizeHeight, width: btnSizeWidth, height: btnSizeHeight))
+        btnStep = UIButton(frame: CGRect(x: x, y: view.bounds.size.height-spacing-btnSizeHeight, width: btnSizeWidth, height: btnSizeHeight))
         btnStep1 = btnStep
         btnStep.backgroundColor = UIColor.green.withAlphaComponent(0.5)
         btnStep.setTitleColor(UIColor.white, for: UIControlState.normal)
@@ -104,13 +103,13 @@ class ViewController: UIViewController {
         btnStep.titleLabel?.baselineAdjustment = .alignCenters
         btnStep.titleLabel?.textAlignment = .center
         btnStep.layer.cornerRadius = 10
-
+        
         view.addSubview(btnStep)
     }
     
     func addBtnRun() {
         
-        btnRun = UIButton(frame: CGRect(x: 2*x+btnSizeWidth, y: view.bounds.size.height-spacing-btnSizeHeight, width: btnSizeWidth, height: btnSizeHeight))
+        btnRun = UIButton(frame: CGRect(x: 2*x-spacing, y: view.bounds.size.height-spacing-btnSizeHeight, width: btnSizeWidth, height: btnSizeHeight))
         btnRun1 = btnRun
         btnRun.backgroundColor = UIColor.green.withAlphaComponent(0.5)
         btnRun.setTitleColor(UIColor.white, for: UIControlState.normal)
@@ -124,12 +123,12 @@ class ViewController: UIViewController {
         btnRun.titleLabel?.baselineAdjustment = .alignCenters
         btnRun.titleLabel?.textAlignment = .center
         btnRun.layer.cornerRadius = 10
-
+        
         view.addSubview(btnRun)
     }
     
     func addBtnAdd() {
-        btnAdd = UIButton(frame: CGRect(x: 2*x-spacing, y: view.bounds.size.height-spacing*2-btnSizeHeight*2, width: btnSizeWidth, height: btnSizeHeight))
+        btnAdd = UIButton(frame: CGRect(x: view.bounds.size.width/2 + spacing/2, y: view.bounds.size.height/2, width: btnSizeWidth, height: btnSizeHeight))
         btnAdd.backgroundColor = UIColor.green.withAlphaComponent(0.5)
         btnAdd.setTitleColor(UIColor.white, for: UIControlState.normal)
         btnAdd.setTitle("\u{23CE}", for: .normal)
@@ -147,13 +146,14 @@ class ViewController: UIViewController {
     }
     
     func addTextField(){
-        textField = UITextField(frame: CGRect(x: 2*x+btnSizeWidth, y: view.bounds.size.height-spacing*2-btnSizeHeight*2, width: btnSizeWidth, height: btnSizeHeight))
+        textField = UITextField(frame: CGRect(x: view.bounds.size.width/2 - spacing/2 - btnSizeWidth, y: view.bounds.size.height/2, width: btnSizeWidth, height: btnSizeHeight))
         
-        textField.placeholder = "Enter text here"
+        textField.placeholder = "Number"
+        textField.clearsOnInsertion = true
         textField.font = UIFont.boldSystemFont(ofSize: 15)
         textField.borderStyle = UITextBorderStyle.roundedRect
         textField.autocorrectionType = UITextAutocorrectionType.no
-        textField.keyboardType = UIKeyboardType.numbersAndPunctuation
+        textField.keyboardType = UIKeyboardType.numberPad
         textField.returnKeyType = UIReturnKeyType.done
         textField.clearButtonMode = UITextFieldViewMode.whileEditing
         textField.contentVerticalAlignment = UIControlContentVerticalAlignment.center
@@ -162,23 +162,39 @@ class ViewController: UIViewController {
     }
     
     func addTextView() {
-        arrayView = UILabel(frame: CGRect(x: spacing, y: view.bounds.size.height-spacing*2-btnSizeHeight*2, width: btnSizeWidth*2+spacing, height: btnSizeHeight))
+        arrayView = UILabel(frame: CGRect(x: spacing, y: view.bounds.size.height/2 - spacing - btnSizeHeight, width: view.bounds.size.width - 2*spacing, height: btnSizeHeight))
+        
+        arrayView.layer.borderWidth = 2
+        arrayView.layer.borderColor = UIColor.black.cgColor
+        arrayView.layer.masksToBounds = true
         
         arrayView.font = UIFont.boldSystemFont(ofSize: 15)
+
         arrayView.backgroundColor = UIColor.white
         arrayView.textAlignment = .center
         arrayView.layer.cornerRadius = 10
-
+        arrayView.numberOfLines = 0
+        
+        arrayView.text = textField.text!
+        
         self.view.addSubview(arrayView)
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    
-    
+}
 
-   
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }

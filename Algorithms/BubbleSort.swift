@@ -21,7 +21,7 @@ class BubbleSort {
     
     func bubbleSort(array: [Int]) {
         let n = array.count
-        
+                
         for i in 0..<n {
             for j in 0..<(n-i-1) {
                 if (greaterThan(i: j, j: j+1) == true) {

@@ -214,7 +214,7 @@ class AnimationMerge:NSObject {
         Slayer.lineWidth = 4
         let view = UIView(frame: drect)
         view.layer.addSublayer(Slayer)
-        self.graphMerge.insertSubview(view, at: 0)
+        self.graphMerge.insertSubview(view, at: 1)
         self.bodyRect?.append(view)
         if(fistDraw){
             self.bodyLine?.append(straightLine(bearingPoint: originPoint, widtRectangle: widthRect))
@@ -232,7 +232,7 @@ class AnimationMerge:NSObject {
         line.path = linePath.cgPath
         line.strokeColor = GRAY_COLOR.cgColor
         line.lineWidth = 4
-        self.graphMerge.layer.insertSublayer(line, at: 2)
+        self.graphMerge.layer.insertSublayer(line, at: 0)
         return line
     }
 }

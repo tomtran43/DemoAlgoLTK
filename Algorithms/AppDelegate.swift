@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UITextFieldDelegate {
 
     var window: UIWindow?
     var navController: UINavigationController?
@@ -19,14 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
        
         navController = UINavigationController()
-        let bubbleSortVC: BubbleSortVC = BubbleSortVC()
-        let selectionSortVC: SelectionSortVC = SelectionSortVC()
-        let insertionSortVC: InsertionSortVC = InsertionSortVC()
-        let mergeSortVC: MergeSortVC = MergeSortVC()
-        self.navController!.pushViewController(bubbleSortVC, animated: false)
-        self.navController!.pushViewController(selectionSortVC, animated: false)
-        self.navController!.pushViewController(insertionSortVC, animated: false)
-        self.navController!.pushViewController(mergeSortVC, animated: false)
+        let bubbleSortSVC: BubbleSortSVC = BubbleSortSVC()
+        let selectionSortSVC: SelectionSortSVC = SelectionSortSVC()
+        let insertionSortSVC: InsertionSortSVC = InsertionSortSVC()
+        let mergeSortSVC: MergeSortSVC = MergeSortSVC()
+        self.navController!.pushViewController(bubbleSortSVC, animated: false)
+        self.navController!.pushViewController(selectionSortSVC, animated: false)
+        self.navController!.pushViewController(insertionSortSVC, animated: false)
+        self.navController!.pushViewController(mergeSortSVC, animated: false)
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = navController
         MenuList.boot(window: self.window!)

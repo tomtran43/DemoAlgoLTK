@@ -1,5 +1,5 @@
 //
-//  HeapSortVC.swift
+//  QuickSortVC.swift
 //  Algorithms
 //
 //  Created by TTung on 3/28/17.
@@ -8,26 +8,28 @@
 
 import UIKit
 
-class HeapSortVC: ViewController {
+class QuickSortSVC: StudyVC {
     
-    var managerSort: ManagerHeapSort!
+    var managerSort: ManagerQuickSort!
+    var btnStart:UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.managerSort = ManagerHeapSort()
-        self.managerSort.initSortWith(viewcontroller: self, arrayInput: [6,4,3,2,8,6,1])
-        view.backgroundColor = UIColor.white
         
-        btnRun.addTarget(self.managerSort, action: #selector(managerSort.run(sender:)), for: .touchUpInside)
+        self.managerSort = ManagerQuickSort()
+        self.managerSort.initSortWith(viewcontroller: self, arrayInput: [4,3,2,1,1,9,6,9])        
         
-        btnInfo.addTarget(self, action: #selector(info(sender:)), for: .touchUpInside)
+        
+        btnRun.addTarget(self.managerSort, action: #selector(ManagerQuickSort.run(sender:)), for: .touchUpInside)
+        
+//        btnInfo.addTarget(self, action: #selector(info(sender:)), for: .touchUpInside)
         
     }
     
     func info(sender:UIButton){
-        let vc = HeapSortVC()
+        let vc = InfoBubbleSortVC()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -36,8 +38,5 @@ class HeapSortVC: ViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
-    
-    
 }
+

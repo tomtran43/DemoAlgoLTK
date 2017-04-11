@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class MergeGraph: UILabel {
+class MergeGraph: UIView {
     
     let widthRatio = 2
     var arrayLabel: [SortingLabel]!
@@ -25,6 +25,7 @@ class MergeGraph: UILabel {
     init(frame: CGRect, arrayDisplay: [Int], colors: [UIColor]) {
         super.init(frame: frame)
         
+        self.backgroundColor = UIColor.lightGray
         self.arrayLabel = [SortingLabel]()
         self.arrayLabelOne = [SortingLabel]()
         self.arrayLabelTwo = [SortingLabel]()
@@ -45,18 +46,18 @@ class MergeGraph: UILabel {
         
         for index in 0..<arrayDisplay.count {
             
-            let sortingLabel = SortingLabel(frame: CGRect(x: x, y: 0,
+            let sortingLabel = SortingLabel(frame: CGRect(x: x, y: rectSize,
                                                           width: rectSize, height: rectSize),
                                             color: colors[index],
                                             value: String(arrayDisplay[index]))
             
-            let FloorOne = SortingLabel(frame: CGRect(x: x, y: 0,
+            let FloorOne = SortingLabel(frame: CGRect(x: x, y: rectSize,
                                                       width: rectSize, height: rectSize),
                                         color: DEFAULT_COLOR,
                                         value: "0")
             
             FloorOne.isHidden = true
-            yFloor = FloorOne.frame.origin.y + rectSize*2 + spacing
+            yFloor = FloorOne.frame.origin.y + rectSize + spacing
             
             let FloorTwo = SortingLabel(frame: CGRect(x: x, y: yFloor,
                                                       width: rectSize, height: rectSize),
@@ -64,7 +65,7 @@ class MergeGraph: UILabel {
                                         value: "0")
             
             FloorTwo.isHidden = true
-            yFloor = FloorTwo.frame.origin.y + rectSize*2 + spacing
+            yFloor = FloorTwo.frame.origin.y + rectSize + spacing
             
             let FloorThree = SortingLabel(frame: CGRect(x: x, y: yFloor,
                                                         width: rectSize, height: rectSize),
@@ -72,7 +73,7 @@ class MergeGraph: UILabel {
                                           value: String(arrayDisplay[index]))
             FloorThree.isHidden = true
             
-            yFloor = FloorThree.frame.origin.y + rectSize*2 + spacing
+            yFloor = FloorThree.frame.origin.y + rectSize + spacing
             
             let FloorFour = SortingLabel(frame: CGRect(x: x, y: yFloor,
                                                        width: rectSize, height: rectSize),
@@ -91,7 +92,7 @@ class MergeGraph: UILabel {
             self.addSubview(FloorTwo)
             self.addSubview(FloorThree)
             self.addSubview(FloorFour)
-            self.insertSubview(sortingLabel, at: 1)
+            self.insertSubview(sortingLabel, at: 3)
             
             x = x + spacing + rectSize
             

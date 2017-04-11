@@ -1,37 +1,36 @@
 //
-//  BubbleSortVC.swift
+//  InsertionSortVC.swift
 //  Algorithms
 //
-//  Created by Loc Tran on 3/21/17.
+//  Created by TTung on 3/28/17.
 //  Copyright © 2017 LocTran. All rights reserved.
 //
 
 import UIKit
 
-class BubbleSortVC: ViewController {
+class InsertionSortSVC: StudyVC {
 
-    var managerSort: ManagerBubbleSort!
+    var managerSort: ManagerInsertionSort!
     
-    override func viewDidLoad() { 
+    override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        
-        self.managerSort = ManagerBubbleSort()
-        self.managerSort.initSortWith(viewcontroller: self, arrayInput: [2,6,4,3,2,7,1])
-        view.backgroundColor = UIColor.white
+        self.managerSort = ManagerInsertionSort()
+        self.managerSort.initSortWith(viewcontroller: self, arrayInput: [4,3,2,1,1,9,6,9])
         
         btnRun.addTarget(self.managerSort, action: #selector(managerSort.run(sender:)), for: .touchUpInside)
         
+//        btnInfo.addTarget(self, action: #selector(info(sender:)), for: .touchUpInside)
+
         btnStep.addTarget(self.managerSort, action: #selector(managerSort.step(sender:)), for: .touchUpInside)
         
         btnReset.addTarget(self, action:  #selector(reset(sender:)), for: .touchUpInside)
         
-        btnInfo.addTarget(self, action: #selector(info(sender:)), for: .touchUpInside)
     }
     
     func info(sender:UIButton){
-        let vc = InfoBubbleSortVC()
+        let vc = SelectionSortSVC()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -48,4 +47,3 @@ class BubbleSortVC: ViewController {
     }
 
 }
-

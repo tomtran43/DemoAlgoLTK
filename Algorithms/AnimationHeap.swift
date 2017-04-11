@@ -25,7 +25,7 @@ class AnimationHeap {
     var lineIndex = 0
     
     
-    init(arrayLabel:[SortingLabel], arrayLabelBehind: [SortingLabel], arrayPosition: [SortingLabel], arrayAction: [HeapStep], graphHeap: HeapGraph){
+    init(arrayLabel:[SortingLabel], arrayLabelBehind: [SortingLabel], arrayPosition: [SortingLabel], arrayAction: [HeapStep], graphHeap: HeapGraph) {
         
         self.arrayLabel = arrayLabel
         self.arrayLabelBehind = arrayLabelBehind
@@ -43,13 +43,13 @@ class AnimationHeap {
         
 //        UIView.setAnimationsEnabled(true)
         UIView.animate(withDuration: 1, animations: {
-            if (self.currentStep.act == "start"){
+            if (self.currentStep.act == "start") {
                 
                 self.moveLabel(from: self.arrayLabel[self.lineIndex], to: self.arrayPosition[self.lineIndex])
                 
                 self.graphHeap.drawLine(start: self.lineIndex, arrayPosition: self.arrayPosition)
                 
-            }else if(self.currentStep.act=="swap"){
+            } else if(self.currentStep.act=="swap") {
                 self.moveLabel(from: self.arrayLabel[self.currentStep.i], to: self.arrayPosition[self.currentStep.j])
                 self.moveLabel(from: self.arrayLabel[self.currentStep.j], to: self.arrayPosition[self.currentStep.i])
                 
@@ -60,7 +60,7 @@ class AnimationHeap {
                 self.swapLabel(i: self.currentStep.i, j: self.currentStep.j)
                 
                 
-            }else if (self.currentStep.act == "moveEndUp"){
+            } else if (self.currentStep.act == "moveEndUp") {
                 
                 self.arrayLabel[self.currentStep.end].backgroundColor = GOLD_COLOR
 
@@ -69,22 +69,22 @@ class AnimationHeap {
                 self.graphHeap.removeLine()
             }
             
-        }){(finished) in
-            if (self.currentStep.act == "start"){
+        }) {(finished) in
+            if (self.currentStep.act == "start") {
                 self.lineIndex += 1
                 
-                if (self.lineIndex == self.arrayLabel.count){
+                if (self.lineIndex == self.arrayLabel.count) {
                     self.continueAnimation()
-                }else{
+                } else {
                     self.animation()
                 }
-            }else if (self.currentStep.act == "swap"){
+            } else if (self.currentStep.act == "swap") {
                 
                 self.arrayLabel[self.currentStep.i].backgroundColor = DEFAULT_COLOR
                 self.arrayLabel[self.currentStep.j].backgroundColor = DEFAULT_COLOR
 
                 self.continueAnimation()
-            }else{
+            } else {
                 
                 self.continueAnimation()
             }
@@ -98,7 +98,7 @@ class AnimationHeap {
     }
     
     
-    func continueAnimation(){
+    func continueAnimation() {
         self.colSolution += 1
         
         if (self.colSolution == self.arrayAction.count) {
@@ -108,7 +108,7 @@ class AnimationHeap {
         self.animation()
     }
     
-    func loop(){
+    func loop() {
         currentStep = self.arrayAction[self.colSolution]
         animation()
     }

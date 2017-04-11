@@ -18,9 +18,24 @@ class HeapGraph: UILabel {
     var arrayLabelTwo: [SortingLabel]!
     var arrayLabelThree: [SortingLabel]!
     
+    var sortingLabel: SortingLabel!
+    var FloorBehind: SortingLabel!
+    var FloorOne: SortingLabel!
+    var FloorTwo: SortingLabel!
+    var FloorThree: SortingLabel!
+    
     var arrayPosition: [SortingLabel]!
     
     var arrayLine: [CAShapeLayer]!
+    
+    var spacingFrame: CGFloat!
+    var rectSizeFrame: CGFloat!
+    
+    var spacing: CGFloat!
+    var rectSize: CGFloat!
+    
+    var yFloor: CGFloat!
+
     
     required init?(coder aDecoder: NSCoder) {
         fatalError(".....")
@@ -28,6 +43,13 @@ class HeapGraph: UILabel {
     
     init(frame: CGRect, arrayDisplay: [Int], colors: [UIColor]) {
         super.init(frame: frame)
+        
+        spacing = frame.width/CGFloat(self.widthRatio * arrayDisplay.count + arrayDisplay.count + 1)
+        
+        rectSize = CGFloat(widthRatio) * spacing
+        
+        spacingFrame = frame.width/CGFloat(self.widthRatio * 7 + 8)
+        rectSizeFrame = CGFloat(widthRatio) * spacingFrame
         
         self.arrayLabel = [SortingLabel]()
         self.arrayLabelBehind = [SortingLabel]()
@@ -38,8 +60,9 @@ class HeapGraph: UILabel {
         self.arrayLine = [CAShapeLayer]()
         
         self.drawGraph(arrayDisplay: arrayDisplay, colors: colors)
+        self.drawFrame()
         
-        
+
         self.arrayPosition.append(self.arrayLabelOne[3])
         self.arrayPosition.append(self.arrayLabelTwo[1])
         self.arrayPosition.append(self.arrayLabelTwo[5])
@@ -50,67 +73,80 @@ class HeapGraph: UILabel {
         
     }
     
+    private func drawFrame(){
+     
+        var xFrame = spacingFrame
+
+        for index in 0..<7{
+            
+            FloorOne = SortingLabel(frame: CGRect(x: xFrame!, y: 100 + rectSize + spacing,
+                                                  width: rectSizeFrame, height: rectSizeFrame),
+                                    color: DEFAULT_COLOR,
+                                    value: "0")
+            
+            FloorOne.isHidden = true
+//            yFloor = FloorOne.frame.origin.y + rectSize*2 + spacing
+            
+            FloorTwo = SortingLabel(frame: CGRect(x: xFrame!, y: 100 + rectSize*2 + spacing*2,
+                                                  width: rectSizeFrame, height: rectSizeFrame),
+                                    color: DEFAULT_COLOR,
+                                    value: "0")
+            FloorTwo.isHidden = true
+//            yFloor = FloorTwo.frame.origin.y + rectSize*2 + spacing
+            
+            FloorThree = SortingLabel(frame: CGRect(x: xFrame!, y: 100 + rectSize*3 + spacing*3,
+                                                    width: rectSizeFrame, height: rectSizeFrame),
+                                      color: DEFAULT_COLOR,
+                                      value: "0")
+            FloorThree.isHidden = true
+            
+            
+            self.arrayLabelOne.append(FloorOne)
+            self.arrayLabelTwo.append(FloorTwo)
+            self.arrayLabelThree.append(FloorThree)
+            
+            self.addSubview(FloorOne)
+            self.addSubview(FloorTwo)
+            self.addSubview(FloorThree)
+            
+            xFrame = xFrame! + spacingFrame + rectSizeFrame
+            
+        }
+
+
+    }
+    
     private func drawGraph(arrayDisplay: [Int], colors: [UIColor]) {
         
-        let spacing = frame.width/CGFloat(self.widthRatio * arrayDisplay.count + arrayDisplay.count + 1)
-        let rectSize = CGFloat(widthRatio) * spacing
         var x = spacing
         
-        SPACING = spacing
-        
-        var yFloor: CGFloat
+//        var count 
         
         for index in 0..<arrayDisplay.count {
             
-            let sortingLabel = SortingLabel(frame: CGRect(x: x, y: 100,
+            sortingLabel = SortingLabel(frame: CGRect(x: x!, y: 100,
                                                           width: rectSize, height: rectSize),
                                             color: colors[index],
                                             value: String(arrayDisplay[index]))
             
-            let FloorBehind = SortingLabel(frame: CGRect(x: x, y: 100,
+            FloorBehind = SortingLabel(frame: CGRect(x: x!, y: 100,
                                                       width: rectSize, height: rectSize),
                                         color: DEFAULT_COLOR,
                                         value: "0")
             
             FloorBehind.isHidden = true
-            yFloor = FloorBehind.frame.origin.y + rectSize*2 + spacing
-            
-            let FloorOne = SortingLabel(frame: CGRect(x: x, y: yFloor,
-                                                      width: rectSize, height: rectSize),
-                                        color: DEFAULT_COLOR,
-                                        value: "0")
-            
-            FloorOne.isHidden = true
-            yFloor = FloorOne.frame.origin.y + rectSize*2 + spacing
-            
-            let FloorTwo = SortingLabel(frame: CGRect(x: x, y: yFloor,
-                                                        width: rectSize, height: rectSize),
-                                          color: DEFAULT_COLOR,
-                                          value: "0")
-            FloorTwo.isHidden = true
-            yFloor = FloorTwo.frame.origin.y + rectSize*2 + spacing
-            
-            let FloorThree = SortingLabel(frame: CGRect(x: x, y: yFloor,
-                                                       width: rectSize, height: rectSize),
-                                         color: DEFAULT_COLOR,
-                                         value: "0")
-            FloorThree.isHidden = true
-            
+//            yFloor = FloorBehind.frame.origin.y + rectSize*2 + spacing
             
             self.arrayLabel.append(sortingLabel)
-            self.arrayLabelOne.append(FloorOne)
-            self.arrayLabelTwo.append(FloorTwo)
-            self.arrayLabelThree.append(FloorThree)
             self.arrayLabelBehind.append(FloorBehind)
             
-            self.addSubview(FloorBehind)
-            self.addSubview(FloorOne)
-            self.addSubview(FloorTwo)
-            self.addSubview(FloorThree)
             self.insertSubview(sortingLabel, at: 2)
-                        
-            x = x + spacing + rectSize
+            self.addSubview(FloorBehind)
+            
+            x = x! + spacing + rectSize
+
         }
+        
     }
     
     func drawLine(start: Int, arrayPosition: [SortingLabel]){
@@ -132,7 +168,7 @@ class HeapGraph: UILabel {
         line.path = linePath.cgPath
         line.strokeColor = GRAY_COLOR.cgColor
         line.lineWidth = 4
-        self.layer.insertSublayer(line, at: 1)
+        self.layer.insertSublayer(line, at: 0)
         
         self.arrayLine.append(line)
     }

@@ -24,12 +24,16 @@ class MenuList: NSObject {
     var menu : [MenuSection]!
     class func boot(window:UIWindow){
         let basic = MenuSection(section: "Sort", menus:[
-            Menu(title: "Bubble Sort", viewClass: "BubbleSortVC"),
-            Menu(title: "Selection Sort", viewClass: "SelectionSortVC"),
-            Menu(title: "Insertion Sort", viewClass: "InsertionSortVC"),
-            Menu(title: "Merge Sort", viewClass: "MergeSortVC"),
-            Menu(title: "Quick Sort", viewClass: "QuickSortVC"),
-            Menu(title: "Heap Sort", viewClass: "HeapSortVC")
+            Menu(title: "Bubble Sort", viewClass: "BubbleSortSVC"),
+            Menu(title: "Selection Sort", viewClass: "SelectionSortSVC"),
+            Menu(title: "Insertion Sort", viewClass: "InsertionSortSVC"),
+            Menu(title: "Merge Sort", viewClass: "MergeSortSVC"),
+            Menu(title: "Quick Sort", viewClass: "QuickSortSVC"),
+            Menu(title: "Heap Sort", viewClass: "HeapSortSVC"),
+            Menu(title: "Bubble Sort Input", viewClass: "BubbleSortIVC"),
+            Menu(title: "Selection Sort Input", viewClass: "SelectionSortIVC")
+
+
 
             ])
         

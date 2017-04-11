@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelectionSortVC: ViewController {
+class SelectionSortSVC: StudyVC {
     
     
     var managerSort: ManagerSelectionSort!
@@ -18,12 +18,11 @@ class SelectionSortVC: ViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         self.managerSort = ManagerSelectionSort()
-        self.managerSort.initSortWith(viewcontroller: self, arrayInput: [2,6,4,3,2,7,1])
-        view.backgroundColor = UIColor.white
+        self.managerSort.initSortWith(viewcontroller: self, arrayInput: [4,3,2,1,1,9,6,9])
         
         btnRun.addTarget(self.managerSort, action: #selector(managerSort.run(sender:)), for: .touchUpInside)
         
-        btnInfo.addTarget(self, action: #selector(info(sender:)), for: .touchUpInside)
+//        btnInfo.addTarget(self, action: #selector(info(sender:)), for: .touchUpInside)
         
         btnStep.addTarget(self.managerSort, action: #selector(managerSort.step(sender:)), for: .touchUpInside)
         
@@ -32,7 +31,7 @@ class SelectionSortVC: ViewController {
     }
     
     func info(sender:UIButton){
-        let vc = SelectionSortVC()
+        let vc = SelectionSortSVC()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

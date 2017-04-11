@@ -1,5 +1,5 @@
 //
-//  MergeSortVC.swift
+//  HeapSortVC.swift
 //  Algorithms
 //
 //  Created by TTung on 3/28/17.
@@ -8,26 +8,25 @@
 
 import UIKit
 
-class MergeSortVC: ViewController {
+class HeapSortSVC: StudyVC {
     
-    var managerSort: ManagerMergeSort!
+    var managerSort: ManagerHeapSort!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.managerSort = ManagerMergeSort()
-        self.managerSort.initSortWith(viewcontroller: self, arrayInput: [6,4,3,6,8])
-        view.backgroundColor = UIColor.white
+        self.managerSort = ManagerHeapSort()
+        self.managerSort.initSortWith(viewcontroller: self, arrayInput: [4,3,2,1,1,9,6])
         
         btnRun.addTarget(self.managerSort, action: #selector(managerSort.run(sender:)), for: .touchUpInside)
         
-        btnInfo.addTarget(self, action: #selector(info(sender:)), for: .touchUpInside)
+//        btnInfo.addTarget(self, action: #selector(info(sender:)), for: .touchUpInside)
         
     }
     
     func info(sender:UIButton){
-        let vc = MergeSortVC()
+        let vc = HeapSortSVC()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

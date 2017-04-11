@@ -82,6 +82,7 @@ class QuickSort {
 
                 i = i+1
                 j = j-1
+                
                 if(j<0){
                     actionArray.append(QuickStep(act: "outLeft", left: i, right: j, pivot: pivotLocation, array: arr))
                 }else if(i>self.arrayInput.count-1){
